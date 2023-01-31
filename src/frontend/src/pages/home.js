@@ -12,11 +12,12 @@ import Battlefront2 from "../assets/battlefront2.jpg";
 import  Seriesx from "../assets/seriesx.jpg";
 import Zfold from "../assets/zfold.jpg";
 import "../Home.css";
+
 function Home() {
   return (
     <>
       <h1>Welcome to the world of Geeks!</h1>
-      <CarouselContainer/>
+     <CarouselContainer/>
 
       <h1>Top Articles</h1>
       <div class ="container content">

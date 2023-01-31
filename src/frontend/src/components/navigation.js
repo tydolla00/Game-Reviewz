@@ -1,31 +1,54 @@
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { Breadcrumb } from 'antd';
-import Home from '../pages/home';
-import Contact from '../pages/contact';
-import About from '../pages/about';
+import React from 'react';
+import { Link} from 'react-router-dom';
 
-
-function Navbar() {
+const Navbar = () => {
   return (
-    <Router>
-      <div id='container'>
-        <Breadcrumb id="nav">
-          <Breadcrumb.Item>
-            <Link to="/">Home </Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>
-            <Link to="/about">About Us</Link>
-          </Breadcrumb.Item>
-          <Breadcrumb.Item>
-            <Link to="/contact">Contact Us</Link>
-          </Breadcrumb.Item>
-        </Breadcrumb>
-      </div>
-      <Routes>
-        <Route exact path='/' element={< Home />}></Route>
-        <Route exact path='/about' element={< About />}></Route>
-        <Route exact path='/contact' element={< Contact />}></Route>
-      </Routes>
-    </Router>
+    <nav>
+      <ul className='navbar'>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/games">Games</Link>
+        </li>
+        <li>
+          <Link to="/tech">Tech</Link>
+        </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
+        <li>
+          <Link to="/community">Community</Link>
+        </li>
+        <li>
+          <Link to="/contact">Contact</Link>
+        </li>
+      </ul>
+    </nav>
   );
-} export default Navbar;
+}; export default Navbar;
+
+// function Navbar() {
+//   return (
+//     <Router>
+//       <div id='container'>
+//         <Breadcrumb id="nav">
+//           <Breadcrumb.Item>
+//             <Link to="/">Home</Link>
+//           </Breadcrumb.Item>
+//           <Breadcrumb.Item>
+//             <Link to="/about">About Us</Link>
+//           </Breadcrumb.Item>
+//           <Breadcrumb.Item>
+//             <Link to="/contact">Contact Us</Link>
+//           </Breadcrumb.Item>
+//         </Breadcrumb>
+//       </div>
+//       <Routes>
+//         <Route exact path='/' element={< Home />}></Route>
+//         <Route exact path='/about' element={< About />}></Route>
+//         <Route exact path='/contact' element={< Contact />}></Route>
+//       </Routes>
+//     </Router>
+//   );
+// } export default Navbar;

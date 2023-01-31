@@ -1,8 +1,37 @@
 import { Carousel } from 'antd';
 import logo1 from '../assets/godofwar.jpg';
 import logo2 from '../assets/pokemonscarletviolet.jpg';
-import 'antd/dist/antd.min.css';
+// import 'antd/dist/antd.min.css';
+import React, { useState } from 'react';
 import '../App.css';
+
+// const Carousel = ({ images }) => {
+//   const [currentIndex, setCurrentIndex] = useState(0);
+
+//   const prevImage = () => {
+//     const lastIndex = images.length - 1;
+//     const shouldResetIndex = currentIndex === 0;
+//     const index = shouldResetIndex ? lastIndex : currentIndex - 1;
+//     setCurrentIndex(index);
+//   }
+
+//   const nextImage = () => {
+//     const lastIndex = images.length - 1;
+//     const shouldResetIndex = currentIndex === lastIndex;
+//     const index = shouldResetIndex ? 0 : currentIndex + 1;
+//     setCurrentIndex(index);
+//   }
+
+//   return (
+//     <div className="carousel">
+//       <button onClick={prevImage}>Prev</button>
+//       <img src={images[currentIndex]} alt="slide" />
+//       <button onClick={nextImage}>Next</button>
+//     </div>
+//   );
+// };
+
+// export default Carousel;
 
 const contentStyle = {
   position: 'absolute',
