@@ -1,9 +1,11 @@
-import CarouselContainer from "../components/carousel";
+import Carousel from "../components/carousel";
+// import CarouselContainer from "../components/carousel";
+
 function Home() {
   return (
     <>
       <h1>Welcome to the world of Geeks!</h1>
-      <CarouselContainer/>
+      {/* <Carousel/> */}
     
     </>
   );
