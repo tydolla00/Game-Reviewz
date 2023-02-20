@@ -1,4 +1,4 @@
-import CarouselContainer from "../components/carousel";
+// import CarouselContainer from "../components/carousel";
 import Zelda from "../assets/zelda.jpg";
 import Fifa from "../assets/fifa23.jpg";
 import Pixel from "../assets/googlepixel.jpg";
@@ -17,7 +17,7 @@ function Home() {
   return (
     <>
       <h1>Welcome to the world of Geeks!</h1>
-     <CarouselContainer/>
+     {/* <CarouselContainer/> */}
 
       <h1>Top Articles</h1>
       <div class ="container content">
