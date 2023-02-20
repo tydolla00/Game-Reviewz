@@ -11,7 +11,7 @@ import Switch from "../assets/switch.jpg";
 import Battlefront2 from "../assets/battlefront2.jpg";
 import  Seriesx from "../assets/seriesx.jpg";
 import Zfold from "../assets/zfold.jpg";
-import "../Home.css";
+import "../styles/Home.css";
 
 function Home() {
   return (

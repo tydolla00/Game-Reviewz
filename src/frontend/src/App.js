@@ -7,7 +7,7 @@ import About from './pages/about';
 import Games from './pages/games';
 import Tech from './pages/tech';
 import Community from './pages/community';
-import './App.css';
+import './styles/App.css';
 import logo from "./assets/smashultimate.jpeg";
 
 // Navbar will be sticky and will contain links to Games, Tech, About, Community - Top Reviewers, 
