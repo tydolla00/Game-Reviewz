@@ -2,13 +2,15 @@ h1{
   padding-left: 100px;
 }
 .container{
-  padding-left: 100px;
-  width: 75%;
   float: left;
   display: block;
 }
+.content{
+  padding-left: 5%;
+  width: 75%;
+}
 .sidebar{
-  width: 25%;
+  width: 20%;
   float: right;
 }
 .gallery{
