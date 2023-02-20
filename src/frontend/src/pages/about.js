@@ -1,6 +1,3 @@
-// import 'antd/dist/antd.min.css';
-import { Breadcrumb } from 'antd';
-
 function About() {
     return <div>
         <h2>GeeksforGeeks is a computer science portal for geeks!</h2>

@@ -17,6 +17,7 @@ function Home() {
   return (
     <>
       <h1>Welcome to the world of Geeks!</h1>
+
      {/* <CarouselContainer/> */}
 
       <h1>Top Articles</h1>
@@ -138,7 +139,6 @@ function Home() {
           <li class="games">Suicide Squad: Kill the Justice League - <p class="date">May 26</p></li>
         </ul>
       </div>
-
     </>
   );
 }
