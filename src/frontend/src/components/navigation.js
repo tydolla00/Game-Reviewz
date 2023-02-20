@@ -1,54 +1,114 @@
-import React from 'react';
-import { Link} from 'react-router-dom';
+import React, { useState } from "react";
+// import { Container, Nav, Navbar } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav>
-      <ul className='navbar'>
+      <ul className="navitem">
         <li>
-          <Link to="/">Home</Link>
+          <NavLink to="/" activeClassName="active">Home</NavLink>
         </li>
         <li>
-          <Link to="/games">Games</Link>
+          <NavLink to="/games" activeClassName="active">Games</NavLink>
         </li>
         <li>
-          <Link to="/tech">Tech</Link>
+          <NavLink to="/tech" activeClassName="active">Tech</NavLink>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <NavLink to="/about" activeClassName="active">About</NavLink>
         </li>
         <li>
-          <Link to="/community">Community</Link>
+          <NavLink to="/community" activeClassName="active">Community</NavLink>
         </li>
         <li>
-          <Link to="/contact">Contact</Link>
+          <NavLink to="/contact" activeClassName="active">Contact</NavLink>
         </li>
       </ul>
+      {SearchBar()}
     </nav>
   );
-}; export default Navbar;
+};
+export default Navbar;
 
-// function Navbar() {
+// export function NavigationBar() {
 //   return (
-//     <Router>
-//       <div id='container'>
-//         <Breadcrumb id="nav">
-//           <Breadcrumb.Item>
-//             <Link to="/">Home</Link>
-//           </Breadcrumb.Item>
-//           <Breadcrumb.Item>
-//             <Link to="/about">About Us</Link>
-//           </Breadcrumb.Item>
-//           <Breadcrumb.Item>
-//             <Link to="/contact">Contact Us</Link>
-//           </Breadcrumb.Item>
-//         </Breadcrumb>
-//       </div>
-//       <Routes>
-//         <Route exact path='/' element={< Home />}></Route>
-//         <Route exact path='/about' element={< About />}></Route>
-//         <Route exact path='/contact' element={< Contact />}></Route>
-//       </Routes>
-//     </Router>
+//     <Navbar variant="dark" expand="lg" sticky="top">
+//       <Container className="">
+//         <Navbar.Brand href="/">Game Reviewz</Navbar.Brand>
+//         <Navbar.Toggle aria-controls="basic-navbar-nav" />
+//         <Navbar.Collapse>
+//           <Nav className="">
+//             <NavLink to="/" activeClassName="active">
+//               Home
+//             </NavLink>
+//             <NavLink to="/games" activeClassName="active">
+//               Games
+//             </NavLink>
+//             <NavLink to="/tech" activeClassName="active">
+//               Tech
+//             </NavLink>
+//             <NavLink to="/about" activeClassName="active">
+//               About
+//             </NavLink>
+//             <NavLink to="/community" activeClassName="active">
+//               Community
+//             </NavLink>
+//             <NavLink to="/contact" activeClassName="active">
+//               Contact
+//             </NavLink>
+//           </Nav>
+//         </Navbar.Collapse>
+//       </Container>
+//     </Navbar>
 //   );
-// } export default Navbar;
+// }
+
+export const SearchBar = () => {
+  const [searchInput, setSearchInput] = useState("");
+  const countries = [
+    { name: "Belgium", continent: "Europe" },
+    { name: "India", continent: "Asia" },
+    { name: "Bolivia", continent: "South America" },
+    { name: "Ghana", continent: "Africa" },
+    { name: "Japan", continent: "Asia" },
+    { name: "Canada", continent: "North America" },
+    { name: "New Zealand", continent: "Australasia" },
+    { name: "Italy", continent: "Europe" },
+    { name: "South Africa", continent: "Africa" },
+    { name: "China", continent: "Asia" },
+    { name: "Paraguay", continent: "South America" },
+    { name: "Usa", continent: "North America" },
+    { name: "France", continent: "Europe" },
+    { name: "Botswana", continent: "Africa" },
+    { name: "Spain", continent: "Europe" },
+    { name: "Senegal", continent: "Africa" },
+    { name: "Brazil", continent: "South America" },
+    { name: "Denmark", continent: "Europe" },
+    { name: "Mexico", continent: "South America" },
+    { name: "Australia", continent: "Australasia" },
+    { name: "Tanzania", continent: "Africa" },
+    { name: "Bangladesh", continent: "Asia" },
+    { name: "Portugal", continent: "Europe" },
+    { name: "Pakistan", continen: "Asia" },
+  ];
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
+  if (searchInput.length > 0) {
+    countries.filter((country) => {
+      return country.name.match(searchInput);
+    });
+  }
+  return (
+    <>
+      <input
+        type="text"
+        placeholder="Search..."
+        onChange={handleChange}
+        value={searchInput}
+      />
+    </>
+  );
+};

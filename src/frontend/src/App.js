@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from './components/navigation';
+import Navbar, {NavigationBar, navigationBar} from './components/navigation';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import Contact from './pages/contact';
@@ -12,12 +12,19 @@ import logo from "./assets/smashultimate.jpeg";
 
 // Navbar will be sticky and will contain links to Games, Tech, About, Community - Top Reviewers, 
 // Moderators |, Login, and a Search Bar.
+const headerFunction = () =>{
+  return(
+    <img src={logo} className="img" alt="Header"/>
+  )
+}
 
+// Contains the Routing for the layout of the website. 
 const App = () => {
   return (
     <Router>
-      <img src={logo} className="img" alt="Header"/>
+      {/* {headerFunction()} */}
       <Navbar />
+      {/* <NavigationBar/> */}
       <Routes>
         <Route exact path="/" element={< Home />} />
         <Route path="/games" element={< Games />} />
