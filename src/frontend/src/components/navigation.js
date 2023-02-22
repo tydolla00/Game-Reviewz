@@ -1,31 +1,49 @@
 import React, { useState } from "react";
 // import { Container, Nav, Navbar } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
+import "../styles/App.scss";
 
 const Navbar = () => {
   return (
     <nav>
-      <ul className="navitem">
+      <ul>
         <li>
-          <NavLink to="/" activeClassName="active">Home</NavLink>
+          <NavLink className="navitem" to="/" activeClassName="active">
+            Home
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/games" activeClassName="active">Games</NavLink>
+          <NavLink className="navitem" to="/games" activeClassName="active">
+            Games
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/tech" activeClassName="active">Tech</NavLink>
+          <NavLink className="navitem" to="/tech" activeClassName="active">
+            Tech
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/about" activeClassName="active">About</NavLink>
+          <NavLink className="navitem" to="/about" activeClassName="active">
+            About
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/community" activeClassName="active">Community</NavLink>
+          <NavLink className="navitem" to="/community" activeClassName="active">
+            Community
+          </NavLink>
         </li>
         <li>
-          <NavLink to="/contact" activeClassName="active">Contact</NavLink>
+          <NavLink className="navitem" to="/contact" activeClassName="active">
+            Contact
+          </NavLink>
         </li>
       </ul>
-      {SearchBar()}
+      <form className="searchbar">
+        {SearchBar()}
+        <button className="btn" type="submit">
+          Search
+        </button>
+      </form>
     </nav>
   );
 };
@@ -105,6 +123,7 @@ export const SearchBar = () => {
     <>
       <input
         type="text"
+        className="searchinput"
         placeholder="Search..."
         onChange={handleChange}
         value={searchInput}

@@ -1,8 +1,12 @@
 export default function Tech() {
   return (
     <>
-      <div>Hello World, This is the tech section.</div>
+      <div className="devin">
+        Hello World, This is the tech section.Hello World, This is the tech
+        section.Hello World, This is the tech section.Hello World, This is the
+        tech section.Hello World, This is the tech section.Hello World, This is
+        the tech section. Hello World, This is the tech section.
+      </div>
     </>
-  )
-
+  );
 }
