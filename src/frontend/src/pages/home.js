@@ -9,109 +9,49 @@ import Platinum from "../assets/pokemonplatinum.jpg";
 import Iphone from "../assets/iphone14pro.jpg";
 import Switch from "../assets/switch.jpg";
 import Battlefront2 from "../assets/battlefront2.jpg";
-import  Seriesx from "../assets/seriesx.jpg";
+import Seriesx from "../assets/seriesx.jpg";
 import Zfold from "../assets/zfold.jpg";
-import "../styles/Home.css";
+import "../styles/Home.scss";
+
+//Notes for Paul, when defining a class use className, class is reserved for classes in React.
+const Cards = (props) => {
+  return props.db.map((item) => (
+    <>
+      <div className="gallery">
+        <img src={item.img} alt="Zelda: Tears of the Kingdom" />
+        <div className="title">{item.title}</div>
+      </div>
+    </>
+  ));
+};
 
 function Home() {
+  const db = [
+    { title: "Zelda Tears of the Kingdom Release Date Announced", img: Zelda },
+    { title: "Fifa 2023 World Cup Mode Review", img: Fifa },
+    { title: "Google Pixel 7 Review", img: Pixel },
+    { title: "Star Wars: Jedi Survivor Release Date Announced", img: Jedi },
+    { title: "Lego Star Wars: The Skywalker Saga Review", img: LegoSW },
+    { title: "Macbook Pro 2022 Review", img: Macbook },
+    { title: "Pokemon Platinum Review", img: Platinum },
+    { title: "iPhone 14 Pro Sales Reported", img: Iphone },
+    { title: "Xbox Series X Review", img: Seriesx },
+    { title: "Star Wars: Battlefront 2 Expansion Review", img: Battlefront2 },
+    { title: "Samsung Z Fold Review", img: Zfold },
+    { title: "Nintendo Switch OLED Review", img: Switch },
+  ];
+
   return (
     <>
-      <h1>Welcome to the world of Geeks!</h1>
-
-     {/* <CarouselContainer/> */}
-
-      <h1>Top Articles</h1>
-      <div class ="container content">
-        <table>
-
-          <tr>
-          <td>
-          <div class="gallery">
-            <img src={Zelda} alt="Zelda: Tears of the Kingdom"/>
-              <div class ="title">Zelda Tears of the Kingdom Release Date Announced</div>
-          </div>
-          </td>
-          <td>
-          <div class="gallery">
-            <img src={Fifa} alt="Fifa 23"/>
-              <div class ="title">Fifa 2023 World Cup Mode Review</div>
-          </div>
-          </td>
-          <td>
-          <div class="gallery">
-            <img src={Pixel} alt="Gogle Pixel 7"/>
-              <div class ="title">Google Pixel 7 Review</div>
-          </div>
-          </td>
-          <td class="lastColumn">
-          <div class="gallery">
-            <img src={Jedi} alt="Star Wars: Jedi Survivor"/>
-              <div class ="title">Star Wars: Jedi Survivor Release Date Announced</div>
-          </div>
-          </td>
-          </tr>
-
-
-
-          <tr>
-          <td>
-          <div class="gallery">
-            <img src={LegoSW} alt="Lego Star Wars"/>
-              <div class ="title">Lego Star Wars: The Skywalker Saga Review</div>
-          </div>
-          </td>
-          <td>
-          <div class="gallery">
-            <img src={Macbook} alt="Macbook Pro 2022"/>
-              <div class ="title">Macbook Pro 2022 Review</div>
-          </div>
-          </td>
-          <td>
-          <div class="gallery">
-            <img src={Platinum} alt="Pokemon Platinum"/>
-              <div class ="title">Pokemon Platinum Review</div>
-          </div>
-          </td>
-          <td class="lastColumn">
-          <div class="gallery">
-            <img src={Iphone} alt="iPhone 14 Pro"/>
-              <div class ="title">iPhone 14 Pro Sales Reported</div>
-          </div>
-          </td>
-          </tr>
-
-
-
-          <tr>
-          <td>
-          <div class="gallery">
-            <img src={Seriesx} alt="Xbox Series X"/>
-              <div class ="title">Xbox Series X Review</div>
-          </div>
-          </td>
-          <td>
-          <div class="gallery">
-            <img src={Battlefront2} alt="Star Wars: Battlefront 2"/>
-              <div class ="title">Star Wars: Battlefront 2 Expansion Review</div>
-          </div>
-          </td>
-          <td>
-          <div class="gallery">
-            <img src={Zfold} alt="Samsung Z Fold"/>
-              <div class ="title">Samsung Z Fold Review</div>
-          </div>
-          </td>
-          <td class="lastColumn">
-          <div class="gallery">
-            <img src={Switch} alt="Nintendo Switch"/>
-              <div class ="title">Nintendo Switch OLED Reveiw</div>
-          </div>
-          </td>
-          </tr>
-        </table>
+      <h1 className="bigText">Welcome to the world of Geeks!</h1>
+      <h1 className="bigText">Top Articles</h1>
+      <div className="container">
+        <Cards db={db} />
       </div>
 
-      <div class="container sidebar">
+      {/* <CarouselContainer/> */}
+
+      {/* <div class="container sidebar">
         <h2>Popular Tech Companies</h2>
         <ol class="topCompanies">
           <li>Apple</li>
@@ -138,9 +78,8 @@ function Home() {
           <li class="games">The Legend of Zelda: Tears of the Kingdom - <p class="date">May 12</p></li>
           <li class="games">Suicide Squad: Kill the Justice League - <p class="date">May 26</p></li>
         </ul>
-      </div>
+      </div> */}
     </>
   );
 }
-
 export default Home;

@@ -32,9 +32,14 @@ export default function Games() {
   ];
   return (
     <>
-      <h1>Video Games</h1>
+      <h1 className="bigText">Video Games</h1>
       <div style={topContainer}>
-        <img src={hogwarts} style={imgStyle} alt="Hogwarts Legacy" />
+        <img
+          src={hogwarts}
+          style={articleStyle}
+          id="topStyle"
+          alt="Hogwarts Legacy"
+        />
         <div className="rectangle">
           <h2 style={headingStyle}>{db[0].game + ": Available Now!"}</h2>
           <div style={boxText}>{db[0].game}</div>
@@ -42,7 +47,7 @@ export default function Games() {
           <div style={boxText}>{db[0].numComments + " Reviews!"}</div>
         </div>
       </div>
-      <h1>Video Game Articles</h1>
+      <h1 className="bigText">Video Game Articles</h1>
       <div className="sortBox">
         <form>
           <label for="sort">Sort By:</label>
@@ -88,8 +93,10 @@ export const Articles = (props) => {
 };
 
 const articleStyle = {
-  height: "auto",
+  cursor: "pointer",
+  "object-fit": "cover",
   width: "300px",
+  "padding-left": "1%",
 };
 const imgStyle = {
   width: "40%",
