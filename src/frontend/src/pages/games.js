@@ -3,7 +3,7 @@ import eldenring from "../assets/eldenring.jpeg";
 import pokemon from "../assets/pokemonscarletviolet.jpg";
 import { SearchBar } from "../components/navigation";
 
-export default function Games() {
+export default function Games(props) {
   const db = [
     {
       game: "Hogwarts Legacy",
@@ -32,7 +32,7 @@ export default function Games() {
   ];
   return (
     <>
-      <h1 className="bigText">Video Games</h1>
+      <h1 className="bigText">{props.page ? props.page : "Video Games"}</h1>
       <div style={topContainer}>
         <img
           src={hogwarts}
@@ -47,9 +47,11 @@ export default function Games() {
           <div style={boxText}>{db[0].numComments + " Reviews!"}</div>
         </div>
       </div>
-      <h1 className="bigText">Video Game Articles</h1>
+      <h1 className="bigText">
+        {props.page ? props.page : "Video Game"} Articles
+      </h1>
       <div className="sortBox">
-        <form>
+        <form className="doge">
           <label for="sort">Sort By:</label>
           <select name="sortby" id="sort">
             <option value="Release Date">Release Date</option>
