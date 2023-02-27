@@ -1,32 +1,36 @@
-h1{
-  padding-left: 100px;
+.bigText {
+  padding-left: 1%;
 }
-.container{
-  padding-left: 100px;
-  width: 75%;
-  float: left;
-  display: block;
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 30px 1%;
+  flex-wrap: wrap;
+  width: 100%;
 }
-.sidebar{
-  width: 25%;
+/* .content{
+  padding-left: 5%;
+} */
+.sidebar {
+  width: 20%;
   float: right;
 }
-.gallery{
-  margin: 5px;
+.gallery {
+  /* margin: 5px; */
   border: 1px solid #ccc;
-  float: left;
-  width:340px;
-  cursor:pointer;
-}
-.gallery img{
+  box-shadow: 5px 5px lightgray;
   width: 340px;
-  height:170px;
+  cursor: pointer;
 }
-.title{
+.gallery img {
+  width: 340px;
+  height: 170px;
+}
+.title {
   padding: 15px;
   text-align: center;
 }
-.topCompanies{
+.topCompanies {
   width: 250px;
   list-style: decimal;
   justify-content: left;
@@ -36,20 +40,19 @@ h1{
   border: 1px solid;
   cursor: pointer;
 }
-.releases{
+.releases {
   border: 1px solid;
   width: 250px;
 }
-.games{
+.games {
   font-weight: bold;
 }
-.date{
+.date {
   font-weight: normal;
 }
 
-
-
-@media screen and (max-width: 1870px)
+/*
+ @media screen and (max-width: 1870px)
 {
   .gallery{
     margin: 2.5px;
@@ -65,7 +68,7 @@ h1{
     padding: 12.5px;
     text-align: center;
   }
-}
+} 
 
 @media screen and (max-width: 1640px)
 {
@@ -121,10 +124,6 @@ h1{
     padding: 12.5px;
     text-align: center;
   }
-  /* .lastColumn{
-    visibility: hidden;
-  }
-  */
   .sidebar{
     visibility: hidden;
   }
@@ -135,4 +134,4 @@ h1{
   .sidebar{
     visibility: hidden;
   }
-}
+} */

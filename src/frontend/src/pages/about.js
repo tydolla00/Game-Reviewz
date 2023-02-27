@@ -1,14 +1,9 @@
-<<<<<<< Updated upstream
-// import 'antd/dist/antd.min.css';
-import { Breadcrumb } from 'antd';
-=======
 import "../styles/About.css";
 import HTML_logo from '../assets/HTML5_logo.png';
 import CSS_logo from '../assets/CSS3_logo.png';
 import Java_logo from '../assets/Java_logo.png';
 import React_logo from '../assets/React_logo.png';
 import Discord_logo from '../assets/discord_logo.png';
->>>>>>> Stashed changes
 
 function About() {
     return <div>
@@ -108,6 +103,6 @@ function About() {
 
         </div>
         <br/>
-    </div>
+        </div>
 }
 export default About;
