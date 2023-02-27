@@ -1,4 +1,4 @@
-import "../styles/About.css";
+import "../styles/About.scss";
 import HTML_logo from '../assets/HTML5_logo.png';
 import CSS_logo from '../assets/CSS3_logo.png';
 import Java_logo from '../assets/Java_logo.png';
