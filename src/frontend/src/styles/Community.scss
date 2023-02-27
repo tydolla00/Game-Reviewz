@@ -1,4 +1,18 @@
-/*
+.column{
+    flex: 1;
+    margin: 2px;
+    padding: 10px;
+    transition: .3s;
+}
+
+.columns {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    margin: 5px 0;
+
+}
+
 #community {
     border-bottom: 5px solid black;
     text-align: center;
@@ -9,33 +23,22 @@
     margin-bottom: 3%;
 }
 
-
-.poll{
-    float: left;
-    margin-left: 5%;
-    width: 40%;
-    margin-right: 5%;
-    margin-bottom: 3%;
-    background: #fff;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, .1);
-    padding: 1.5em;
-    border-radius: 10px;
-    position: relative;
-}  
-
-body{
+.communityPage{
     font-family:sans-serif;
 }
 
-ul{
-    list-style: none;
-}
+li {
+    margin-top: 1em;
+} 
 
-.question{
-    margin-bottom: 1em;
-    font-size: 1.3em;
-    text-align: center;
+.mosts{
     border-bottom: 2px solid #666;
+    width: 45%;
+    display: flex;
+    margin-bottom: 10px;
+    flex-direction: column;
+    text-align: center;
+    padding-left: 6%;
 }
 
 .option{
@@ -49,6 +52,32 @@ ul{
 
 .option:hover{
     background: #e5e5e5;
+}
+
+
+.poll{
+    float: left;
+    margin-left: 5%;
+    width: 40%;
+    margin-bottom: 3%;
+    height: 350px;
+    background: #fff;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, .1);
+    padding: 1.5em;
+    border-radius: 10px;
+    position: relative;
+}  
+
+.profPic{
+    height: 1em;;
+    width: 1em;
+}
+
+.question{
+    margin-bottom: 1em;
+    font-size: 1.3em;
+    text-align: center;
+    border-bottom: 2px solid #666;
 }
 
 .topMembers{
@@ -71,34 +100,9 @@ ul{
     display: block;
 }
 
-
-.columns {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: center;
-    margin: 5px 0;
-
-  }
-  
-.column{
-    flex: 1;
-    margin: 2px;
-    padding: 10px;
-    transition: .3s;
+ul{
+    list-style: none;
 }
-
-.mosts{
-    border-bottom: 2px solid #666;
-    width: 45%;
-    display: flex;
-    margin-bottom: 10px;
-    flex-direction: column;
-    text-align: center;
-}
-
- li {
-    margin-top: 1em;
-} 
 
 .userNames{
     display: inline-block;
@@ -113,9 +117,3 @@ ul{
     margin-left: 20px;
     font-size: 1.3em;
 }
-
-.column img{
-    height: 1em;;
-    width: 1em;
-}
-*/

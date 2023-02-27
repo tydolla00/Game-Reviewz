@@ -7,32 +7,32 @@ const Navbar = () => {
   return (
     <nav>
       <ul>
-        <li>
+        <li class="navContainer">
           <NavLink className="navitem" to="/" activeClassName="active">
             Home
           </NavLink>
         </li>
-        <li>
+        <li class="navContainer">
           <NavLink className="navitem" to="/games" activeClassName="active">
             Games
           </NavLink>
         </li>
-        <li>
+        <li class="navContainer">
           <NavLink className="navitem" to="/tech" activeClassName="active">
             Tech
           </NavLink>
         </li>
-        <li>
+        <li class="navContainer">
           <NavLink className="navitem" to="/about" activeClassName="active">
             About
           </NavLink>
         </li>
-        <li>
+        <li class="navContainer">
           <NavLink className="navitem" to="/community" activeClassName="active">
             Community
           </NavLink>
         </li>
-        <li>
+        <li class="navContainer">
           <NavLink className="navitem" to="/contact" activeClassName="active">
             Contact
           </NavLink>
