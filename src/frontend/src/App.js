@@ -17,6 +17,7 @@ const headerFunction = () => {
 };
 
 // Contains the Routing for the layout of the website.
+// If app acts up with CORS, whitelabel error, switch to HashRouter.
 const App = () => {
   return (
     <Router>
