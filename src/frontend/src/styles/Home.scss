@@ -1,124 +1,138 @@
 .bigText {
-  padding-left: 1%;
+  h1 {
+    padding-left: 1%;
+    span {
+      color: red;
+    }
+  }
 }
-.container {
+
+.cardsContainer {
   display: flex;
-  justify-content: center;
-  gap: 30px 1%;
   flex-wrap: wrap;
-  width: 100%;
+  gap: 30px 1%;
+  justify-content: center;
+  // width: 100%;
 }
-/* .content{
-  padding-left: 5%;
-} */
-.sidebar {
-  width: 20%;
-  float: right;
-}
-.gallery {
-  /* margin: 5px; */
+
+.card {
   border: 1px solid #ccc;
   box-shadow: 5px 5px lightgray;
-  width: 340px;
   cursor: pointer;
-}
-.gallery img {
+  margin: 2px;
   width: 340px;
-  height: 170px;
+  img {
+    height: 170px;
+    width: 340px;
+  }
 }
-.title {
-  padding: 15px;
-  text-align: center;
-}
-.topCompanies {
-  width: 250px;
-  list-style: decimal;
-  justify-content: left;
-  padding-left: 30px;
-  font-size: large;
-  display: inline-block;
-  border: 1px solid;
-  cursor: pointer;
-}
-.releases {
-  border: 1px solid;
-  width: 250px;
-}
-.games {
-  font-weight: bold;
-}
+
 .date {
   font-weight: normal;
 }
 
+.games {
+  font-weight: bold;
+}
+
+/* .content{
+  padding-left: 5%;
+} */
+
+.releases {
+  border: 1px solid;
+  width: 250px;
+}
+
+.sidebar {
+  float: right;
+  width: 20%;
+}
+
+#title {
+  padding: 15px;
+  text-align: center;
+}
+
+.topCompanies {
+  border: 1px solid;
+  cursor: pointer;
+  display: inline-block;
+  font-size: large;
+  justify-content: left;
+  list-style: decimal;
+  padding-left: 30px;
+  width: 250px;
+}
+
 /*
  @media screen and (max-width: 1870px)
-{
-  .gallery{
-    margin: 2.5px;
+{  
+  .card{
     border: .5px solid #ccc;
     float: left;
+    margin: 2.5px;
     width:300px;
   }
   .gallery img{
-    width: 300px;
     height:150px;
+    width: 300px;
   }
   .title{
     padding: 12.5px;
     text-align: center;
   }
-} 
+   } 
 
 @media screen and (max-width: 1640px)
-{
-  .gallery{
-    margin: 2.5px;
+{  
+  .card{
     border: .5px solid #ccc;
     float: left;
+    margin: 2.5px;
     width:270px;
   }
   .gallery img{
-    width: 270px;
     height:150px;
+    width: 270px;
   }
   .title{
     padding: 12.5px;
     text-align: center;
   }
-}
+   }
 
 @media screen and (max-width: 1475px)
-{
-  .gallery{
-    margin: 2.5px;
+{  
+  .card{
     border: .5px solid #ccc;
     float: left;
+    margin: 2.5px;
     width:220px;
   }
-  .gallery img{
-    width: 220px;
+  .card img{
     height:100px;
+    width: 220px;
   }
   .title{
     padding: 12.5px;
     text-align: center;
   }
-}
+   }
 @media screen and (max-width: 1210px)
-{
+{  
   .container{
     padding-left: 50px;
   }
-  .gallery{
-    margin: 2.5px;
+  .card{
     border: .5px solid #ccc;
     float: left;
+    margin: 2.5px;
     width:250px;
   }
-  .gallery img{
-    width: 250px;
+  .card img{
     height:100px;
+    width: 250px;
   }
   .title{
     padding: 12.5px;
@@ -127,11 +141,11 @@
   .sidebar{
     visibility: hidden;
   }
-}
+   }
 
 @media screen and (max-width: 905px)
-{
+{  
   .sidebar{
     visibility: hidden;
   }
-} */
+   } */

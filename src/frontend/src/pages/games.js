@@ -4,8 +4,15 @@ import pokemon from "../assets/pokemonscarletviolet.jpg";
 import { SearchBar } from "../components/navigation";
 import ArticlesService from "../services/ArticlesService";
 import { useState, useEffect } from "react";
+import "../styles/Games.scss";
 
 const Games = (props) => {
+  let imageMap = new Map([
+    [1, hogwarts],
+    [2, eldenring],
+    [3, pokemon],
+  ]);
+
   // API will return array of objects so initialize state as an array.
   const [article, setArticles] = useState([]);
 
@@ -31,11 +38,11 @@ const Games = (props) => {
 
   return (
     <>
-      <h1 className="bigText">{props.page ? props.page : "Video Games"}</h1>
-      <div style={topContainer}>
+      <h1 className="gbigText">{props.page ? props.page : "Video Games"}</h1>
+      <div className="topContainer">
         <img
           src={hogwarts}
-          style={articleStyle}
+          className="articleStyle"
           id="topStyle"
           alt="Hogwarts Legacy"
         />
@@ -46,19 +53,19 @@ const Games = (props) => {
           <div style={boxText}>{article[0].comments + " Reviews!"}</div> */}
         </div>
       </div>
-      <h1 className="bigText">
+      <h1 className="gbigText">
         {props.page ? props.page : "Video Game"} Articles
       </h1>
       <div className="sortBox">
-        <form className="doge">
+        <form>
           <label for="sort">Sort By:</label>
-          <select name="sortby" id="sort">
+          <select name="sortby" id="sort" className="selectOptions">
             <option value="Release Date">Release Date</option>
             <option value="Top Rated">Top Rated</option>
             <option value="Most Reviews">Most Reviews</option>
           </select>
           <label for="genre">Genre:</label>
-          <select name="sortby" id="genre">
+          <select name="sortby" id="genre" className="selectOptions">
             <option value="RPG">RPG</option>
             <option value="FPS">FPS</option>
             <option value="Fantasy">Fantasy</option>
@@ -68,7 +75,7 @@ const Games = (props) => {
         </form>
       </div>
       <br />
-      <Articles db={article} img={images} />
+      <Articles db={article} img={images} imageMap={imageMap} />
     </>
   );
 };
@@ -80,8 +87,8 @@ export const Articles = (props) => {
     <>
       <div className="articleBox">
         <img
-          src={item.title === "Hogwarts Legacy" ? props.img[0] : props.img[1]}
-          style={articleStyle}
+          src={props.imageMap.get(item.id)}
+          className="articleStyle"
           alt="A Game"
         />
         <div className="vl"></div>
@@ -95,30 +102,13 @@ export const Articles = (props) => {
           </div>
         </div>
       </div>
-      <hr />
+      <hr className=".gline" />
     </>
   ));
 };
 
-const articleStyle = {
-  cursor: "pointer",
-  "object-fit": "cover",
-  width: "300px",
-  "padding-left": "1%",
-};
-const imgStyle = {
-  width: "40%",
-  height: "auto",
-  border: "solid",
-  "border-right": "none",
-  "border-width": "thick",
-};
 const headingStyle = {
   "padding-left": ".5em",
-};
-const topContainer = {
-  display: "flex",
-  height: "300px",
 };
 const boxText = {
   padding: "1em",
