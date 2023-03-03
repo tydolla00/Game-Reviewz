@@ -14,17 +14,8 @@ import Zfold from "../assets/zfold.jpg";
 import "../styles/Home.scss";
 
 //Notes for Paul, when defining a class use className, class is reserved for classes in React.
-const Cards = (props) => {
-  return props.db.map((item) => (
-    <>
-      <div className="gallery">
-        <img src={item.img} alt="Zelda: Tears of the Kingdom" />
-        <div className="title">{item.title}</div>
-      </div>
-    </>
-  ));
-};
-
+// Maybe turn the container into a grid??? Can also be called from the database, maybe add columnPriority as a column and then give a priority number,
+// then in database select top 16 from columnPriority
 function Home() {
   const db = [
     { title: "Zelda Tears of the Kingdom Release Date Announced", img: Zelda },
@@ -43,43 +34,76 @@ function Home() {
 
   return (
     <>
-      <h1 className="bigText">Welcome to the world of Geeks!</h1>
-      <h1 className="bigText">Top Articles</h1>
-      <div className="container">
+      <div className="bigText">
+        <h1>
+          Game<span>Reviewz</span>
+        </h1>
+        <h1>Top Articles</h1>
+      </div>
+      <div className="cardsContainer">
         <Cards db={db} />
       </div>
-
+      <Sidebar />
       {/* <CarouselContainer/> */}
-
-      {/* <div class="container sidebar">
-        <h2>Popular Tech Companies</h2>
-        <ol class="topCompanies">
-          <li>Apple</li>
-          <li>Google</li>
-          <li>Samsung</li>
-          <li>Microsoft</li>
-          <li>Amazon</li>
-        </ol>
-
-        <h2>Popular Gaming Companies</h2>
-        <ol class="topCompanies">
-          <li>Nintendo</li>
-          <li>Playstation</li>
-          <li>Xbox</li>
-          <li>Epic Games</li>
-          <li>Rockstar Games</li>
-        </ol>
-
-        <h2>Upcoming Releases</h2>
-        <ul class="releases">
-          <li class="games">Spongebob Squarepants: The Cosmic Shake - <p class="date">January 31st</p></li>
-          <li class="games">Hogwarts Legacy - <p class="date">February 10</p></li>
-          <li class="games">Star Wars Jedi Survivor - <p class="date">March 17</p></li>
-          <li class="games">The Legend of Zelda: Tears of the Kingdom - <p class="date">May 12</p></li>
-          <li class="games">Suicide Squad: Kill the Justice League - <p class="date">May 26</p></li>
-        </ul>
-      </div> */}
     </>
   );
 }
 export default Home;
+
+const Cards = (props) => {
+  return props.db.map((item) => (
+    <>
+      <div className="card">
+        <img src={item.img} alt="Zelda: Tears of the Kingdom" />
+        <div id="title">{item.title}</div>
+      </div>
+    </>
+  ));
+};
+
+// This can be reworked to function/look better.
+const Sidebar = () => {
+  return (
+    <div className="sidebar">
+      <h2>Popular Tech Companies</h2>
+      <ol className="topCompanies">
+        <li>Apple</li>
+        <li>Google</li>
+        <li>Samsung</li>
+        <li>Microsoft</li>
+        <li>Amazon</li>
+      </ol>
+
+      <h2>Popular Gaming Companies</h2>
+      <ol className="topCompanies">
+        <li>Nintendo</li>
+        <li>Playstation</li>
+        <li>Xbox</li>
+        <li>Epic Games</li>
+        <li>Rockstar Games</li>
+      </ol>
+
+      <h2>Upcoming Releases</h2>
+      <ul className="releases">
+        <li className="games">
+          Spongebob Squarepants: The Cosmic Shake -{" "}
+          <p class="date">January 31st</p>
+        </li>
+        <li className="games">
+          Hogwarts Legacy - <p className="date">February 10</p>
+        </li>
+        <li className="games">
+          Star Wars Jedi Survivor - <p className="date">March 17</p>
+        </li>
+        <li className="games">
+          The Legend of Zelda: Tears of the Kingdom -{" "}
+          <p className="date">May 12</p>
+        </li>
+        <li className="games">
+          Suicide Squad: Kill the Justice League -{" "}
+          <p className="date">May 26</p>
+        </li>
+      </ul>
+    </div>
+  );
+};
