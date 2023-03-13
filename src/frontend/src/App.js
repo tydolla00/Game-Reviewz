@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar, { NavigationBar, navigationBar } from "./components/navigation";
+import Navbar from "./components/navigation";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import Contact from "./pages/contact";
@@ -23,7 +23,6 @@ const App = () => {
     <Router>
       {/* {headerFunction()} */}
       <Navbar />
-      {/* <NavigationBar/> */}
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route path="/games" element={<Games />} />

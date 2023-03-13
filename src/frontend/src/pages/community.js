@@ -2,6 +2,7 @@ import "../styles/Community.scss";
 import Battlefront2 from "../assets/battlefront2.jpg";
 import { Person } from "react-bootstrap-icons";
 
+// Made changes due to li affecting other pages.
 let poll = {
   question: "What game are you most looking forward to in 2023?",
   answers: [
@@ -36,18 +37,11 @@ let poll = {
 const MostListUsers = (props) => {
   return props.db.map((item) => (
     <>
-      <li>
+      <div className="mostSection">
         <Person />
         {item.user}
-      </li>
-    </>
-  ));
-};
-
-const MostListValues = (props) => {
-  return props.db.map((item) => (
-    <>
-      <li>{item.value}</li>
+        {item.value}
+      </div>
     </>
   ));
 };
@@ -68,7 +62,7 @@ export default function Community() {
           <h3 className="question">
             What game are you most looking forward to in 2023?
           </h3>
-          <ul>
+          <ul className="pollOptions">
             <li className="option">
               <input
                 type="radio"
@@ -110,7 +104,7 @@ export default function Community() {
         <div className="poll results">
           {/* Isn't a valid class ^ */}
           <h3 className="question">What was your favorite game of 2022?</h3>
-          <ul>
+          <ul className="pollOptions">
             <li className="option">
               <span id="zelda">
                 {/* What's the point of the id*/}
@@ -147,9 +141,6 @@ export default function Community() {
               <ul className="userNames">
                 <MostListUsers db={db} />
               </ul>
-              <ul className="userValue">
-                <MostListValues db={db} />
-              </ul>
             </div>
 
             <div className="column">
@@ -157,18 +148,12 @@ export default function Community() {
               <ul className="userNames">
                 <MostListUsers db={db} />
               </ul>
-              <ul className="userValue">
-                <MostListValues db={db} />
-              </ul>
             </div>
 
             <div className="column">
               <b className="mosts">Most Comments</b>
               <ul className="userNames">
                 <MostListUsers db={db} />
-              </ul>
-              <ul className="userValue">
-                <MostListValues db={db} />
               </ul>
             </div>
           </div>

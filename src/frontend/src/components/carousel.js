@@ -1,8 +1,6 @@
-import logo1 from '../assets/godofwar.jpg';
-import logo2 from '../assets/pokemonscarletviolet.jpg';
-// import 'antd/dist/antd.min.css';
-import React, { useState } from 'react';
-import '../App.css';
+import logo1 from "../assets/godofwar.jpg";
+import logo2 from "../assets/pokemonscarletviolet.jpg";
+import React, { useState } from "react";
 
 // const Carousel = ({ images }) => {
 //   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,11 +31,11 @@ import '../App.css';
 // export default Carousel;
 
 const contentStyle = {
-  position: 'absolute',
-  top: '80%',
-  left: '43%',
-  color: '#fff',
-  textAlign: 'center',
+  position: "absolute",
+  top: "80%",
+  left: "43%",
+  color: "#fff",
+  textAlign: "center",
 };
 
 // function CarouselContainer() {
