@@ -26,10 +26,6 @@
   font-family: sans-serif;
 }
 
-li {
-  margin-top: 1em;
-}
-
 .mosts {
   border-bottom: 2px solid #666;
   width: 45%;
@@ -38,6 +34,10 @@ li {
   flex-direction: column;
   text-align: center;
   padding-left: 6%;
+}
+
+.mostSection {
+  display: flex;
 }
 
 .option {
@@ -64,6 +64,10 @@ li {
   padding: 1.5em;
   border-radius: 10px;
   position: relative;
+}
+
+.pollOptions {
+  list-style: none;
 }
 
 .profPic {
@@ -98,14 +102,10 @@ li {
   display: block;
 }
 
-ul {
-  list-style: none;
-}
-
 .userNames {
   display: inline-block;
-  vertical-align: top;
-  position: relative;
+  justify-content: center;
+  padding-inline-start: 0;
   font-size: 1.3em;
 }
 

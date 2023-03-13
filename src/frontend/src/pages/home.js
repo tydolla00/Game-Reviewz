@@ -34,12 +34,6 @@ function Home() {
 
   return (
     <>
-      <div className="bigText">
-        <h1>
-          Game<span>Reviewz</span>
-        </h1>
-        <h1>Top Articles</h1>
-      </div>
       <div className="cardsContainer">
         <Cards db={db} />
       </div>

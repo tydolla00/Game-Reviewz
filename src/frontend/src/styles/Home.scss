@@ -1,12 +1,3 @@
-.bigText {
-  h1 {
-    padding-left: 1%;
-    span {
-      color: red;
-    }
-  }
-}
-
 .cardsContainer {
   display: flex;
   flex-wrap: wrap;
@@ -52,6 +43,7 @@
 #title {
   padding: 15px;
   text-align: center;
+  font-size: 1.6rem;
 }
 
 .topCompanies {
