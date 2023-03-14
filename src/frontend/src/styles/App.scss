@@ -5,6 +5,19 @@ $enable-important-utilities: false;
   color: red;
 }
 
+.animate {
+  animation: animatezoom 0.6s;
+}
+
+@keyframes animatezoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
 body {
   background-color: Variables.$background;
   color: black;
@@ -76,7 +89,6 @@ html {
   font-size: 62.5%; //Sets the Font Size of the site to 10px instead of 16px. So now we can use rem to set px size. Ex: 15 px == 1.5rem.
 }
 .invalid-feedback {
-  // display: none;
   color: #dc3545;
   margin-top: 0.25rem;
   font-size: 80%;
@@ -99,6 +111,7 @@ html {
   display: flex;
   flex-direction: column;
   background-color: white;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
 }
 .modalBody {
   display: flex;
