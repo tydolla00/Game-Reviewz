@@ -12,18 +12,18 @@
   margin: 5px 0;
 }
 
-#community {
+.communityPage {
+  font-family: sans-serif;
+}
+
+#communityTitle {
   border-bottom: 5px solid black;
   text-align: center;
-  width: 15%;
+  width: fit-content;
   margin-left: auto;
   margin-right: auto;
   font-size: 50px;
   margin-bottom: 3%;
-}
-
-.communityPage {
-  font-family: sans-serif;
 }
 
 .mosts {
@@ -47,6 +47,7 @@
   border-radius: 5px;
   position: relative;
   transition: 0.2s;
+  font-size: 1.5em;
 }
 
 .option:hover {
@@ -77,7 +78,7 @@
 
 .question {
   margin-bottom: 1em;
-  font-size: 1.3em;
+  font-size: 2.5em;
   text-align: center;
   border-bottom: 2px solid #666;
 }
