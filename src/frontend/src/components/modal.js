@@ -35,7 +35,7 @@ const LoginModal = ({ show }) => {
   return (
     <>
       <div id="modal" className="modalContainer">
-        <div className="modal">
+        <div className="modal animate">
           <button className="modalX" onClick={() => show(false)}>
             <XCircleFill />
           </button>

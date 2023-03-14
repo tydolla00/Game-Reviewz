@@ -1,8 +1,8 @@
 package com.example.GameReviewz.articles;
 
+import jakarta.persistence.*;
 import lombok.*;
 
-import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
