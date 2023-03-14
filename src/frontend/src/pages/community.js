@@ -57,7 +57,7 @@ export default function Community() {
   return (
     <>
       <div className="communityPage">
-        <div id="community">Community</div>
+        <div id="communityTitle">Community</div>
         <div className="poll voter">
           <h3 className="question">
             What game are you most looking forward to in 2023?
