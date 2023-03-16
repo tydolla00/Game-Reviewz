@@ -12,18 +12,18 @@ const register = (firstName, lastName, username, email, password) => {
   });
 };
 
-const login = (username, password) => {
+const login = (email, password) => {
   return axios
     .post(API_URL + "authenticate", {
-      username,
+      email,
       password,
     })
     .then((response) => {
-      if (response.data.accessToken) {
+      if (response.data.token) {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
-      // console.log("authenticated");
-      return response.data;
+      console.log("authenticated " + response.data.token);
+      return response.data.token;
     });
 };
 

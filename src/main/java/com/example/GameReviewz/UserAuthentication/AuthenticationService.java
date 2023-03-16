@@ -40,7 +40,7 @@ public class AuthenticationService {
                 new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
         );
         var user = userRepository.findByEmail(request.getEmail()).orElseThrow();
-        System.out.println("No error thrown");
+        System.out.println("No error thrown" + user.getEmail());
         var jwtToken = jwtService.generateToken(user);
         return AuthenticationResponse.builder().token(jwtToken).build();
     }
