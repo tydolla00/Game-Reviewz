@@ -1,5 +1,8 @@
 package com.example.GameReviewz.UserAuthentication;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @Getter
@@ -11,6 +14,8 @@ import lombok.*;
 public class RegisterRequest {
     private String firstName;
     private String lastName;
+    @Email
+    @NotBlank
     private String email;
     private String password;
     private String username;
