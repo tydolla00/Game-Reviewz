@@ -2,6 +2,9 @@ package com.example.GameReviewz.UserAuthentication;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -25,8 +28,14 @@ public class User implements UserDetails {
     private Integer id;
     private String firstName;
     private String lastName;
+    @NotBlank
+    @Size(min=6, max = 26)
     private String username;
-    private String email;
+    @Email
+    @NotBlank
+    private String email; //Todo check if email exists, shouldn't be able to register an account with same email.
+    @NotBlank
+    @Size(min = 6, max = 65)
     private String password;
 
     @Enumerated(EnumType.STRING)
