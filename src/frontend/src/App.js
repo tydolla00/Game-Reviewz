@@ -7,6 +7,7 @@ import About from "./pages/about";
 import Games from "./pages/games";
 import Tech from "./pages/tech";
 import Community from "./pages/community";
+import Article from "./pages/article";
 import "./styles/App.scss";
 import logo from "./assets/smashultimate.jpeg";
 
@@ -25,6 +26,7 @@ const App = () => {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
+          <Route exact path="/article" element={<Article />} />
         <Route path="/games" element={<Games />} />
         <Route path="/tech" element={<Tech />} />
         <Route path="/about" element={<About />} />
