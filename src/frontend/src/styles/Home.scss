@@ -1,9 +1,21 @@
 .cardsContainer {
+  // display: flex;
+  // flex-wrap: wrap;
+  // gap: 30px 1%;
+  // justify-content: center;
+  // float: left;
+  // width: 75%;
+  // margin-left: 5%;
+  // width: 100%;
+
   display: flex;
   flex-wrap: wrap;
   gap: 30px 1%;
   justify-content: center;
-  // width: 100%;
+  float: left;
+  width: 73%;
+  border-right: 2px solid black;
+  margin-right: 2%;
 }
 
 .card {
@@ -20,24 +32,43 @@
 
 .date {
   font-weight: normal;
+  font-size: 1em;
 }
 
 .games {
   font-weight: bold;
+  font-size: 1.4em;
 }
 
 /* .content{
   padding-left: 5%;
 } */
 
+.list{
+  h2{
+    background-color: black;
+    padding-left: 5px;
+  }
+  background-color: #c0c0c082;
+  border: 2px solid red;
+  margin-bottom: 30px;
+}
+
 .releases {
-  border: 1px solid;
-  width: 250px;
+  list-style: none;
+  margin: 0;
+  // width: 250px;
 }
 
 .sidebar {
-  float: right;
+  float: left;
   width: 20%;
+}
+
+.sidebarHeader{
+  color: red;
+  font-size: 2em;
+  margin: auto;
 }
 
 #title {
@@ -47,14 +78,15 @@
 }
 
 .topCompanies {
-  border: 1px solid;
+  margin-top: 0;
   cursor: pointer;
   display: inline-block;
-  font-size: large;
+  font-weight: bold;
+  font-size: 2em;
   justify-content: left;
   list-style: decimal;
   padding-left: 30px;
-  width: 250px;
+  // width: 250px;
 }
 
 /*
