@@ -18,6 +18,7 @@ import java.util.function.Function;
 
 @Service
 public class JwtService {
+//    Change SECRET_KEY BEFORE UPLOADING TO AWS
     private static final String SECRET_KEY = "743777217A24432646294A404E635266556A586E3272357538782F413F442A47";
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);

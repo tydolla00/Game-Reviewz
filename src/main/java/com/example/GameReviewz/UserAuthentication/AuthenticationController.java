@@ -14,14 +14,18 @@ import java.util.List;
 public class AuthenticationController {
     private final AuthenticationService service;
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request){
-        return ResponseEntity.ok(service.register(request));
+    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) throws Exception{
+//       try{
+           return ResponseEntity.ok(service.register(request));
+//      }catch (Exception e){
+//           return ResponseEntity.badRequest();
+//       }
     }
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
         return ResponseEntity.ok(service.authenticate(request));
     }
-    @GetMapping("/user")
+    @GetMapping("/user") // In demo controller since authenticated already just call this method with object of authcontroller.
     public ResponseEntity<User> getUser(@RequestBody AuthenticationRequest request){
         return new ResponseEntity<>(service.getUser(request), HttpStatus.OK);
     }
