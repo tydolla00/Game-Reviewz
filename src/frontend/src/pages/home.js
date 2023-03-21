@@ -34,10 +34,10 @@ function Home() {
 
   return (
     <>
-      <div className="cardsContainer">
-        <Cards db={db} />
-      </div>
-      <Sidebar />
+        <div className="cardsContainer">
+          <Cards db={db} />
+        </div>
+        <Sidebar />
       {/* <CarouselContainer/> */}
     </>
   );
@@ -59,45 +59,51 @@ const Cards = (props) => {
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <h2>Popular Tech Companies</h2>
-      <ol className="topCompanies">
-        <li>Apple</li>
-        <li>Google</li>
-        <li>Samsung</li>
-        <li>Microsoft</li>
-        <li>Amazon</li>
-      </ol>
+      <div className="list">
+        <h2 className="sidebarHeader">Popular Tech Companies</h2>
+        <ol className="topCompanies">
+          <li>Apple</li>
+          <li>Google</li>
+          <li>Samsung</li>
+          <li>Microsoft</li>
+          <li>Amazon</li>
+        </ol>
+      </div>
 
-      <h2>Popular Gaming Companies</h2>
-      <ol className="topCompanies">
-        <li>Nintendo</li>
-        <li>Playstation</li>
-        <li>Xbox</li>
-        <li>Epic Games</li>
-        <li>Rockstar Games</li>
-      </ol>
+      <div className="list">
+        <h2 className="sidebarHeader">Popular Gaming Companies</h2>
+        <ol className="topCompanies">
+          <li>Nintendo</li>
+          <li>Playstation</li>
+          <li>Xbox</li>
+          <li>Epic Games</li>
+          <li>Rockstar Games</li>
+        </ol>
+      </div>
 
-      <h2>Upcoming Releases</h2>
-      <ul className="releases">
-        <li className="games">
-          Spongebob Squarepants: The Cosmic Shake -{" "}
-          <p class="date">January 31st</p>
-        </li>
-        <li className="games">
-          Hogwarts Legacy - <p className="date">February 10</p>
-        </li>
-        <li className="games">
-          Star Wars Jedi Survivor - <p className="date">March 17</p>
-        </li>
-        <li className="games">
-          The Legend of Zelda: Tears of the Kingdom -{" "}
-          <p className="date">May 12</p>
-        </li>
-        <li className="games">
-          Suicide Squad: Kill the Justice League -{" "}
-          <p className="date">May 26</p>
-        </li>
-      </ul>
+      <div className="list">
+        <h2 className="sidebarHeader">Upcoming Releases</h2>
+        <ul className="releases">
+          <li className="games">
+            Spongebob Squarepants: The Cosmic Shake -{" "}
+            <p class="date">January 31st</p>
+          </li>
+          <li className="games">
+            Hogwarts Legacy - <p className="date">February 10</p>
+          </li>
+          <li className="games">
+            Star Wars Jedi Survivor - <p className="date">March 17</p>
+          </li>
+          <li className="games">
+            The Legend of Zelda: Tears of the Kingdom -{" "}
+            <p className="date">May 12</p>
+          </li>
+          <li className="games">
+            Suicide Squad: Kill the Justice League -{" "}
+            <p className="date">May 26</p>
+          </li>
+        </ul>
+    </div>
     </div>
   );
 };
