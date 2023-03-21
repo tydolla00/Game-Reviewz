@@ -30,10 +30,10 @@ public class User implements UserDetails {
     private String lastName;
     @NotBlank
     @Size(min=6, max = 26)
-    private String username;
+    private String username; //Todo check if username exists, should be unique.
     @Email
     @NotBlank
-    private String email; //Todo check if email exists, shouldn't be able to register an account with same email.
+    private String email; //Todo check if email exists, should be unique.
     @NotBlank
     @Size(min = 6, max = 65)
     private String password;

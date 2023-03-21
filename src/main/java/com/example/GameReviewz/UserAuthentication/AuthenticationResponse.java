@@ -1,6 +1,7 @@
 package com.example.GameReviewz.UserAuthentication;
 
 import lombok.*;
+import org.springframework.http.ResponseEntity;
 
 @Getter
 @Setter
