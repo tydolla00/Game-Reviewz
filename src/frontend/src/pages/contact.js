@@ -2,15 +2,16 @@ import React from "react";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
+import { PersonFill, PersonCircle, EnvelopeFill, PencilFill, PencilSquare } from "react-bootstrap-icons";
 import "../styles/Contact.scss";
 
 const Contact = () => {
   const validationSchema = Yup.object().shape({
     fullname: Yup.string().required('Fullname is required'),
     username: Yup.string()
-      .optional('Enter a username if you have an account.')
-      .min(6, 'Username must be at least 6 characters')
-      .max(20, 'Username must not exceed 20 characters'),
+      .optional('Enter a username if you have an account.'),
+      // .min(6, 'Username must be at least 6 characters')
+      // .max(20, 'Username must not exceed 20 characters'),
     email: Yup.string()
       .required('Email is required')
       .email('Email is invalid'),
@@ -46,7 +47,7 @@ const Contact = () => {
       <h1 className="formHeader">Get in touch with us.</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="inputForms">
-          <label>Full Name</label>
+          <PersonFill size={13} color="red"/><label>Full Name</label>
           <input
             name="fullname"
             type="text"
@@ -57,7 +58,7 @@ const Contact = () => {
         </div>
 
         <div className="inputForms">
-          <label>Username (optional)</label>
+          <PersonCircle size={13} color="red"/><label>Username (optional)</label>
           <input
             name="username"
             type="text"
@@ -68,7 +69,7 @@ const Contact = () => {
         </div>
 
         <div className="inputForms">
-          <label>Email</label>
+          <EnvelopeFill size={13} color="red"/><label>Email</label>
           <input
             name="email"
             type="email"
@@ -79,7 +80,7 @@ const Contact = () => {
         </div>
 
         <div className="inputForms">
-          <label>Subject</label>
+          <PencilFill size={13} color="red"/><label>Subject</label>
           <input
             name="subject"
             type="text"
@@ -105,7 +106,7 @@ const Contact = () => {
         </div> */}
 
         <div className="inputForms">
-          <label>Message</label>
+          <PencilSquare size={13} color="red"/><label>Message</label>
           <textarea
             name="message"
             placeholder="Write your message here..."
