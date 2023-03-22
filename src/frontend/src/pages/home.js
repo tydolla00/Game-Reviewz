@@ -34,11 +34,20 @@ function Home() {
 
   return (
     <>
+<<<<<<< HEAD
       <div className="cardsContainer">
         <Cards db={db} />
       </div>
       <Sidebar />
+=======
+      <div className="homeContainer">
+        <div className="cardsContainer">
+          <Cards db={db} />
+        </div>
+        <Sidebar />
+>>>>>>> origin
       {/* <CarouselContainer/> */}
+      </div>
     </>
   );
 }
