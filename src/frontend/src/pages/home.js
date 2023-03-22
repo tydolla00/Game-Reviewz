@@ -105,7 +105,7 @@ const Sidebar = () => {
             <p className="date">May 26</p>
           </li>
         </ul>
-    </div>
+      </div>
     </div>
   );
 };
