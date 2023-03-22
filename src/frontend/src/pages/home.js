@@ -34,11 +34,13 @@ function Home() {
 
   return (
     <>
+      <div className="homeContainer">
         <div className="cardsContainer">
           <Cards db={db} />
         </div>
         <Sidebar />
       {/* <CarouselContainer/> */}
+      </div>
     </>
   );
 }

@@ -105,10 +105,10 @@ export default function Community() {
           {/* Isn't a valid class ^ */}
           <h3 className="question">What was your favorite game of 2022?</h3>
           <ul className="pollOptions">
-            <li className="option">
+            <li className="optionWinner">
               <span id="zelda">
                 {/* What's the point of the id*/}
-                <b>38% </b>Elden Ring
+                WINNER: <b>38% </b>Elden Ring
               </span>
             </li>
             <li className="option">
