@@ -34,10 +34,10 @@ function Home() {
 
   return (
     <>
-        <div className="cardsContainer">
-          <Cards db={db} />
-        </div>
-        <Sidebar />
+      <div className="cardsContainer">
+        <Cards db={db} />
+      </div>
+      <Sidebar />
       {/* <CarouselContainer/> */}
     </>
   );
@@ -103,7 +103,7 @@ const Sidebar = () => {
             <p className="date">May 26</p>
           </li>
         </ul>
-    </div>
+      </div>
     </div>
   );
 };
