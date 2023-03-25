@@ -1,4 +1,4 @@
-package com.example.GameReviewz.UserAuthentication;
+package com.example.GameReviewz.UserAuthentication.authentication;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;

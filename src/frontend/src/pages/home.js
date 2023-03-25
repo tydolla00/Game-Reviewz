@@ -18,18 +18,30 @@ import "../styles/Home.scss";
 // then in database select top 16 from columnPriority
 function Home() {
   const db = [
-    { title: "Zelda Tears of the Kingdom Release Date Announced", img: Zelda },
-    { title: "Fifa 2023 World Cup Mode Review", img: Fifa },
-    { title: "Google Pixel 7 Review", img: Pixel },
-    { title: "Star Wars: Jedi Survivor Release Date Announced", img: Jedi },
-    { title: "Lego Star Wars: The Skywalker Saga Review", img: LegoSW },
-    { title: "Macbook Pro 2022 Review", img: Macbook },
-    { title: "Pokemon Platinum Review", img: Platinum },
-    { title: "iPhone 14 Pro Sales Reported", img: Iphone },
-    { title: "Xbox Series X Review", img: Seriesx },
-    { title: "Star Wars: Battlefront 2 Expansion Review", img: Battlefront2 },
-    { title: "Samsung Z Fold Review", img: Zfold },
-    { title: "Nintendo Switch OLED Review", img: Switch },
+    {
+      title: "Zelda Tears of the Kingdom Release Date Announced",
+      img: Zelda,
+      id: 1,
+    },
+    { title: "Fifa 2023 World Cup Mode Review", img: Fifa, id: 2 },
+    { title: "Google Pixel 7 Review", img: Pixel, id: 3 },
+    {
+      title: "Star Wars: Jedi Survivor Release Date Announced",
+      img: Jedi,
+      id: 4,
+    },
+    { title: "Lego Star Wars: The Skywalker Saga Review", img: LegoSW, id: 5 },
+    { title: "Macbook Pro 2022 Review", img: Macbook, id: 6 },
+    { title: "Pokemon Platinum Review", img: Platinum, id: 7 },
+    { title: "iPhone 14 Pro Sales Reported", img: Iphone, id: 8 },
+    { title: "Xbox Series X Review", img: Seriesx, id: 9 },
+    {
+      title: "Star Wars: Battlefront 2 Expansion Review",
+      img: Battlefront2,
+      id: 10,
+    },
+    { title: "Samsung Z Fold Review", img: Zfold, id: 11 },
+    { title: "Nintendo Switch OLED Review", img: Switch, id: 12 },
   ];
 
   return (
@@ -39,7 +51,7 @@ function Home() {
           <Cards db={db} />
         </div>
         <Sidebar />
-      {/* <CarouselContainer/> */}
+        {/* <CarouselContainer/> */}
       </div>
     </>
   );
@@ -49,7 +61,7 @@ export default Home;
 const Cards = (props) => {
   return props.db.map((item) => (
     <>
-      <div className="card">
+      <div key={item.id} className="card">
         <img src={item.img} alt="Zelda: Tears of the Kingdom" />
         <div id="title">{item.title}</div>
       </div>
@@ -88,7 +100,7 @@ const Sidebar = () => {
         <ul className="releases">
           <li className="games">
             Spongebob Squarepants: The Cosmic Shake -{" "}
-            <p class="date">January 31st</p>
+            <p className="date">January 31st</p>
           </li>
           <li className="games">
             Hogwarts Legacy - <p className="date">February 10</p>

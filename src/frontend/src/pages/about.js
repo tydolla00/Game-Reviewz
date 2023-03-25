@@ -65,14 +65,14 @@ function About() {
       <div id="container">
         <div className="technologies">
           <p className="technologiesTitleFont">Technologies</p>
-          <view className="logosFit">
+          <div className="logosFit">
             {/* need to resize logos for responsiveness */}
             <img src={HTML_logo} alt={"HTML Logo"} />
             <img src={React_logo} alt={"React Logo"} />
             <img src={Java_logo} alt={"Java Logo"} />
             <img src={Discord_logo} alt={"Discord Logo"} />
             <img src={CSS_logo} alt={"CSS Logo"} />
-          </view>
+          </div>
         </div>
       </div>
       <br />

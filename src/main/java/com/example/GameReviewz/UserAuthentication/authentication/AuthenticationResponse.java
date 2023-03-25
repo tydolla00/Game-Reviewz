@@ -1,4 +1,4 @@
-package com.example.GameReviewz.UserAuthentication;
+package com.example.GameReviewz.UserAuthentication.authentication;
 
 import lombok.*;
 import org.springframework.http.ResponseEntity;

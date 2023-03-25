@@ -58,13 +58,13 @@ const Games = (props) => {
       </h1>
       <div className="sortBox">
         <form>
-          <label for="sort">Sort By:</label>
+          <label htmlFor="sort">Sort By:</label>
           <select name="sortby" id="sort" className="selectOptions">
             <option value="Release Date">Release Date</option>
             <option value="Top Rated">Top Rated</option>
             <option value="Most Reviews">Most Reviews</option>
           </select>
-          <label for="genre">Genre:</label>
+          <label htmlFor="genre">Genre:</label>
           <select name="sortby" id="genre" className="selectOptions">
             <option value="RPG">RPG</option>
             <option value="FPS">FPS</option>
@@ -105,12 +105,4 @@ export const Articles = (props) => {
       <hr className=".gline" />
     </>
   ));
-};
-
-const headingStyle = {
-  "padding-left": ".5em",
-};
-const boxText = {
-  padding: "1em",
-  // 'margin-top': '50px'
 };

@@ -188,6 +188,21 @@ nav {
   font-weight: bold;
   color: red;
 }
+.notification {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  background-color: lightcoral;
+  animation: notiAnimation 1 1.5s;
+}
+@keyframes notiAnimation {
+  0% {
+    transform: translateX(100vw);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 .searchinput {
   outline: none;
   font-size: 1.5rem;
@@ -196,4 +211,9 @@ nav {
 }
 #text-center {
   text-align: center;
+}
+.xButton {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }

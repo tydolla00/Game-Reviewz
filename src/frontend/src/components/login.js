@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { ArrowClockwise } from "react-bootstrap-icons";
 import AuthService from "../services/AuthService";
+import ErrorNotification from "./errorAlert";
 
 const LoginForm = ({
   username,
@@ -11,6 +12,8 @@ const LoginForm = ({
   setLogin,
 }) => {
   const [loading, setLoading] = useState(false);
+  const [loginError, setLoginError] = useState(false);
+  const [errorResponse, setErrorResponse] = useState("");
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data, e) => {
@@ -25,6 +28,11 @@ const LoginForm = ({
       })
       .catch((error) => {
         console.log(error);
+        setErrorResponse(JSON.stringify(error.message)); // Should work in the future when returning error statements from backend.
+      })
+      .finally(() => {
+        setLoginError(true);
+        setLoading(false);
       });
   };
   return (
@@ -56,12 +64,19 @@ const LoginForm = ({
         />
       </div>
       <button className="btn" type="submit">
-        <span>{loading && <ArrowClockwise className="loading" />}</span>
+        <div>{loading && <ArrowClockwise className="loading" />}</div>
         Login
       </button>
       <button className="btn signup" onClick={() => setLogin(false)}>
         Sign Up
       </button>
+      {loginError && (
+        <ErrorNotification
+          header={"Oops, Something went wrong with your Authentication"}
+          body={errorResponse}
+          setLoginError={setLoginError}
+        />
+      )}
     </form>
   );
 };
