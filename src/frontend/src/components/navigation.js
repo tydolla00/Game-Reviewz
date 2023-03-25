@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/App.scss";
-import LoginModal from "./modal";
+import Modal from "./modal";
 
 const Navbar = () => {
   const [modalShow, setModalShow] = useState(false);
@@ -12,32 +12,33 @@ const Navbar = () => {
       </h1>
       <ul className="navItems">
         <li>
-          <NavLink className="navitem" to="/" activeClassName="active">
+          {/* activeClassName */}
+          <NavLink className="navitem" to="/">
             Home
           </NavLink>
         </li>
         <li>
-          <NavLink className="navitem" to="/games" activeClassName="active">
+          <NavLink className="navitem" to="/games">
             Games
           </NavLink>
         </li>
         <li>
-          <NavLink className="navitem" to="/tech" activeClassName="active">
+          <NavLink className="navitem" to="/tech">
             Tech
           </NavLink>
         </li>
         <li>
-          <NavLink className="navitem" to="/about" activeClassName="active">
+          <NavLink className="navitem" to="/about">
             About
           </NavLink>
         </li>
         <li>
-          <NavLink className="navitem" to="/community" activeClassName="active">
+          <NavLink className="navitem" to="/community">
             Community
           </NavLink>
         </li>
         <li>
-          <NavLink className="navitem" to="/contact" activeClassName="active">
+          <NavLink className="navitem" to="/contact">
             Contact
           </NavLink>
         </li>
@@ -45,7 +46,7 @@ const Navbar = () => {
           Login
         </button>
       </ul>
-      {modalShow && <LoginModal show={setModalShow} />}
+      {modalShow && <Modal show={setModalShow} />}
       <form>
         {SearchBar()}
         <button type="submit">Search</button>

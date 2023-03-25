@@ -3,7 +3,7 @@ import { XCircleFill } from "react-bootstrap-icons";
 import SignupForm from "./signup";
 import LoginForm from "./login";
 
-const LoginModal = ({ show }) => {
+const Modal = ({ show }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [login, setLogin] = useState(false);
@@ -18,6 +18,13 @@ const LoginModal = ({ show }) => {
     setPassword(event.target.value);
   };
 
+  const handleScroll = (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+
+    return false;
+  };
+
   useEffect(() => {
     const handleEsc = (event) => {
       let modal = document.getElementById("modal");
@@ -25,10 +32,14 @@ const LoginModal = ({ show }) => {
     };
     window.addEventListener("mousedown", handleEsc);
     window.addEventListener("keydown", handleEsc);
+    document.getElementById("root").addEventListener("wheel", handleScroll);
 
     return () => {
       window.removeEventListener("keydown", handleEsc);
       window.removeEventListener("mousedown", handleEsc);
+      document
+        .getElementById("root")
+        .removeEventListener("wheel", handleScroll);
     };
   });
   return (
@@ -57,4 +68,4 @@ const LoginModal = ({ show }) => {
     </>
   );
 };
-export default LoginModal;
+export default Modal;

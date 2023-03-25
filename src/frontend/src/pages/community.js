@@ -37,7 +37,7 @@ let poll = {
 const MostListUsers = (props) => {
   return props.db.map((item) => (
     <>
-      <div className="mostSection">
+      <div key={item.id} className="mostSection">
         <Person />
         {item.user}
         {item.value}
@@ -48,10 +48,10 @@ const MostListUsers = (props) => {
 
 export default function Community() {
   const db = [
-    { user: "spadpaul", value: 27 },
-    { user: "tybrooks", value: 19 },
-    { user: "johnb", value: 18 },
-    { user: "ace", value: 9 },
+    { user: "spadpaul", value: 27, id: 1 },
+    { user: "tybrooks", value: 19, id: 2 },
+    { user: "johnb", value: 18, id: 3 },
+    { user: "ace", value: 9, id: 4 },
   ];
 
   return (
@@ -64,35 +64,19 @@ export default function Community() {
           </h3>
           <ul className="pollOptions">
             <li className="option">
-              <input
-                type="radio"
-                name="zelda"
-                onClick="updateCount(zelda)"
-              ></input>
+              <input type="radio" name="zelda"></input>
               <span id="zelda">Zelda Tears of the Kingdom</span>
             </li>
             <li className="option">
-              <input
-                type="radio"
-                name="jedi"
-                onClick="updateCount(jedi)"
-              ></input>
+              <input type="radio" name="jedi"></input>
               <span id="jedi">Jedi Survivor</span>
             </li>
             <li className="option">
-              <input
-                type="radio"
-                name="spongebob"
-                onClick="updateCount(spongebob)"
-              ></input>
+              <input type="radio" name="spongebob"></input>
               <span id="spongebob">Spongebob Cosmic Shake</span>
             </li>
             <li className="option">
-              <input
-                type="radio"
-                name="hogwarts"
-                onClick="updateCount(hogwarts)"
-              ></input>
+              <input type="radio" name="hogwarts"></input>
               <span id="hogwarts">Hogwarts Legacy</span>
             </li>
           </ul>
