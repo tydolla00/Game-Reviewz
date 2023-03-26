@@ -10,6 +10,9 @@ import Community from "./pages/community";
 import Article from "./pages/article";
 import "./styles/App.scss";
 import logo from "./assets/smashultimate.jpeg";
+import TyPage from "./pages/portfolios/ty";
+import JohnPage from "./pages/portfolios/john";
+import PaulPage from "./pages/portfolios/paul";
 
 // Navbar will be sticky and will contain links to Games, Tech, About, Community - Top Reviewers,
 // Moderators |, Login, and a Search Bar.
@@ -32,6 +35,9 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/community" element={<Community />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/portfolio/tyheir" element={<TyPage />} />
+        <Route path="/portfolio/john" element={<JohnPage />} />
+        <Route path="/portfolio/paul" element={<PaulPage />} />
       </Routes>
     </Router>
   );
