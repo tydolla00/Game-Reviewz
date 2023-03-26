@@ -6,7 +6,7 @@ import Modal from "./modal";
 const Navbar = () => {
   const [modalShow, setModalShow] = useState(false);
   return (
-    <nav>
+    <nav id="nav">
       <h1>
         Game<span>Reviewz</span>
       </h1>
