@@ -5,6 +5,7 @@ import { SearchBar } from "../components/navigation";
 import ArticlesService from "../services/ArticlesService";
 import { useState, useEffect } from "react";
 import "../styles/Games.scss";
+import { NavLink } from "react-router-dom";
 
 const Games = (props) => {
   let imageMap = new Map([
@@ -29,7 +30,7 @@ const Games = (props) => {
     ArticlesService.getAll()
       .then((response) => {
         setArticles(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -86,11 +87,9 @@ export const Articles = (props) => {
   return props.db.map((item) => (
     <>
       <div className="articleBox">
-        <img
-          src={props.imageMap.get(item.id)}
-          className="articleStyle"
-          alt="A Game"
-        />
+        <NavLink to={"/articles/" + item.id}>
+          <img src={item.path} className="articleStyle" alt="A Game" />
+        </NavLink>
         <div className="vl"></div>
         <div>
           <h1>{item.title}</h1>

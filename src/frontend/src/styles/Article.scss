@@ -42,7 +42,7 @@
 .gameTitle {
   margin-left: 160px;
   color: white;
-  font-size: calc(20px + .5vw);
+  font-size: calc(20px + 0.5vw);
   margin-top: 0;
   margin-bottom: 0;
   height: 215px;
@@ -50,18 +50,17 @@
 
 .gameFacts {
   margin-left: 160px;
-  font-size: calc(13px + .1vw);
+  font-size: calc(13px + 0.1vw);
   color: white;
   margin-top: 0;
   margin-bottom: 0;
 }
 
 .articleInfo {
-  font-size: calc(12px + .1vw);
+  font-size: calc(12px + 0.1vw);
   color: #495057;
-  height: calc(12px + .1vw);
+  height: calc(12px + 0.1vw);
   margin: 0 4%;
-
 }
 
 .alignLeft {
@@ -87,7 +86,7 @@
   border-style: none solid none none;
 }
 
-.actualArticle{
+.actualArticle {
   font-size: 16px;
   margin: 0 3.25%;
   line-height: 1.5;
@@ -99,15 +98,15 @@
   display: flex;
   flex-direction: column;
 }
-.unknown{
+.unknown {
   height: 300px;
   width: 100%;
   background-color: white;
   margin-bottom: 15%;
 }
 
-.unknownTitle{
-  background-color: #900D09;
+.unknownTitle {
+  background-color: #900d09;
   height: 10%;
   margin: auto;
   display: flex;
@@ -120,13 +119,13 @@
 
 .commentsTitle {
   color: black;
-  font-size: calc(20px + .5vw);
+  font-size: calc(20px + 0.5vw);
   margin: 0 3%;
   font-weight: bold;
 }
 
 .commentsSection {
-  width:80%;
+  width: 80%;
   margin: 0;
   display: flex;
   max-width: 1000px;
@@ -150,13 +149,13 @@
   position: relative;
   margin: 1%;
 }
-.userPhotoContainer::after{
+.userPhotoContainer::after {
   content: "";
   display: block;
   padding-top: 100%;
 }
 
-.userPhoto{
+.userPhoto {
   position: relative;
   width: 100%;
   height: 100%;
@@ -164,7 +163,7 @@
   border-radius: 50%;
 }
 
-.userInfo{
+.userInfo {
   text-align: center;
   font-size: 14px;
   color: black;
@@ -173,24 +172,24 @@
   justify-content: space-between;
 }
 
-.otherContainer{
+.otherContainer {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.userComment{
+.userComment {
   margin: 1%;
   font-size: 14px;
   line-height: 1.5;
 }
 
-.comment{
+.comment {
   margin: 0;
 }
 
-.otherArticlesContainer{
+.otherArticlesContainer {
   width: 20%;
   margin: 0 0 auto auto;
   display: flex;
@@ -199,14 +198,14 @@
   justify-content: center;
 }
 
-.otherArticle{
+.otherArticle {
   height: 100%;
   margin: auto 2.75% 25px 2.75%;
   display: flex;
   flex-direction: column;
 }
 
-.otherArticlePhoto{
+.otherArticlePhoto {
   aspect-ratio: 16 / 9;
   margin: 0;
   object-fit: cover;
@@ -225,10 +224,10 @@
   .possiblyAds {
     display: none;
   }
-  .otherArticlesContainer{
+  .otherArticlesContainer {
     display: none;
   }
-  .articleContainer{
+  .articleContainer {
     width: 100%;
     border-right: 0;
   }
@@ -238,7 +237,7 @@
     text-align: left;
   }
   .commentsSection {
-    width:100%;
+    width: 100%;
     max-width: 900px;
   }
 }
@@ -247,7 +246,7 @@
   .possiblyAds {
     width: 210px;
   }
-  .articleContainer{
+  .articleContainer {
     width: available;
   }
   .actualArticle {
