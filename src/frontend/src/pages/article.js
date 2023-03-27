@@ -42,7 +42,7 @@ function Article() {
     if (id) getArticle(id);
   }, [id]);
 
-  return 
+  return (
     <div>
       <br />
       <div className="backgroundPhotoCont">
