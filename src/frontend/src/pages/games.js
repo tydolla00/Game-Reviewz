@@ -6,6 +6,7 @@ import { SearchBar } from "../components/navigation";
 import ArticlesService from "../services/ArticlesService";
 import { useState, useEffect } from "react";
 import "../styles/Games.scss";
+import { NavLink } from "react-router-dom";
 
 const Games = (props) => {
   let imageMap = new Map([
@@ -31,7 +32,7 @@ const Games = (props) => {
     ArticlesService.getAll()
       .then((response) => {
         setArticles(response.data);
-        console.log(response.data);
+        // console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
@@ -90,11 +91,17 @@ export const Articles = (props) => {
       <>
           {path = item.path}
       <div className="articleBox">
+<<<<<<< HEAD
         <img
           src={path}
           className="articleStyle"
           alt="A Game"
         />
+=======
+        <NavLink to={"/articles/" + item.id}>
+          <img src={item.path} className="articleStyle" alt="A Game" />
+        </NavLink>
+>>>>>>> b8cd483c081dea6bd536603c899be4d1f1fec675
         <div className="vl"></div>
         <div>
           <h1>{item.title}</h1>

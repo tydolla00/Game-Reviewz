@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+<<<<<<< HEAD
+=======
+
+>>>>>>> b8cd483c081dea6bd536603c899be4d1f1fec675
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -15,6 +19,8 @@ import java.util.Optional;
 @AllArgsConstructor
 public class ArticlesController {
 
+
+    private final ArticlesService articlesService;
     @Autowired
     ArticlesRepository articlesRepository;
 
@@ -25,18 +31,28 @@ public class ArticlesController {
     // }
 
     public void createArticle() { // ignore
-        Articles a = new Articles(1000000000L, "Title Test", "TyTest", "This is a test review", "path/totest", 10);
-        articlesRepository.save(a);
+//        Articles a = new Articles(1000000000L, "Title Test", "TyTest", "This is a test review", "path/totest", 10);
+//        articlesRepository.save(a);
     }
+
+//    @GetMapping("/articles")
+//    public ResponseEntity<List<Articles>> getAllArticles() {
+//        try {
+//            List<Articles> articles = articlesRepository.findAll();
+//            return new ResponseEntity<>(articles, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 
     @GetMapping("/articles")
     public ResponseEntity<List<Articles>> getAllArticles() {
-        try {
-            List<Articles> articles = articlesRepository.findAll();
-            return new ResponseEntity<>(articles, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
+        return new ResponseEntity<>(articlesService.getAllArticles(),HttpStatus.OK);
+    }
+
+    @GetMapping(path = "/articles/{articleId}")
+    public ResponseEntity<Optional<Articles>> getArticle(@PathVariable("articleId") long articleId) {
+        return new ResponseEntity<>(articlesService.getArticle(articleId),HttpStatus.OK);
     }
 
     @GetMapping(path = "/articles/{articleId}")
