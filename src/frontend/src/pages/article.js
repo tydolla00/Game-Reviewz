@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Battlefront2 from "../assets/battlefront2.jpg";
 import Battlefront2Box from "../assets/battlefront2box.jpg";
 import ArticlesService from "../services/ArticlesService";
+
 function Article() {
   let { id } = useParams();
 
@@ -41,7 +42,7 @@ function Article() {
     if (id) getArticle(id);
   }, [id]);
 
-  return (
+  return 
     <div>
       <br />
       <div className="backgroundPhotoCont">
