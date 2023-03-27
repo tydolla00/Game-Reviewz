@@ -4,26 +4,9 @@ import CSS_logo from "../assets/CSS3_logo.png";
 import Java_logo from "../assets/Java_logo.png";
 import React_logo from "../assets/React_logo.png";
 import Discord_logo from "../assets/discord_logo.png";
+import { NavLink } from "react-router-dom";
 
 function About() {
-  const collaborators = [
-    {
-      name: "Paul Spadaccini",
-      url: "https://www.linkedin.com/in/paul-spadaccini/",
-      city: "Dobbs Ferry, NY",
-    },
-    {
-      name: "Tyheir Brooks",
-      url: "https://www.linkedin.com/in/tyheir",
-      city: "Bronx, NY",
-    },
-    {
-      name: "John Beltran",
-      url: "https://www.birdforum.net/",
-      city: "White Plains, NY",
-    },
-  ];
-
   return (
     <div>
       <br />
@@ -40,26 +23,8 @@ function About() {
 
       <br />
       <br />
-      <div
-        id="container"
-        style={{
-          height: "50vh",
-          minHeight: "275px",
-          maxHeight: "300px",
-          margin: "0",
-        }}
-      >
-        <div className="members">
-          {collaborators.map((item) => (
-            <div className="member">
-              <div className="profilePic"></div>
-              <p className="modWords">{item.name}</p>
-              <a href={item.url}>LinkedIn</a>
-              <p className="occupation">Software Engineer</p>
-              <p className="occupation">{item.city}</p>
-            </div>
-          ))}
-        </div>
+      <div>
+        <Card />
       </div>
       <br />
       <br />
@@ -81,3 +46,47 @@ function About() {
   );
 }
 export default About;
+
+function Card() {
+  const collaborators = [
+    {
+      name: "Tyheir Brooks",
+      url: "https://www.linkedin.com/in/tyheir",
+      city: "Bronx, NY",
+      path: "/portfolio/tyheir",
+    },
+    {
+      name: "John Beltran",
+      url: "https://www.birdforum.net/",
+      city: "White Plains, NY",
+      path: "/portfolio/john",
+    },
+    {
+      name: "Paul Spadaccini",
+      url: "https://www.linkedin.com/in/paul-spadaccini/",
+      city: "Dobbs Ferry, NY",
+      path: "/portfolio/paul",
+    },
+  ];
+  return (
+    <div className="membersContainer">
+      {collaborators.map((item, index) => (
+        <div className="cardContainer">
+          <div className="flexContainer">
+            <div className="profile"></div>
+          </div>
+          <div className="nameText">{item.name}</div>
+          <div className="nameText">{item.city}</div>
+          <div className="bottomContainer">
+            <NavLink to={item.path}>
+              <button className="glow-on-hover" type="button">
+                Click For a Surprise!
+              </button>
+            </NavLink>
+            <a href={item.url}>LinkedIn</a>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
