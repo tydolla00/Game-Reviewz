@@ -46,7 +46,7 @@ public class AuthenticationService {
                     new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())
             );
         }
-        catch (AuthenticationInvalidException exception){
+        catch (Exception exception){
             System.out.println("Hello World");
             throw new AuthenticationInvalidException("User Authentication failed");
         }

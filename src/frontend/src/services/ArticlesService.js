@@ -13,7 +13,12 @@ const getAll = () => {
   return http.get("/articles");
 };
 
+const getById = (id) => {
+  return http.get(`/articles/${id}`);
+};
+
 const ArticlesService = {
   getAll,
+  getById,
 };
 export default ArticlesService;
