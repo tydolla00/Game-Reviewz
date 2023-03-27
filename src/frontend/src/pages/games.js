@@ -1,6 +1,7 @@
 import hogwarts from "../assets/hogwartslegacy.jpeg";
 import eldenring from "../assets/eldenring.jpeg";
 import pokemon from "../assets/pokemonscarletviolet.jpg";
+import battlefield from "../assets/battlefront2.jpg"
 import { SearchBar } from "../components/navigation";
 import ArticlesService from "../services/ArticlesService";
 import { useState, useEffect } from "react";
@@ -11,6 +12,7 @@ const Games = (props) => {
     [1, hogwarts],
     [2, eldenring],
     [3, pokemon],
+      [4, battlefield],
   ]);
 
   // API will return array of objects so initialize state as an array.
@@ -83,11 +85,13 @@ export default Games;
 
 // Currently working on getting the correct images in place.
 export const Articles = (props) => {
+    let path = '';
   return props.db.map((item) => (
-    <>
+      <>
+          {path = item.path}
       <div className="articleBox">
         <img
-          src={props.imageMap.get(item.id)}
+          src={path}
           className="articleStyle"
           alt="A Game"
         />
