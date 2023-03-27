@@ -1,7 +1,36 @@
 import "../styles/Article.scss";
 import Battlefront2 from "../assets/battlefront2.jpg";
 import Battlefront2Box from "../assets/battlefront2box.jpg";
-function Article() {
+import {useEffect, useState} from "react";
+import hogwarts from "../assets/hogwartslegacy.jpeg";
+import eldenring from "../assets/eldenring.jpeg";
+import pokemon from "../assets/pokemonscarletviolet.jpg";
+import ArticlesService from "../services/ArticlesService";
+
+const Article  = (props) =>  {
+
+    const [article, setArticles] = useState([]);
+
+    const images = [{ hogwarts }, { eldenring }, { pokemon }];
+
+    // useEffect is called whenever the page is rendered/rerendered. [] on Line 12 allows for API to only be called once.
+    useEffect(() => {
+        retrieveArticles();
+        console.log("componenent is mounted");
+    }, []);
+
+    // gets all Articles from the Database. Calls getMethod from API which returns rows in database, then pass the data into Articles
+    const retrieveArticles = () => {
+        ArticlesService.getAll()
+            .then((response) => {
+                setArticles(response.data);
+                console.log(response.data);
+            })
+            .catch((e) => {
+                console.log(e);
+            });
+    };
+
 return(
     <div>
         <br/>

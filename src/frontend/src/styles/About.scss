@@ -1,35 +1,29 @@
 @use "Variables";
 
 .aboutTitle {
-  padding-top: 2%;
-  background-color: #474956;
-  color: white;
-  height: 20%;
+  color: black;
   font-size: calc(14px + 1vw);
-  margin: auto;
+  margin: 0;
   text-align: center;
   font-family: Open;
 }
 
 .aboutText {
-  height: 80%;
-  // margin-left: 5px;
-  // margin-right: 5px;
   font-size: calc(15px + 1vw);
-  // margin: auto;
+  margin: 0;
   max-height: 250px;
   text-align: center;
 }
 
 .aboutUs {
-  background-color: white;
-  border-style: solid;
   border-width: thin;
   flex-direction: column;
+  justify-content: center;
   height: 100%;
   margin: auto;
   min-width: 450px;
   width: 50%;
+  display: flex;
 }
 
 .bottomContainer {
@@ -55,6 +49,11 @@
   margin: auto;
   min-height: 250px;
   width: 100%;
+}
+
+hr {
+  width: 50%;
+  border-width: 2px;
 }
 
 .flexContainer {

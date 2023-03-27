@@ -13,6 +13,7 @@ function About() {
       <div id="container">
         <div className="aboutUs">
           <p className="aboutTitle">About Us</p>
+            <hr/>
           <p className="aboutText">
             We are a group of aspiring Software Engineers who came together to
             work on a common interest and become better developers.
