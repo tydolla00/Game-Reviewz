@@ -1,11 +1,7 @@
 package com.example.GameReviewz.articles;
 
-import com.example.GameReviewz.images.Images;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.util.HashSet;
-import java.util.Set;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -14,7 +10,7 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "game_articles")
-public class Articles {
+public class GameArticles{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -36,7 +32,10 @@ public class Articles {
     @Column(columnDefinition = "integer default 0")
     private int comments;
 
-    public Articles(String title, String reviewer, String review, String path, int comments){
+    @Column(columnDefinition = "varchar default 'games'")
+    private String base;
+
+    public GameArticles(String title, String reviewer, String review, String path, int comments){
         this.title = title;
         this.reviewer = reviewer;
         this.review = review;

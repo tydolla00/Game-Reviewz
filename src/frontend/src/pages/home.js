@@ -12,11 +12,46 @@ import Battlefront2 from "../assets/battlefront2.jpg";
 import Seriesx from "../assets/seriesx.jpg";
 import Zfold from "../assets/zfold.jpg";
 import "../styles/Home.scss";
+import { useEffect, useState } from "react";
+import ArticlesService from "../services/ArticlesService";
+import { NavLink } from "react-router-dom";
 
 //Notes for Paul, when defining a class use className, class is reserved for classes in React.
 // Maybe turn the container into a grid??? Can also be called from the database, maybe add columnPriority as a column and then give a priority number,
 // then in database select top 16 from columnPriority
 function Home() {
+  let demodb = [];
+  const [articles, setArticles] = useState([]);
+  const [techArticles, setTechArticles] = useState([]);
+  demodb = articles.concat(techArticles);
+  shuffleArray(demodb);
+
+  useEffect(() => {
+    retrieveArticles();
+  }, []);
+
+  const retrieveArticles = () => {
+    ArticlesService.getAllGames()
+      .then((response) => {
+        setArticles(response.data);
+      })
+      .then(() => {
+        ArticlesService.getAllTech().then((response) => {
+          setTechArticles(response.data);
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+
   const db = [
     {
       title: "Zelda Tears of the Kingdom Release Date Announced",
@@ -48,7 +83,7 @@ function Home() {
     <>
       <div className="homeContainer">
         <div className="cardsContainer">
-          <Cards db={db} />
+          <Cards db={demodb} />
         </div>
         <Sidebar />
         {/* <CarouselContainer/> */}
@@ -61,10 +96,12 @@ export default Home;
 const Cards = (props) => {
   return props.db.map((item) => (
     <>
-      <div key={item.id} className="card">
-        <img src={item.img} alt="Zelda: Tears of the Kingdom" />
-        <div id="title">{item.title}</div>
-      </div>
+      <NavLink to={`/${item.base}/` + item.id} className="navlink">
+        <div key={item.id} className="card">
+          <img src={item.path} alt="Zelda: Tears of the Kingdom" />
+          <div id="title">{item.title}</div>
+        </div>
+      </NavLink>
     </>
   ));
 };

@@ -2,7 +2,7 @@
 $enable-important-utilities: false;
 
 .active {
-  color: red;
+  // color: red;
 }
 
 .animate {
@@ -169,6 +169,9 @@ nav {
   span {
     color: red;
   }
+}
+.navlink {
+  text-decoration: none;
 }
 .navItems {
   display: flex;

@@ -27,17 +27,28 @@ function Article() {
   const [article, setArticle] = useState(initialState);
 
   const getArticle = (id) => {
-    ArticlesService.getById(id)
-      .then((res) => {
-        setArticle(res.data);
-        console.log(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    let path = window.location.pathname.substring(0, 6) === "/games";
+    if (path) {
+      ArticlesService.getGamesById(id)
+        .then((res) => {
+          setArticle(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } else {
+      ArticlesService.getTechById(id)
+        .then((res) => {
+          setArticle(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
   };
 
   useEffect(() => {
+    console.log(window.location.pathname);
     window.scrollTo(0, 0);
     if (id) getArticle(id);
   }, [id]);

@@ -1,6 +1,6 @@
 package com.example.GameReviewz.images;
 
-import com.example.GameReviewz.articles.Articles;
+import com.example.GameReviewz.articles.GameArticles;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -19,7 +19,7 @@ public class Images {
 
     @ManyToOne
     @JoinColumn(name = "id")
-    private Articles article;
+    private GameArticles article;
     @Column(name = "path")
     private String path;
 
