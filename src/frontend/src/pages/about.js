@@ -11,6 +11,7 @@ function About() {
     <div>
       <br />
       <div id="container">
+          <div className={"aboutPhoto"}> a</div>
         <div className="aboutUs">
           <p className="aboutTitle">About Us</p>
             <hr/>
