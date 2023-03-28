@@ -5,10 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-<<<<<<< HEAD
-=======
-
->>>>>>> b8cd483c081dea6bd536603c899be4d1f1fec675
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
@@ -54,17 +50,4 @@ public class ArticlesController {
     public ResponseEntity<Optional<Articles>> getArticle(@PathVariable("articleId") long articleId) {
         return new ResponseEntity<>(articlesService.getArticle(articleId),HttpStatus.OK);
     }
-
-    @GetMapping(path = "/articles/{articleId}")
-    public ResponseEntity<Optional<Articles>> getArticle(@PathVariable("articleId") long articleId) {
-        Optional<Articles> article;
-        try {
-            article = articlesRepository.findById(articleId);
-        } catch (NoSuchElementException e) {
-            return new ResponseEntity<>(null, HttpStatus.CONFLICT);
-        }
-        return new ResponseEntity<>(article, HttpStatus.OK);
-
-    }
-
 }
