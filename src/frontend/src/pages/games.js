@@ -28,6 +28,7 @@ const Games = (props) => {
 
   // gets all Articles from the Database. Calls getMethod from API which returns rows in database, then pass the data into Articles
   const retrieveArticles = () => {
+
     ArticlesService.getAllGames()
       .then((response) => {
         setArticles(response.data);
@@ -39,20 +40,42 @@ const Games = (props) => {
   };
 
   return (
-    <>
-      <h1 className="gbigText">{props.page ? props.page : "Video Games"}</h1>
-      <div className="topContainer">
-        <img
-          src={hogwarts}
-          className="articleStyle"
-          id="topStyle"
-          alt="Hogwarts Legacy"
-        />
-        <div className="rectangle">
-          {/* <h2 style={headingStyle}>{article[0].title + ": Available Now!"}</h2>
+      <>
+        <h1 className="gbigText">{props.page ? props.page : "Video Games"}</h1>
+        <div className="topContainer">
+          <img
+              src={hogwarts}
+              className="articleStyle"
+              id="topStyle"
+              alt="Hogwarts Legacy"
+          />
+          <div className="rectangle">
+            {/* <h2 style={headingStyle}>{article[0].title + ": Available Now!"}</h2>
           <div style={boxText}>{article[0].title}</div>
           <div style={boxText}>{article[0].reviewer}</div>
           <div style={boxText}>{article[0].comments + " Reviews!"}</div> */}
+          </div>
+        </div>
+        <h1 className="gbigText">
+          {props.page ? props.page : "Video Game"} Articles
+        </h1>
+        <div className="sortBox">
+          <form>
+            <label htmlFor="sort">Sort By:</label>
+            <select name="sortby" id="sort" className="selectOptions">
+              <option value="Release Date">Release Date</option>
+              <option value="Top Rated">Top Rated</option>
+              <option value="Most Reviews">Most Reviews</option>
+            </select>
+            <label htmlFor="genre">Genre:</label>
+            <select name="sortby" id="genre" className="selectOptions">
+              <option value="RPG">RPG</option>
+              <option value="FPS">FPS</option>
+              <option value="Fantasy">Fantasy</option>
+            </select>
+            <SearchBar />
+            <input id="" type="submit" value="submit" />
+          </form>
         </div>
       </div>
       <h1 className="gbigText">
@@ -106,8 +129,7 @@ export const Articles = (props) => {
             <p id="bottom">{item.comments}</p>
           </div>
         </div>
-      </div>
-      <hr className=".gline" />
-    </>
+        <hr className=".gline" />
+      </>
   ));
 };
