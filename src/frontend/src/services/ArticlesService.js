@@ -9,16 +9,26 @@ import http from "./http";
 //     },
 //   });
 
-const getAll = () => {
-  return http.get("/articles");
+const getAllGames = () => {
+  return http.get("/game/articles");
 };
 
-const getById = (id) => {
-  return http.get(`/articles/${id}`);
+const getGamesById = (id) => {
+  return http.get(`/games/${id}`);
+};
+
+const getAllTech = () => {
+  return http.get("/tech/articles");
+};
+
+const getTechById = (id) => {
+  return http.get(`/tech/${id}`);
 };
 
 const ArticlesService = {
-  getAll,
-  getById,
+  getAllGames,
+  getGamesById,
+  getAllTech,
+  getTechById,
 };
 export default ArticlesService;

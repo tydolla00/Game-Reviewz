@@ -6,6 +6,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,22 +15,44 @@ import java.util.Optional;
 public class ArticlesService {
 
     @Autowired
-    ArticlesRepository articlesRepository;
+    GameArticlesRepository gameArticlesRepository;
+    @Autowired
+    TechArticlesRepository techArticlesRepository;
 
-    public List<Articles> getAllArticles(){
-        List<Articles> articles;
+    public List<GameArticles> getAllGameArticles(){
+        List<GameArticles> articles;
         try{
-            articles = articlesRepository.findAll();
+            articles = gameArticlesRepository.findAll();
         }catch (Exception e){
             throw new ArticlesNotFoundException("Articles Database is Empty");
         }
         return articles;
     }
 
-    public Optional<Articles> getArticle(long articleId){
-        Optional<Articles> article;
+    public Optional<GameArticles> getGameArticle(long articleId){
+        Optional<GameArticles> article;
         try{
-            article = articlesRepository.findById(articleId);
+            article = gameArticlesRepository.findById(articleId);
+        } catch (Exception e){
+            throw new ArticleNotFoundException("The Article you are looking for does not exist.");
+        }
+        return article;
+    }
+
+    public List<TechArticles> getAllTechArticles(){
+        List<TechArticles> articles;
+        try{
+            articles = techArticlesRepository.findAll();
+        }catch (Exception e){
+            throw new ArticlesNotFoundException("Articles Database is Empty");
+        }
+        return articles;
+    }
+
+    public Optional<TechArticles> getTechArticle(long articleId){
+        Optional<TechArticles> article;
+        try{
+            article = techArticlesRepository.findById(articleId);
         } catch (Exception e){
             throw new ArticleNotFoundException("The Article you are looking for does not exist.");
         }

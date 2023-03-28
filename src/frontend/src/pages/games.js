@@ -19,15 +19,16 @@ const Games = (props) => {
 
   const images = [{ hogwarts }, { eldenring }, { pokemon }];
 
-  // useEffect is called whenever the page is rendered/rerendered. [] on Line 12 allows for API to only be called once.
+  // useEffect is called whenever the page is rendered/rerendered. [] allows for API to only be called once.
   useEffect(() => {
     retrieveArticles();
     console.log("componenent is mounted");
+    console.log(window.location.pathname);
   }, []);
 
   // gets all Articles from the Database. Calls getMethod from API which returns rows in database, then pass the data into Articles
   const retrieveArticles = () => {
-    ArticlesService.getAll()
+    ArticlesService.getAllGames()
       .then((response) => {
         setArticles(response.data);
         // console.log(response.data);
@@ -76,7 +77,11 @@ const Games = (props) => {
         </form>
       </div>
       <br />
-      <Articles db={article} img={images} imageMap={imageMap} />
+      <Articles
+        db={props.articles == null ? article : props.articles}
+        img={images}
+        imageMap={imageMap}
+      />
     </>
   );
 };
@@ -84,10 +89,11 @@ export default Games;
 
 // Currently working on getting the correct images in place.
 export const Articles = (props) => {
+  const page = window.location.pathname;
   return props.db.map((item) => (
     <>
       <div className="articleBox">
-        <NavLink to={"/articles/" + item.id}>
+        <NavLink to={`${page}/` + item.id}>
           <img src={item.path} className="articleStyle" alt="A Game" />
         </NavLink>
         <div className="vl"></div>
