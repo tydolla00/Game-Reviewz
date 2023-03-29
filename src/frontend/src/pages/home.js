@@ -15,11 +15,27 @@ import "../styles/Home.scss";
 import { useEffect, useState } from "react";
 import ArticlesService from "../services/ArticlesService";
 import { NavLink } from "react-router-dom";
+import CarouselComponent from "../components/carousel";
 
 //Notes for Paul, when defining a class use className, class is reserved for classes in React.
 // Maybe turn the container into a grid??? Can also be called from the database, maybe add columnPriority as a column and then give a priority number,
 // then in database select top 16 from columnPriority
 function Home() {
+  const carouselDb = [
+    {
+      img: Zelda,
+      title: "Zelda Tears of the Kingdom",
+    },
+    {
+      img: Seriesx,
+      title: "Xbox Series X",
+    },
+    {
+      img: Pixel,
+      title: "Google Pixel 7",
+    },
+  ];
+
   let demodb = [];
   const [articles, setArticles] = useState([]);
   const [techArticles, setTechArticles] = useState([]);
@@ -42,6 +58,7 @@ function Home() {
       })
       .catch((e) => {
         console.log(e);
+        return <div>Hello You have found an error</div>;
       });
   };
 
@@ -52,36 +69,11 @@ function Home() {
     }
   }
 
-  const db = [
-    {
-      title: "Zelda Tears of the Kingdom Release Date Announced",
-      img: Zelda,
-      id: 1,
-    },
-    { title: "Fifa 2023 World Cup Mode Review", img: Fifa, id: 2 },
-    { title: "Google Pixel 7 Review", img: Pixel, id: 3 },
-    {
-      title: "Star Wars: Jedi Survivor Release Date Announced",
-      img: Jedi,
-      id: 4,
-    },
-    { title: "Lego Star Wars: The Skywalker Saga Review", img: LegoSW, id: 5 },
-    { title: "Macbook Pro 2022 Review", img: Macbook, id: 6 },
-    { title: "Pokemon Platinum Review", img: Platinum, id: 7 },
-    { title: "iPhone 14 Pro Sales Reported", img: Iphone, id: 8 },
-    { title: "Xbox Series X Review", img: Seriesx, id: 9 },
-    {
-      title: "Star Wars: Battlefront 2 Expansion Review",
-      img: Battlefront2,
-      id: 10,
-    },
-    { title: "Samsung Z Fold Review", img: Zfold, id: 11 },
-    { title: "Nintendo Switch OLED Review", img: Switch, id: 12 },
-  ];
-
   return (
     <>
+      <CarouselComponent array={carouselDb} />
       <div className="homeContainer">
+        {/* <CarouselComponent img1={Zelda} img2={Seriesx} img3={Pixel} /> */}
         <div className="cardsContainer">
           <Cards db={demodb} />
         </div>

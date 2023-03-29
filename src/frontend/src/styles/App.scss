@@ -54,6 +54,51 @@ body {
   color: #495057;
 }
 
+.carouselcomponent {
+  padding-left: 2%;
+  padding-right: 2%;
+}
+.imgstyle {
+  height: 360px;
+  object-fit: cover;
+  // object-position: 20% 0;
+}
+.footer {
+  background-color: black;
+  height: 250px;
+  color: white;
+  font-size: Variables.$md-text;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    ul {
+      text-decoration: none;
+      padding-right: 10%;
+      a {
+        color: white;
+        text-decoration: none;
+        list-style: none;
+      }
+    }
+    h1 {
+      font-weight: bold;
+      span {
+        color: red;
+      }
+    }
+    p {
+      color: gray;
+      font-size: Variables.$sm-text;
+    }
+  }
+}
+
 .form-control {
   display: block;
   width: 100%;
@@ -175,6 +220,7 @@ nav {
 }
 .navItems {
   display: flex;
+  padding-left: 1%;
   li {
     list-style: none;
     .navitem {

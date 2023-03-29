@@ -13,6 +13,7 @@ import logo from "./assets/smashultimate.jpeg";
 import TyPage from "./pages/portfolios/ty";
 import JohnPage from "./pages/portfolios/john";
 import PaulPage from "./pages/portfolios/paul";
+import Footer from "./components/footer";
 
 // Navbar will be sticky and will contain links to Games, Tech, About, Community - Top Reviewers,
 // Moderators |, Login, and a Search Bar.
@@ -40,6 +41,7 @@ const App = () => {
         <Route path="/portfolio/john" element={<JohnPage />} />
         <Route path="/portfolio/paul" element={<PaulPage />} />
       </Routes>
+      <Footer />
     </Router>
   );
 };
