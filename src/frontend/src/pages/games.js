@@ -6,6 +6,12 @@ import ArticlesService from "../services/ArticlesService";
 import { useState, useEffect } from "react";
 import "../styles/Games.scss";
 import { NavLink } from "react-router-dom";
+import CarouselComponent from "../components/carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import battlefront2Big from "../assets/battlefront2.jpeg";
+import hogwartsBig from "../assets/hogwarts16-9.jpeg";
+import eldenringBig from "../assets/eldenring16-9.jpeg";
+import smashBig from "../assets/smash16-9.png";
 
 const Games = (props) => {
   let imageMap = new Map([
@@ -13,6 +19,25 @@ const Games = (props) => {
     [2, eldenring],
     [3, pokemon],
   ]);
+
+  const carouselDb = [
+    {
+      img: battlefront2Big,
+      title: "Star Wars Battlefront II",
+    },
+    {
+      img: hogwartsBig,
+      title: "Hogwarts Legacy",
+    },
+    {
+      img: eldenringBig,
+      title: "Elden Ring",
+    },
+    {
+      img: smashBig,
+      title: "Super Smash Bros Ultimate",
+    },
+  ];
 
   // API will return array of objects so initialize state as an array.
   const [article, setArticles] = useState([]);
@@ -41,24 +66,11 @@ const Games = (props) => {
   return (
     <>
       <h1 className="gbigText">{props.page ? props.page : "Video Games"}</h1>
-      <div className="topContainer">
-        <img
-          src={hogwarts}
-          className="articleStyle"
-          id="topStyle"
-          alt="Hogwarts Legacy"
-        />
-        <div className="rectangle">
-          {/* <h2 style={headingStyle}>{article[0].title + ": Available Now!"}</h2>
-          <div style={boxText}>{article[0].title}</div>
-          <div style={boxText}>{article[0].reviewer}</div>
-          <div style={boxText}>{article[0].comments + " Reviews!"}</div> */}
-        </div>
-      </div>
+      <CarouselComponent array={carouselDb} />
       <h1 className="gbigText">
         {props.page ? props.page : "Video Game"} Articles
       </h1>
-      <div className="sortBox">
+      {/* <div className="sortBox">
         <form>
           <label htmlFor="sort">Sort By:</label>
           <select name="sortby" id="sort" className="selectOptions">
@@ -75,28 +87,7 @@ const Games = (props) => {
           <SearchBar />
           <input id="" type="submit" value="submit" />
         </form>
-      </div>
-      <h1 className="gbigText">
-        {props.page ? props.page : "Video Game"} Articles
-      </h1>
-      <div className="sortBox">
-        <form>
-          <label htmlFor="sort">Sort By:</label>
-          <select name="sortby" id="sort" className="selectOptions">
-            <option value="Release Date">Release Date</option>
-            <option value="Top Rated">Top Rated</option>
-            <option value="Most Reviews">Most Reviews</option>
-          </select>
-          <label htmlFor="genre">Genre:</label>
-          <select name="sortby" id="genre" className="selectOptions">
-            <option value="RPG">RPG</option>
-            <option value="FPS">FPS</option>
-            <option value="Fantasy">Fantasy</option>
-          </select>
-          <SearchBar />
-          <input id="" type="submit" value="submit" />
-        </form>
-      </div>
+      </div> */}
       <br />
       <Articles
         db={props.articles == null ? article : props.articles}

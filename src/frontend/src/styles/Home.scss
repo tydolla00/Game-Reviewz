@@ -18,6 +18,12 @@
   border-right: 2px solid black;
   margin-right: 1%;
 }
+.hungrybox {
+  height: 540px;
+  width: 960px;
+  background-color: yellow;
+  padding: 2%;
+}
 
 .card {
   color: black;
@@ -49,6 +55,7 @@
 .homeContainer {
   display: flex;
   flex-direction: row;
+  margin-top: 1rem;
 }
 
 .list {

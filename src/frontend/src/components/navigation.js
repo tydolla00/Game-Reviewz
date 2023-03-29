@@ -19,27 +19,27 @@ const Navbar = () => {
         </li>
         <li>
           <NavLink className="navitem" to="/games">
-            Games
+            &nbsp;Games
           </NavLink>
         </li>
         <li>
           <NavLink className="navitem" to="/tech">
-            Tech
+            &nbsp;Tech
           </NavLink>
         </li>
         <li>
           <NavLink className="navitem" to="/about">
-            About
+            &nbsp;About
           </NavLink>
         </li>
         <li>
           <NavLink className="navitem" to="/community">
-            Community
+            &nbsp;Community
           </NavLink>
         </li>
         <li>
           <NavLink className="navitem" to="/contact">
-            Contact
+            &nbsp;Contact
           </NavLink>
         </li>
         <button className="loginButton" onClick={() => setModalShow(true)}>
