@@ -1,6 +1,3 @@
-import hogwarts from "../assets/hogwartslegacy.jpeg";
-import eldenring from "../assets/eldenring.jpeg";
-import pokemon from "../assets/pokemonscarletviolet.jpg";
 import { SearchBar } from "../components/navigation";
 import ArticlesService from "../services/ArticlesService";
 import { useState, useEffect } from "react";
@@ -14,12 +11,7 @@ import eldenringBig from "../assets/eldenring16-9.jpeg";
 import smashBig from "../assets/smash16-9.png";
 
 const Games = (props) => {
-  let imageMap = new Map([
-    [1, hogwarts],
-    [2, eldenring],
-    [3, pokemon],
-  ]);
-
+  // ## Static Array for the carousel component.
   const carouselDb = [
     {
       img: battlefront2Big,
@@ -41,8 +33,6 @@ const Games = (props) => {
 
   // API will return array of objects so initialize state as an array.
   const [article, setArticles] = useState([]);
-
-  const images = [{ hogwarts }, { eldenring }, { pokemon }];
 
   // useEffect is called whenever the page is rendered/rerendered. [] allows for API to only be called once.
   useEffect(() => {
@@ -89,11 +79,7 @@ const Games = (props) => {
         </form>
       </div> */}
       <br />
-      <Articles
-        db={props.articles == null ? article : props.articles}
-        img={images}
-        imageMap={imageMap}
-      />
+      <Articles db={props.articles == null ? article : props.articles} />
     </>
   );
 };

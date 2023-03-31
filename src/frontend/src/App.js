@@ -1,4 +1,3 @@
-import React from "react";
 import Navbar from "./components/navigation";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
@@ -14,6 +13,8 @@ import TyPage from "./pages/portfolios/ty";
 import JohnPage from "./pages/portfolios/john";
 import PaulPage from "./pages/portfolios/paul";
 import Footer from "./components/footer";
+import AuthVerify from "./services/AuthVerify";
+import AuthService from "./services/AuthService";
 
 // Navbar will be sticky and will contain links to Games, Tech, About, Community - Top Reviewers,
 // Moderators |, Login, and a Search Bar.
@@ -25,7 +26,7 @@ const headerFunction = () => {
 // If app acts up with CORS, whitelabel error, switch to HashRouter.
 const App = () => {
   return (
-    <Router>
+    <div>
       {/* {headerFunction()} */}
       <Navbar />
       <Routes>
@@ -41,8 +42,9 @@ const App = () => {
         <Route path="/portfolio/john" element={<JohnPage />} />
         <Route path="/portfolio/paul" element={<PaulPage />} />
       </Routes>
+      <AuthVerify logOut={AuthService.logout} />
       <Footer />
-    </Router>
+    </div>
   );
 };
 export default App;

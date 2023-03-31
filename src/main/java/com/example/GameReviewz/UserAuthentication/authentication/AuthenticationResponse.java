@@ -11,4 +11,7 @@ import org.springframework.http.ResponseEntity;
 @NoArgsConstructor
 public class AuthenticationResponse {
     private String token;
+    private Integer id;
+    private String email;
+    private String username;
 }

@@ -43,6 +43,9 @@ const SignupForm = ({ setLogin }) => {
     )
       .then((response) => {
         console.log(response.data);
+        const currentUser = AuthService.getUser();
+        console.log(currentUser);
+        console.log(currentUser.username);
         alert("Succesfully Logged in");
       })
       .catch((error) => {
