@@ -1,10 +1,24 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  DoorClosed,
+  Gear,
+  Moon,
+  PersonCircle,
+} from "react-bootstrap-icons";
+import UserService from "../services/UserService";
 import { NavLink } from "react-router-dom";
 import "../styles/App.scss";
 import Modal from "./modal";
 
 const Navbar = () => {
   const [modalShow, setModalShow] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user"));
+  const toggleDropdown = () => {
+    let dropdown = document.getElementById("showdropdown");
+    dropdown.classlist.remove("openmenu");
+  };
+
   return (
     <nav id="nav">
       <h1>
@@ -42,19 +56,87 @@ const Navbar = () => {
             &nbsp;Contact
           </NavLink>
         </li>
+      </ul>
+      {user ? (
+        <Profile />
+      ) : (
         <button className="loginButton" onClick={() => setModalShow(true)}>
           Login
         </button>
-      </ul>
+      )}
       {modalShow && <Modal show={setModalShow} />}
-      <form>
+      {/* <form>
         {SearchBar()}
         <button type="submit">Search</button>
-      </form>
+      </form> */}
     </nav>
   );
 };
 export default Navbar;
+
+const Profile = () => {
+  const user = UserService.userInfo();
+  const toggledropdown = () => {
+    let toggleDropdown = document.getElementById("showdropdown");
+    toggleDropdown.classList.add("openmenu");
+  };
+  const toggleHideDropdown = () => {
+    let toggleDropdown = document.getElementById("showdropdown");
+    toggleDropdown.classList.toggle("openmenu");
+  };
+  return (
+    <>
+      <div
+        className="profileside"
+        onMouseOver={toggledropdown}
+        // onMouseOut={toggleHideDropdown}
+        onClick={toggleHideDropdown}
+      >
+        <PersonCircle className="personcircle" />
+        <div>My Profile</div>
+      </div>
+      <div
+        className="dropdown"
+        id="showdropdown"
+        onMouseLeave={toggleHideDropdown}
+      >
+        <div className="profiletab">
+          <PersonCircle />
+          <div>{user ? user.username : "Profile Name:"}</div>
+        </div>
+        <hr />
+        <div className="dropdowntab">
+          <div>
+            <PersonCircle />
+            <div>Edit Profile</div>
+          </div>
+          <ArrowRight className="arrowdropdown" />
+        </div>
+        <div className="dropdowntab">
+          <div>
+            <Gear />
+            <div>Settings</div>
+          </div>
+          <ArrowRight className="arrowdropdown" />
+        </div>
+        <div className="dropdowntab">
+          <div>
+            <Moon />
+            <div>Dark Mode</div>
+          </div>
+          <ArrowRight className="arrowdropdown" />
+        </div>
+        <div className="dropdowntab">
+          <div>
+            <DoorClosed />
+            <div>Logout</div>
+          </div>
+          <ArrowRight className="arrowdropdown" />
+        </div>
+      </div>
+    </>
+  );
+};
 
 export const SearchBar = () => {
   const [searchInput, setSearchInput] = useState("");

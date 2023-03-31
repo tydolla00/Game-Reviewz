@@ -58,6 +58,60 @@ body {
   padding-left: 2%;
   padding-right: 2%;
 }
+.displayflex {
+  display: flex;
+}
+.dropdown {
+  position: absolute;
+  background-color: gray;
+  top: 5%;
+  right: 2%;
+  z-index: 5;
+  margin-top: 10px;
+  width: 200px;
+  max-height: 0px;
+  transition: max-height 0.5s;
+  overflow: hidden;
+  .profiletab {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px;
+    div {
+      font-size: Variables.$md-text;
+    }
+  }
+  hr {
+    width: 98%;
+  }
+  .dropdowntab {
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    font-size: Variables.$md-text;
+    font-weight: 300;
+    cursor: pointer;
+    div {
+      display: flex;
+      gap: 5px;
+      svg {
+        color: white;
+      }
+    }
+    .arrowdropdown {
+      transition: transform 0.5s;
+    }
+  }
+}
+.dropdown.openmenu {
+  max-height: 210px;
+}
+.dropdowntab:hover div {
+  font-weight: bold;
+}
+.dropdowntab:hover .arrowdropdown {
+  transform: translateX(5px);
+}
 .imgstyle {
   height: 360px;
   object-fit: cover;
@@ -209,7 +263,7 @@ nav {
   font-size: 1.5rem;
   width: 100%;
   justify-content: space-around;
-  overflow: hidden;
+  // overflow: hidden;
   align-items: center;
   span {
     color: red;
@@ -251,6 +305,14 @@ nav {
   100% {
     transform: translateX(0);
   }
+}
+.personcircle {
+  font-size: 2rem;
+}
+.profileside {
+  display: flex;
+  gap: 2px;
+  cursor: pointer;
 }
 .searchinput {
   outline: none;

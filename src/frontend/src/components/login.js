@@ -24,7 +24,10 @@ const LoginForm = ({
     AuthService.login(data.email, data.password)
       .then((response) => {
         console.log(response);
-        alert("Successfully logged in");
+        alert("Successfully logged in"); // Still need to test JWT Expiration.
+        const currentUser = AuthService.getUser();
+        console.log(currentUser);
+        console.log(currentUser.username);
       })
       .catch((error) => {
         console.log(error);
