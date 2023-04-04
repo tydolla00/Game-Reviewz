@@ -90,6 +90,60 @@ body {
 .dropdowntab:hover .arrowdropdown {
   transform: translateX(5px);
 }
+.displayflex {
+  display: flex;
+}
+.dropdown {
+  position: absolute;
+  background-color: gray;
+  top: 5%;
+  right: 2%;
+  z-index: 5;
+  margin-top: 10px;
+  width: 200px;
+  max-height: 0px;
+  transition: max-height 0.5s;
+  overflow: hidden;
+  .profiletab {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px;
+    div {
+      font-size: Variables.$md-text;
+    }
+  }
+  hr {
+    width: 98%;
+  }
+  .dropdowntab {
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    font-size: Variables.$md-text;
+    font-weight: 300;
+    cursor: pointer;
+    div {
+      display: flex;
+      gap: 5px;
+      svg {
+        color: white;
+      }
+    }
+    .arrowdropdown {
+      transition: transform 0.5s;
+    }
+  }
+}
+.dropdown.openmenu {
+  max-height: 210px;
+}
+.dropdowntab:hover div {
+  font-weight: bold;
+}
+.dropdowntab:hover .arrowdropdown {
+  transform: translateX(5px);
+}
 .imgstyle {
   height: 360px;
   object-fit: cover;

@@ -1,4 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  DoorClosed,
+  Gear,
+  Moon,
+  PersonCircle,
+} from "react-bootstrap-icons";
+import UserService from "../services/UserService";
 import { NavLink } from "react-router-dom";
 import "../styles/App.scss";
 import Modal from "./modal";
