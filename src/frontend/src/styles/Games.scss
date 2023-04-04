@@ -1,6 +1,19 @@
+@use "Variables";
+
+.articleboxcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .articleBox {
   display: flex;
   margin-bottom: 30px;
+  width: 90%;
+  h1 {
+    margin-block-start: 0;
+    font-size: Variables.$xl-text;
+  }
 }
 
 .articleStyle {
@@ -14,12 +27,14 @@
 }
 
 .articleText {
-  font-size: larger;
+  font-size: Variables.$lg-text;
+  font-style: italic;
 }
 
 #bottom {
   font-weight: bold;
-  margin-left: 10px;
+  font-size: Variables.$md-text;
+  font-style: italic;
 }
 
 .gbigText {

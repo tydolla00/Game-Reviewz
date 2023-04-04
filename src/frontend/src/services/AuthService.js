@@ -24,11 +24,15 @@ const login = (email, password) => {
       }
       console.log("authenticated " + response.data.token);
       return response.data.token;
+    })
+    .catch(() => {
+      throw new Error("Invalid Username Or Password");
     });
 };
 
 const logout = () => {
   localStorage.removeItem("user");
+  window.location.reload();
 };
 
 const getUser = () => {

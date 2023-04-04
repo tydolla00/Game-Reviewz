@@ -27,7 +27,7 @@ function Article() {
   const [article, setArticle] = useState(initialState);
 
   const getArticle = (id) => {
-    let path = window.location.pathname.substring(0, 6) === "/games";
+    let path = window.location.pathname.substring(0, 6) === "/games"; // Could cause problems
     if (path) {
       ArticlesService.getGamesById(id)
         .then((res) => {

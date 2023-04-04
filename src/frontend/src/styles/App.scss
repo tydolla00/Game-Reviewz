@@ -24,39 +24,71 @@ body {
   font-family: Variables.$siteFont;
   margin: 0;
 }
-.btn {
-  display: inline-block;
-  color: white;
-  background-color: #007bff;
-  border-color: #007bff;
-  font-weight: 400;
-  text-align: center;
-  vertical-align: middle;
-  padding: 0.375rem 0.75rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-.btn.reset {
-  background-color: rgba(255, 30, 0, 0.818);
-  // color: black;
-  border-color: rgba(255, 30, 0, 0.818);
-  float: right;
-}
-.btn.signup {
-  background-color: black;
-  color: white;
-  float: right;
-  border: none;
-}
-.btn.signedup {
-  background-color: transparent;
-  border: none;
-  color: #495057;
-}
 
 .carouselcomponent {
   padding-left: 2%;
   padding-right: 2%;
+}
+.darkmode {
+  color: white;
+  background-color: black;
+  nav {
+    color: white;
+  }
+}
+.displayflex {
+  display: flex;
+}
+.dropdown {
+  position: absolute;
+  background-color: gray;
+  top: 5%;
+  right: 2%;
+  z-index: 5;
+  margin-top: 10px;
+  width: 200px;
+  max-height: 0px;
+  transition: max-height 0.5s;
+  overflow: hidden;
+  .profiletab {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    padding: 10px;
+    div {
+      font-size: Variables.$md-text;
+    }
+  }
+  hr {
+    width: 98%;
+  }
+  .dropdowntab {
+    display: flex;
+    justify-content: space-between;
+    padding: 5%;
+    font-size: Variables.$md-text;
+    font-weight: 300;
+    cursor: pointer;
+    div {
+      display: flex;
+      gap: 5px;
+      svg {
+        color: white;
+      }
+    }
+    .arrowdropdown {
+      transition: transform 0.5s;
+    }
+  }
+}
+.dropdown.openmenu {
+  max-height: 210px;
+}
+.dropdowntab:hover div {
+  font-weight: bold;
+}
+.dropdowntab:hover .arrowdropdown {
+  transform: translateX(5px);
 }
 .displayflex {
   display: flex;
@@ -153,45 +185,8 @@ body {
   }
 }
 
-.form-control {
-  display: block;
-  width: 100%;
-  height: calc(1.5em + 0.75rem + 2px);
-  padding: 0.375rem 0.75rem;
-  font-size: 1.6rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-.form-control.is-invalid {
-  border-color: #dc3545;
-  padding-right: calc(1.5em + 0.75rem);
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%23dc3545' viewBox='0 0 12 12'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right calc(0.357em + 0.1875rem) center;
-  background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem);
-}
-.form-control.is-invalid:focus {
-  border-color: #dc3545;
-  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
-}
-.formGroup {
-  margin-bottom: 1.6rem;
-}
-
 html {
   font-size: 62.5%; //Sets the Font Size of the site to 10px instead of 16px. So now we can use rem to set px size. Ex: 15 px == 1.5rem.
-}
-.invalid-feedback {
-  color: #dc3545;
-  margin-top: 0.25rem;
-  font-size: 80%;
-  width: 100%;
 }
 
 .loading {
@@ -208,56 +203,23 @@ html {
 }
 
 .loginButton {
+  color: white;
   border: none;
-  background-color: transparent;
   font-size: 1.6rem;
-  line-height: 10px;
+  margin-right: 10px;
   cursor: pointer;
+  padding: 10px;
+  background-color: #007bff;
+}
+.loginButton.signup {
+  background-color: black;
+  color: white;
 }
 .loginButton:hover {
   font-weight: bold;
   // color: red;
 }
-.modal {
-  height: 600px;
-  width: 500px;
-  display: flex;
-  flex-direction: column;
-  background-color: white;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-}
-.modalBody {
-  display: flex;
-  justify-content: center;
-  input {
-    width: 100%;
-    outline: none;
-    border-radius: 10px;
-    background: transparent;
-  }
-}
-.modalContainer {
-  background-color: rgba(0, 0, 0, 0.4);
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  z-index: 100;
-  overflow: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.modalX {
-  display: flex;
-  background-color: transparent;
-  justify-content: flex-end;
-  border: none;
-  cursor: pointer;
-}
+
 nav {
   display: flex;
   font-size: 1.5rem;
@@ -320,9 +282,7 @@ nav {
   background: transparent;
   border: none;
 }
-#text-center {
-  text-align: center;
-}
+
 .xButton {
   background-color: transparent;
   border: none;

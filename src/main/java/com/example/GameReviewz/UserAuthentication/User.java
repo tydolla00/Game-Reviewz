@@ -1,6 +1,7 @@
 package com.example.GameReviewz.UserAuthentication;
 
 
+import com.example.GameReviewz.UserAuthentication.authentication.Provider;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -40,6 +41,8 @@ public class User implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+    @Enumerated(EnumType.STRING)
+    private Provider provider;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {

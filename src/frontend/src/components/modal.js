@@ -3,10 +3,10 @@ import { XCircleFill } from "react-bootstrap-icons";
 import SignupForm from "./signup";
 import LoginForm from "./login";
 
-const Modal = ({ show }) => {
+const Modal = ({ show, loginPage }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [login, setLogin] = useState(false);
+  const [login, setLogin] = useState(false); // Show Login or Signup Page
 
   const handleChange = (event) => {
     event.preventDefault();
@@ -25,7 +25,9 @@ const Modal = ({ show }) => {
     return false;
   };
 
+  // ## When Modal Loads, adds event listeners to listen for clicks outside modal and esc key.
   useEffect(() => {
+    setLogin(loginPage);
     const handleEsc = (event) => {
       let modal = document.getElementById("modal");
       if (event.key === "Escape" || event.target === modal) show(false);
@@ -41,15 +43,17 @@ const Modal = ({ show }) => {
         .getElementById("root")
         .removeEventListener("wheel", handleScroll);
     };
-  });
+  }, [loginPage, show]);
   return (
     <>
       <div id="modal" className="modalContainer">
         <div className="modal animate">
-          <button className="modalX" onClick={() => show(false)}>
+          <div className="modalX" onClick={() => show(false)}>
             <XCircleFill />
-          </button>
-          <h1 id="text-center">{login ? "Please Login" : "Please Sign Up"}</h1>
+          </div>
+          <h1 id="text-center">
+            {login ? "Please Login To Join GameReviewz" : "Please Sign Up"}
+          </h1>
           <div className="modalBody">
             {login ? (
               <LoginForm

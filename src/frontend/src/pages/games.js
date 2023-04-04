@@ -5,7 +5,7 @@ import "../styles/Games.scss";
 import { NavLink } from "react-router-dom";
 import CarouselComponent from "../components/carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import battlefront2Big from "../assets/battlefront2.jpeg";
+import battlefront2Big from "../assets/battlefront2.jpeg"; //battlefront2.jpg
 import hogwartsBig from "../assets/hogwarts16-9.jpeg";
 import eldenringBig from "../assets/eldenring16-9.jpeg";
 import smashBig from "../assets/smash16-9.png";
@@ -89,23 +89,23 @@ export default Games;
 export const Articles = (props) => {
   const page = window.location.pathname;
   return props.db.map((item) => (
-    <>
+    <div className="articleboxcontainer">
       <div className="articleBox">
         <NavLink to={`${page}/` + item.id}>
           <img src={item.path} className="articleStyle" alt="A Game" />
         </NavLink>
         <div className="vl"></div>
         <div>
-          <h1>{item.title}</h1>
-          <p className="articleText">{item.review}</p>
-          <div className="articleBox">
-            <p>{item.title}</p>
-            <p id="bottom">{item.reviewer}</p>
-            <p id="bottom">{item.comments}</p>
+          <h1>{`${item.title}? Worth It? Find Out More!`}</h1>
+          <p className="articleText">{item.review.split("@")[0] + "..."}</p>
+          <div className="">
+            <p id="bottom">Game: {item.title}</p>
+            <p id="bottom">Reviewer: {item.reviewer}</p>
+            <p id="bottom">Comments: {item.comments}</p>
           </div>
         </div>
       </div>
       <hr className=".gline" />
-    </>
+    </div>
   ));
 };
