@@ -1,12 +1,4 @@
-import React, { useEffect, useState } from "react";
-import {
-  ArrowRight,
-  DoorClosed,
-  Gear,
-  Moon,
-  PersonCircle,
-} from "react-bootstrap-icons";
-import UserService from "../services/UserService";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/App.scss";
 import Modal from "./modal";
@@ -20,7 +12,9 @@ const Navbar = () => {
   return (
     <nav id="nav">
       <h1>
-        Game<span>Reviewz</span>
+        <NavLink style={{ textDecoration: "none" }} to="/">
+          Game<span>Reviewz</span>
+        </NavLink>
       </h1>
       <ul className="navItems">
         <li>
