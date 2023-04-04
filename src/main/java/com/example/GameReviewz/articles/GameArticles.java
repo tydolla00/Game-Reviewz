@@ -35,12 +35,25 @@ public class GameArticles{
     @Column(columnDefinition = "varchar default 'games'")
     private String base;
 
-    public GameArticles(String title, String reviewer, String review, String path, int comments){
+    @Column(name = "date")
+    private String datePosted;
+
+    @Column(name = "genre")
+    private String genre;
+
+    @Column(name = "release_date")
+    private String releaseDate;
+
+    public GameArticles(String title, String reviewer, String review, String path, int comments, String base, String datePosted, String genre, String releaseDate){
         this.title = title;
         this.reviewer = reviewer;
         this.review = review;
         this.path = path;
         this.comments = comments;
+        this.base = base;
+        this.datePosted = datePosted;
+        this.genre = genre;
+        this.releaseDate = releaseDate;
     }
 
 }

@@ -15,6 +15,7 @@ import PaulPage from "./pages/portfolios/paul";
 import Footer from "./components/footer";
 import AuthVerify from "./services/AuthVerify";
 import AuthService from "./services/AuthService";
+import Profile from "./components/profile";
 
 // Navbar will be sticky and will contain links to Games, Tech, About, Community - Top Reviewers,
 // Moderators |, Login, and a Search Bar.
@@ -41,6 +42,7 @@ const App = () => {
         <Route path="/portfolio/tyheir" element={<TyPage />} />
         <Route path="/portfolio/john" element={<JohnPage />} />
         <Route path="/portfolio/paul" element={<PaulPage />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
       <AuthVerify logOut={AuthService.logout} />
       <Footer />

@@ -8,6 +8,7 @@ import {
 import UserService from "../services/UserService";
 import AuthService from "../services/AuthService";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 // ## This component creates the dropdown.
 export const Dropdown = () => {
@@ -15,19 +16,19 @@ export const Dropdown = () => {
 
   const handleMousedown = (e) => {
     if (
-      e.target !== toggleDropdown &&
+      e.target === toggleDropdown &&
       toggleDropdown.classList.contains("openmenu")
     ) {
       toggleDropdown.classList.toggle("openmenu");
     }
   };
-  // useEffect(() => {
-  //   window.addEventListener("mousedown", handleMousedown);
+  useEffect(() => {
+    window.addEventListener("mousedown", handleMousedown);
 
-  //   return () => {
-  //     window.removeEventListener("mousedown", handleMousedown);
-  //   };
-  // }, []);
+    return () => {
+      window.removeEventListener("mousedown", handleMousedown);
+    };
+  }, []);
 
   const user = UserService.userInfo(); // Grabs User Info From LocalStorage
   let darkMode = false;
@@ -48,6 +49,9 @@ export const Dropdown = () => {
     if (!darkMode) body.classList.toggle("darkmode");
     else body.classList.remove("darkmode");
   };
+
+  let navigate = useNavigate();
+
   return (
     <>
       <div
@@ -67,10 +71,10 @@ export const Dropdown = () => {
       >
         <div className="profiletab">
           <PersonCircle />
-          <div>{user ? user.username : "Profile Name:"}</div>
+          <div>{user.username}</div>
         </div>
         <hr />
-        <div className="dropdowntab">
+        <div className="dropdowntab" onClick={() => navigate("/profile")}>
           <div>
             <PersonCircle />
             <div>Edit Profile</div>

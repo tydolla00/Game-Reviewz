@@ -19,7 +19,7 @@ public class ImagesService {
             images = imagesRepository.findAllById(articleId);
         }
         catch (Exception e){
-            throw new ArticleNotFoundException("Bad request.");
+            throw new ArticleNotFoundException("Bad Image request.");
         }
         return images;
     }

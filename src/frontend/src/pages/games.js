@@ -9,27 +9,38 @@ import battlefront2Big from "../assets/battlefront2.jpeg"; //battlefront2.jpg
 import hogwartsBig from "../assets/hogwarts16-9.jpeg";
 import eldenringBig from "../assets/eldenring16-9.jpeg";
 import smashBig from "../assets/smash16-9.png";
+import { ChatFill } from "react-bootstrap-icons";
 
 const Games = (props) => {
-  // ## Static Array for the carousel component.
-  const carouselDb = [
+  // ## Static Array for the Games Carousel component.
+  let carouselDb = [
     {
       img: battlefront2Big,
       title: "Star Wars Battlefront II",
+      id: 4,
+      page: "games",
     },
     {
       img: hogwartsBig,
       title: "Hogwarts Legacy",
+      id: 1,
+      page: "games",
     },
     {
       img: eldenringBig,
       title: "Elden Ring",
+      id: 2,
+      page: "games",
     },
     {
       img: smashBig,
       title: "Super Smash Bros Ultimate",
+      id: 9,
+      page: "games",
     },
   ];
+
+  if (props.carouselDb != undefined) carouselDb = props.carouselDb;
 
   // API will return array of objects so initialize state as an array.
   const [article, setArticles] = useState([]);
@@ -55,11 +66,7 @@ const Games = (props) => {
 
   return (
     <>
-      <h1 className="gbigText">{props.page ? props.page : "Video Games"}</h1>
       <CarouselComponent array={carouselDb} />
-      <h1 className="gbigText">
-        {props.page ? props.page : "Video Game"} Articles
-      </h1>
       {/* <div className="sortBox">
         <form>
           <label htmlFor="sort">Sort By:</label>
@@ -101,11 +108,13 @@ export const Articles = (props) => {
           <div className="">
             <p id="bottom">Game: {item.title}</p>
             <p id="bottom">Reviewer: {item.reviewer}</p>
-            <p id="bottom">Comments: {item.comments}</p>
+            <p id="bottom">
+              <ChatFill />: {item.comments}
+            </p>
           </div>
         </div>
       </div>
-      <hr className=".gline" />
+      <hr className="gline" />
     </div>
   ));
 };

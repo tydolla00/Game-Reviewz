@@ -24,15 +24,21 @@ function Home() {
   const carouselDb = [
     {
       img: Zelda,
-      title: "Zelda Tears of the Kingdom",
+      title: "Zelda Tears of The Kingdom",
+      id: 5,
+      page: "games",
     },
     {
       img: Seriesx,
       title: "Xbox Series X",
+      id: 5,
+      page: "tech",
     },
     {
       img: Pixel,
       title: "Google Pixel 7",
+      id: 1,
+      page: "tech",
     },
   ];
 
