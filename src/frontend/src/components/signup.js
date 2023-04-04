@@ -32,25 +32,15 @@ const SignupForm = ({ setLogin }) => {
     const fullname = data.fullname.split(" ", 2);
     const firstName = fullname[0];
     const lastName = fullname[1];
-    console.log(firstName + " " + lastName);
-    console.log(JSON.stringify(data, null, 2));
     AuthService.register(
       firstName,
       lastName,
       data.username,
       data.email,
       data.password
-    )
-      .then((response) => {
-        console.log(response.data);
-        const currentUser = AuthService.getUser();
-        console.log(currentUser);
-        console.log(currentUser.username);
-        alert("Succesfully Logged in");
-      })
-      .catch((error) => {
-        console.log(error.response.data);
-      });
+    ).catch((error) => {
+      console.log(error.response.data);
+    });
   };
 
   return (
@@ -117,18 +107,18 @@ const SignupForm = ({ setLogin }) => {
         <button className="btn" type="submit">
           Sign Up
         </button>
-        <button className="btn reset" onClick={() => reset()} type="button">
+        {/* <button className="btn reset" onClick={() => reset()} type="button">
           Reset
-        </button>
+        </button> */}
       </div>
       <div className="formGroup">
-        <button
-          className="btn signedup"
+        <div
+          className="justifycenter"
           type="button"
           onClick={() => setLogin(true)}
         >
           Already Signed Up? Click here!
-        </button>
+        </div>
       </div>
     </form>
   );

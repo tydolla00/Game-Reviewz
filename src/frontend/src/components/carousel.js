@@ -5,7 +5,7 @@ import eldenring from "../assets/eldenring16-9.jpeg";
 import smash from "../assets/smash16-9.png";
 
 export default function CarouselComponent({ array = undefined }) {
-  // ## Can be used to render dynamically from the database. 300 x 970
+  // ## Can be used to render dynamically from the database. 970 x 300
   const handleSlideChange = (index) => {};
 
   // ## Default Slides Used If array is not specified.
