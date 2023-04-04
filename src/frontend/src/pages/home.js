@@ -102,7 +102,7 @@ const Cards = (props) => {
 const Sidebar = () => {
   return (
     <div className="sidebar">
-      <div className="list">
+      <div className="techList">
         <h2 className="sidebarHeader">Popular Tech Companies</h2>
         <ol className="topCompanies">
           <li>Apple</li>
@@ -113,7 +113,7 @@ const Sidebar = () => {
         </ol>
       </div>
 
-      <div className="list">
+      <div className="gamingList">
         <h2 className="sidebarHeader">Popular Gaming Companies</h2>
         <ol className="topCompanies">
           <li>Nintendo</li>
@@ -124,7 +124,7 @@ const Sidebar = () => {
         </ol>
       </div>
 
-      <div className="list">
+      <div className="releasesList">
         <h2 className="sidebarHeader">Upcoming Releases</h2>
         <ul className="releases">
           <li className="games">
