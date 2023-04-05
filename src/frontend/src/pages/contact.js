@@ -1,9 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as Yup from 'yup';
 import { PersonFill, PersonCircle, EnvelopeFill, PencilFill, PencilSquare } from "react-bootstrap-icons";
 import "../styles/Contact.scss";
+import checkmark from "../assets/checkmark.png";
 
 const Contact = () => {
   const validationSchema = Yup.object().shape({
@@ -32,9 +33,16 @@ const Contact = () => {
     console.log(JSON.stringify(data, null, 2));
   };
 
+  const[popup, setPop] = useState(false);
+  const handleClickOpen=()=>{
+    setPop(!popup);
+  }
+  const closePopup=()=>{
+    setPop(false)
+  }
   return (
     <div>
-
+    <div className={"wholeContainer"}>
     <div className="contactUs">
         <p className="contactTitle">Contact Us</p>
         <p className="contactText">
@@ -44,7 +52,6 @@ const Contact = () => {
     </div>
 
     <div className="contactContainer">
-      <h1 className="formHeader">Get in touch with us.</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="inputForms">
           <PersonFill size={13} color="red"/><label>Full Name</label>
@@ -122,13 +129,19 @@ const Contact = () => {
         </div>
 
         <div className="inputForms">
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={handleClickOpen}>
             Send
           </button>
         </div>
+        {popup?
+        <div className={"popup"}>
+          <img src={checkmark} alt={checkmark}/>
+          <p>Message sent. Thank you.</p>
+          <button type={"button"} onClick={closePopup}>OK</button>
+        </div>:""}
       </form>
     </div>
-
+    </div>
     </div>
   );
 };

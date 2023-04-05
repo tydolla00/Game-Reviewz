@@ -4,6 +4,7 @@ import CSS_logo from "../assets/CSS3_logo.png";
 import Java_logo from "../assets/Java_logo.png";
 import React_logo from "../assets/React_logo.png";
 import Discord_logo from "../assets/discord_logo.png";
+import Linkedin_logo from "../assets/Linkedin_Logo.png";
 import { NavLink } from "react-router-dom";
 
 function About() {
@@ -14,7 +15,7 @@ function About() {
           <div className={"aboutPhoto"}> a</div>
         <div className="aboutUs">
           <p className="aboutTitle">About Us</p>
-            <hr/>
+            <hr className={"hrAbout"}/>
           <p className="aboutText">
             We are a group of aspiring Software Engineers who came together to
             work on a common interest and become better developers.
@@ -31,7 +32,10 @@ function About() {
       <br />
       <div id="container">
         <div className="technologies">
-          <p className="technologiesTitleFont">Technologies</p>
+          <p className="technologiesTitleFont">
+              Technologies
+              <hr className={"hrAbout"}/>
+          </p>
           <div className="logosFit">
             {/* need to resize logos for responsiveness */}
             <img src={HTML_logo} alt={"HTML Logo"} />
@@ -79,12 +83,14 @@ function Card() {
           <div className="nameText">{item.name}</div>
           <div className="nameText">{item.city}</div>
           <div className="bottomContainer">
+              <a href={item.url}>
+                  <img className={"linkedIn"} src={Linkedin_logo} alt={"linkedin logo"}/>
+              </a>
             <NavLink to={item.path}>
               <button className="glow-on-hover" type="button">
-                Click For a Surprise!
+                Personal Page
               </button>
             </NavLink>
-            <a href={item.url}>LinkedIn</a>
           </div>
         </div>
       ))}
