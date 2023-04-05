@@ -1,6 +1,22 @@
+@use "Variables";
+
+.articleboxcontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .articleBox {
   display: flex;
   margin-bottom: 30px;
+  width: 90%;
+  a {
+    height: 300px;
+  }
+  h1 {
+    margin-block-start: 0;
+    font-size: Variables.$xl-text;
+  }
 }
 
 .articleStyle {
@@ -10,16 +26,21 @@
   width: 300px;
   // max-width: 100%;
   padding-left: 1%;
-  height: 100%;
+  height: 300px;
 }
 
 .articleText {
-  font-size: larger;
+  font-size: Variables.$lg-text;
+  font-style: italic;
 }
 
 #bottom {
   font-weight: bold;
-  margin-left: 10px;
+  font-size: Variables.$md-text;
+  font-style: italic;
+  svg {
+    font-size: Variables.$md-text;
+  }
 }
 
 .gbigText {
@@ -28,6 +49,8 @@
 }
 .gline {
   border-width: 10px;
+  width: 80%;
+  background-color: red;
 }
 
 .rectangle {

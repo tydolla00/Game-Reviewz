@@ -12,13 +12,20 @@ function About() {
     <div>
       <br />
       <div id="container">
-          <div className={"aboutPhoto"}> a</div>
+        <div className={"aboutPhoto"}> a</div>
         <div className="aboutUs">
           <p className="aboutTitle">About Us</p>
             <hr className={"hrAbout"}/>
           <p className="aboutText">
             We are a group of aspiring Software Engineers who came together to
-            work on a common interest and become better developers.
+            work on a common interest and become better developers. <br />
+            <a
+              style={{ textDecoration: "none", color: "##007bff" }}
+              href="https://github.com/tydolla00/Game-Reviewz#readme"
+              title="GameReviewz Github Repository"
+            >
+              If you would like to read more about our process, click here!
+            </a>
           </p>
         </div>
       </div>
@@ -26,7 +33,7 @@ function About() {
       <br />
       <br />
       <div>
-        <Card />
+        <Card/>
       </div>
       <br />
       <br />

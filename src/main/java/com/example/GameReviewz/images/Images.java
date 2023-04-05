@@ -9,17 +9,20 @@ import lombok.*;
 @ToString
 @Getter
 @Setter
-//@Entity
-//@Table(name = "images")
+@Entity
+@Table(name = "images")
 public class Images {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "image_id")
     private Long imageId;
 
-    @ManyToOne
-    @JoinColumn(name = "id")
-    private GameArticles article;
+//    @ManyToOne
+//    @JoinColumn(name = "id")
+//    private GameArticles article;
+    @Column(name = "article_id")
+    private Long articleId;
+
     @Column(name = "path")
     private String path;
 

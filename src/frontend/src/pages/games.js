@@ -1,6 +1,3 @@
-import hogwarts from "../assets/hogwartslegacy.jpeg";
-import eldenring from "../assets/eldenring.jpeg";
-import pokemon from "../assets/pokemonscarletviolet.jpg";
 import { SearchBar } from "../components/navigation";
 import ArticlesService from "../services/ArticlesService";
 import { useState, useEffect } from "react";
@@ -8,41 +5,45 @@ import "../styles/Games.scss";
 import { NavLink } from "react-router-dom";
 import CarouselComponent from "../components/carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import battlefront2Big from "../assets/battlefront2.jpeg";
+import battlefront2Big from "../assets/battlefront2.jpeg"; //battlefront2.jpg
 import hogwartsBig from "../assets/hogwarts16-9.jpeg";
 import eldenringBig from "../assets/eldenring16-9.jpeg";
 import smashBig from "../assets/smash16-9.png";
+import { ChatFill } from "react-bootstrap-icons";
 
 const Games = (props) => {
-  let imageMap = new Map([
-    [1, hogwarts],
-    [2, eldenring],
-    [3, pokemon],
-  ]);
-
-  const carouselDb = [
+  // ## Static Array for the Games Carousel component.
+  let carouselDb = [
     {
       img: battlefront2Big,
       title: "Star Wars Battlefront II",
+      id: 4,
+      page: "games",
     },
     {
       img: hogwartsBig,
       title: "Hogwarts Legacy",
+      id: 1,
+      page: "games",
     },
     {
       img: eldenringBig,
       title: "Elden Ring",
+      id: 2,
+      page: "games",
     },
     {
       img: smashBig,
       title: "Super Smash Bros Ultimate",
+      id: 9,
+      page: "games",
     },
   ];
 
+  if (props.carouselDb != undefined) carouselDb = props.carouselDb;
+
   // API will return array of objects so initialize state as an array.
   const [article, setArticles] = useState([]);
-
-  const images = [{ hogwarts }, { eldenring }, { pokemon }];
 
   // useEffect is called whenever the page is rendered/rerendered. [] allows for API to only be called once.
   useEffect(() => {
@@ -65,11 +66,7 @@ const Games = (props) => {
 
   return (
     <>
-      <h1 className="gbigText">{props.page ? props.page : "Video Games"}</h1>
       <CarouselComponent array={carouselDb} />
-      <h1 className="gbigText">
-        {props.page ? props.page : "Video Game"} Articles
-      </h1>
       {/* <div className="sortBox">
         <form>
           <label htmlFor="sort">Sort By:</label>
@@ -89,11 +86,7 @@ const Games = (props) => {
         </form>
       </div> */}
       <br />
-      <Articles
-        db={props.articles == null ? article : props.articles}
-        img={images}
-        imageMap={imageMap}
-      />
+      <Articles db={props.articles == null ? article : props.articles} />
     </>
   );
 };
@@ -103,23 +96,25 @@ export default Games;
 export const Articles = (props) => {
   const page = window.location.pathname;
   return props.db.map((item) => (
-    <>
+    <div className="articleboxcontainer">
       <div className="articleBox">
         <NavLink to={`${page}/` + item.id}>
           <img src={item.path} className="articleStyle" alt="A Game" />
         </NavLink>
         <div className="vl"></div>
         <div>
-          <h1>{item.title}</h1>
-          <p className="articleText">{item.review}</p>
-          <div className="articleBox">
-            <p>{item.title}</p>
-            <p id="bottom">{item.reviewer}</p>
-            <p id="bottom">{item.comments}</p>
+          <h1>{`${item.title}? Worth It? Find Out More!`}</h1>
+          <p className="articleText">{item.review.split("@")[0] + "..."}</p>
+          <div className="">
+            <p id="bottom">Game: {item.title}</p>
+            <p id="bottom">Reviewer: {item.reviewer}</p>
+            <p id="bottom">
+              <ChatFill />: {item.comments}
+            </p>
           </div>
         </div>
       </div>
-      <hr className=".gline" />
-    </>
+      <hr className="gline" />
+    </div>
   ));
 };

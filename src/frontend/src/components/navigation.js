@@ -2,13 +2,19 @@ import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import "../styles/App.scss";
 import Modal from "./modal";
+import { Dropdown } from "./dropdown";
 
 const Navbar = () => {
   const [modalShow, setModalShow] = useState(false);
+  const [login, setLogin] = useState(false);
+  const user = JSON.parse(localStorage.getItem("user")); // Gets user from localstorage.
+
   return (
     <nav id="nav">
       <h1>
-        Game<span>Reviewz</span>
+        <NavLink style={{ textDecoration: "none" }} to="/">
+          Game<span>Reviewz</span>
+        </NavLink>
       </h1>
       <ul className="navItems">
         <li>
@@ -42,35 +48,56 @@ const Navbar = () => {
             &nbsp;Contact
           </NavLink>
         </li>
-        <button className="loginButton" onClick={() => setModalShow(true)}>
-          Login
-        </button>
       </ul>
-      {modalShow && <Modal show={setModalShow} />}
-      <form>
+      {user ? (
+        <Dropdown />
+      ) : (
+        <div>
+          <button
+            className="loginButton"
+            onClick={() => {
+              setModalShow(true);
+              setLogin(true);
+            }}
+          >
+            Login
+          </button>
+          <button
+            className="loginButton signup"
+            onClick={() => {
+              setModalShow(true);
+              setLogin(false);
+            }}
+          >
+            Sign Up
+          </button>
+        </div>
+      )}
+      {modalShow && <Modal show={setModalShow} loginPage={login} />}
+      {/* <form>
         {SearchBar()}
         <button type="submit">Search</button>
-      </form>
+      </form> */}
     </nav>
   );
 };
 export default Navbar;
 
-export const SearchBar = () => {
-  const [searchInput, setSearchInput] = useState("");
-  const handleChange = (e) => {
-    e.preventDefault();
-    setSearchInput(e.target.value);
-  };
-  return (
-    <>
-      <input
-        type="text"
-        className="searchinput"
-        placeholder="Search..."
-        onChange={handleChange}
-        value={searchInput}
-      />
-    </>
-  );
-};
+// export const SearchBar = () => {
+//   const [searchInput, setSearchInput] = useState("");
+//   const handleChange = (e) => {
+//     e.preventDefault();
+//     setSearchInput(e.target.value);
+//   };
+//   return (
+//     <>
+//       <input
+//         type="text"
+//         className="searchinput"
+//         placeholder="Search..."
+//         onChange={handleChange}
+//         value={searchInput}
+//       />
+//     </>
+//   );
+// };

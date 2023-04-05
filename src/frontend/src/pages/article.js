@@ -14,6 +14,7 @@ function Article() {
     review: "",
     reviewer: "",
     comments: 0,
+    date: "",
   };
 
   const currDate = new Date();
@@ -27,11 +28,12 @@ function Article() {
   const [article, setArticle] = useState(initialState);
 
   const getArticle = (id) => {
-    let path = window.location.pathname.substring(0, 6) === "/games";
+    let path = window.location.pathname.substring(0, 6) === "/games"; // Could cause problems when move to AWS.
     if (path) {
       ArticlesService.getGamesById(id)
         .then((res) => {
           setArticle(res.data);
+          console.log(res.data);
         })
         .catch((e) => {
           console.log(e);
@@ -78,9 +80,7 @@ function Article() {
       <br />
       <div className={"articleInfo"}>
         <p className={"alignLeft"}>{`Author: ${article.reviewer}`}</p>
-        <p className={"alignRight"}>
-          Date: {`${date.month} ${date.day} ${date.year} `}
-        </p>
+        <p className={"alignRight"}>{`Date: ${article.datePosted}`}</p>
       </div>
       <br />
       <hr className={"articleHr"} />
