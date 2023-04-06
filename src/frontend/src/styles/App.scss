@@ -30,8 +30,9 @@ body {
   padding-right: 2%;
 }
 .darkmode {
-  color: white;
   background-color: black;
+  color: white;
+
   nav {
     color: white;
   }
@@ -40,21 +41,23 @@ body {
   display: flex;
 }
 .dropdown {
-  position: absolute;
   background-color: gray;
-  top: 5%;
-  right: 2%;
-  z-index: 5;
   margin-top: 10px;
-  width: 200px;
   max-height: 0px;
-  transition: max-height 0.5s;
   overflow: hidden;
+  position: absolute;
+  right: 2%;
+  top: 5%;
+  transition: max-height 0.5s;
+  width: 200px;
+  z-index: 5;
+
   .profiletab {
     display: flex;
-    justify-content: space-between;
     gap: 30px;
+    justify-content: space-between;
     padding: 10px;
+
     div {
       font-size: Variables.$md-text;
     }
@@ -63,15 +66,17 @@ body {
     width: 98%;
   }
   .dropdowntab {
+    cursor: pointer;
     display: flex;
-    justify-content: space-between;
-    padding: 5%;
     font-size: Variables.$md-text;
     font-weight: 300;
-    cursor: pointer;
+    justify-content: space-between;
+    padding: 5%;
+
     div {
       display: flex;
       gap: 5px;
+
       svg {
         color: white;
       }
@@ -94,21 +99,23 @@ body {
   display: flex;
 }
 .dropdown {
-  position: absolute;
   background-color: gray;
-  top: 5%;
-  right: 2%;
-  z-index: 5;
   margin-top: 10px;
-  width: 200px;
   max-height: 0px;
-  transition: max-height 0.5s;
   overflow: hidden;
+  position: absolute;
+  right: 2%;
+  top: 5%;
+  transition: max-height 0.5s;
+  width: 200px;
+  z-index: 5;
+
   .profiletab {
     display: flex;
-    justify-content: space-between;
     gap: 30px;
+    justify-content: space-between;
     padding: 10px;
+
     div {
       font-size: Variables.$md-text;
     }
@@ -117,15 +124,17 @@ body {
     width: 98%;
   }
   .dropdowntab {
+    cursor: pointer;
     display: flex;
-    justify-content: space-between;
-    padding: 5%;
     font-size: Variables.$md-text;
     font-weight: 300;
-    cursor: pointer;
+    justify-content: space-between;
+    padding: 5%;
+
     div {
       display: flex;
       gap: 5px;
+
       svg {
         color: white;
       }
@@ -147,33 +156,39 @@ body {
 .imgstyle {
   height: 360px;
   object-fit: cover;
-  // object-position: 20% 0;
+  object-position: 20% 0;
+
+  //
 }
 .footer {
-  background-color: black;
-  height: 250px;
-  color: white;
-  font-size: Variables.$md-text;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background-color: black;
+  color: white;
+  display: flex;
+  font-size: Variables.$md-text;
   gap: 2px;
+  height: 250px;
+  justify-content: center;
+
   div {
+    align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+
     ul {
-      text-decoration: none;
       padding-right: 10%;
+      text-decoration: none;
+
       a {
         color: white;
-        text-decoration: none;
         list-style: none;
+        text-decoration: none;
       }
     }
     h1 {
       font-weight: bold;
+
       span {
         color: red;
       }
@@ -202,31 +217,39 @@ html {
   }
 }
 
+#logo {
+  cursor: pointer;
+}
+
 .loginButton {
-  color: white;
+  background-color: #007bff;
   border: none;
+  color: white;
+  cursor: pointer;
   font-size: 1.6rem;
   margin-right: 10px;
-  cursor: pointer;
   padding: 10px;
-  background-color: #007bff;
 }
 .loginButton.signup {
   background-color: black;
   color: white;
 }
 .loginButton:hover {
+  color: red;
   font-weight: bold;
-  // color: red;
+
+  //
 }
 
 nav {
+  align-items: center;
   display: flex;
   font-size: 1.5rem;
-  width: 100%;
   justify-content: space-around;
-  // overflow: hidden;
-  align-items: center;
+  overflow: hidden;
+  width: 100%;
+
+  //
   span {
     color: red;
   }
@@ -242,8 +265,10 @@ nav a.active {
 .navItems {
   display: flex;
   padding-left: 1%;
+
   li {
     list-style: none;
+
     .navitem {
       font-size: 1.6rem;
       text-decoration: none;
@@ -254,19 +279,21 @@ nav a.active {
   content: " / ";
 }
 .navitem:hover {
+  color: red;
   font-weight: bold;
-  // color: red;
+
+  //
 }
 nav a:visited {
-  text-decoration: none;
   color: black;
+  text-decoration: none;
 }
 .notification {
-  position: absolute;
-  top: 0;
-  right: 10px;
-  background-color: lightcoral;
   animation: notiAnimation 1 1.5s;
+  background-color: lightcoral;
+  position: absolute;
+  right: 10px;
+  top: 0;
 }
 @keyframes notiAnimation {
   0% {
@@ -280,15 +307,15 @@ nav a:visited {
   font-size: 2rem;
 }
 .profileside {
+  cursor: pointer;
   display: flex;
   gap: 2px;
-  cursor: pointer;
 }
 .searchinput {
-  outline: none;
-  font-size: 1.5rem;
   background: transparent;
   border: none;
+  font-size: 1.5rem;
+  outline: none;
 }
 
 .xButton {

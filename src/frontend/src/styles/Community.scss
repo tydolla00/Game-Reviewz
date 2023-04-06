@@ -1,4 +1,4 @@
-.birthdays{
+.birthdays {
   //flex-grow: 1.5;
 }
 
@@ -44,7 +44,7 @@
   margin-bottom: 3%;
 }
 
-.eldenring{
+.eldenring {
   // background-image: url("../assets/eldenring.jpeg");
   // background-position: 24% 4.5%;
   background-color: #50c878;
@@ -56,18 +56,20 @@
   font-size: 1.5em;
 }
 
-.gameReleases{
+.gameReleases {
   //flex-grow: 2;
 }
 
-.hogwarts:hover{
+.hogwarts:hover {
   background-image: url("../assets/hogwartslegacy.jpeg");
   background-position: 30% 55%;
+  filter: brightness(50%);
 }
 
-.jedi:hover{
+.jedi:hover {
   background-image: url("../assets/jedisurvivor.jpg");
   background-position: 7.3% 28%;
+  filter: brightness(50%);
 }
 
 .mosts {
@@ -128,16 +130,17 @@
   border-bottom: 2px solid #666;
 }
 
-.spongebob:hover{
+.spongebob:hover {
   background-image: url("../assets/spongebob.jpg");
   background-position: center;
+  filter: brightness(50%);
 }
 
-.submitButton{
+.submitButton {
   margin: auto;
 }
 
-.techReleases{
+.techReleases {
   //flex-grow: 2;
 }
 
@@ -176,7 +179,8 @@
   font-size: 1.3em;
 }
 
-.zelda:hover{
+.zelda:hover {
   background-image: url("../assets/zelda.jpg");
   background-position: 40% 20%;
+  filter: brightness(50%);
 }
