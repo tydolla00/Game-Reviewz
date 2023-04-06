@@ -6,20 +6,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class ImagesService {
     @Autowired
     ImagesRepository imagesRepository;
-    public List<Images> getImagesById(long articleId) {
+    public List<Images> getGamesImagesById(long articleId) {
         List<Images> images;
         try{
-            images = imagesRepository.findAllById(articleId);
+            images = imagesRepository.findAllGamesImagesById(articleId);
         }
         catch (Exception e){
             throw new ArticleNotFoundException("Bad Image request.");
+        }
+        return images;
+    }
+
+    public List<Images> getTechImagesById(long articleId){
+        List<Images> images;
+        try{
+            images = imagesRepository.findAllTechImagesById(articleId);
+        }
+        catch (Exception e){
+            throw new ArticleNotFoundException("Bad Image Request");
         }
         return images;
     }

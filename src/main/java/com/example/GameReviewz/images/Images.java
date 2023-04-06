@@ -20,8 +20,11 @@ public class Images {
 //    @ManyToOne
 //    @JoinColumn(name = "id")
 //    private GameArticles article;
-    @Column(name = "article_id")
+    @Column(name = "games_id")
     private Long articleId;
+
+    @Column(name="tech_id")
+    private Long techId;
 
     @Column(name = "path")
     private String path;
