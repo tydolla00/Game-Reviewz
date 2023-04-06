@@ -17,6 +17,14 @@ const getGamesById = (id) => {
   return http.get(`/games/${id}`);
 };
 
+const getGamesImagesById = (id) => {
+  return http.get(`/games/images/${id}`);
+};
+
+const getTechImagesById = (id) => {
+  return http.get(`/tech/images/${id}`);
+};
+
 const getAllTech = () => {
   return http.get("/tech/articles");
 };
@@ -30,5 +38,7 @@ const ArticlesService = {
   getGamesById,
   getAllTech,
   getTechById,
+  getGamesImagesById,
+  getTechImagesById,
 };
 export default ArticlesService;
