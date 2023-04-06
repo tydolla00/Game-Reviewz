@@ -21,7 +21,7 @@ public class Images {
 //    @JoinColumn(name = "id")
 //    private GameArticles article;
     @Column(name = "games_id")
-    private Long articleId;
+    private Long gameId;
 
     @Column(name="tech_id")
     private Long techId;
