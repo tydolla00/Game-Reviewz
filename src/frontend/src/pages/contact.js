@@ -119,7 +119,6 @@ const Contact = () => {
             {errors.message?.message}
           </div>
         </div> */}
-
             <div className="inputForms">
               <PencilSquare size={13} color="red" />
               <label>Message</label>

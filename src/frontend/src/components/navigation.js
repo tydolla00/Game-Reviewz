@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/App.scss";
 import Modal from "./modal";
 import { Dropdown } from "./dropdown";
@@ -8,13 +8,12 @@ const Navbar = () => {
   const [modalShow, setModalShow] = useState(false);
   const [login, setLogin] = useState(false);
   const user = JSON.parse(localStorage.getItem("user")); // Gets user from localstorage.
+  const navigate = useNavigate();
 
   return (
     <nav id="nav">
-      <h1>
-        <NavLink style={{ textDecoration: "none" }} to="/">
-          Game<span>Reviewz</span>
-        </NavLink>
+      <h1 id="logo" onClick={() => navigate("/")}>
+        Game<span>Reviewz</span>
       </h1>
       <ul className="navItems">
         <li>

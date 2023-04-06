@@ -26,6 +26,7 @@ function Article() {
   };
 
   const [article, setArticle] = useState(initialState);
+  const [images, setImages] = useState([]);
 
   const getArticle = (id) => {
     let path = window.location.pathname.substring(0, 6) === "/games"; // Could cause problems when move to AWS.
@@ -49,11 +50,29 @@ function Article() {
     }
   };
 
+  const getImages = (id) => {
+    ArticlesService.getGamesImagesById(id)
+      .then((res) => {
+        setImages(res.data);
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+
   useEffect(() => {
     console.log(window.location.pathname);
     window.scrollTo(0, 0);
     if (id) getArticle(id);
+    getImages(id);
   }, [id]);
+
+  const SplitReview  = () => {
+    const arr = article.review.split("@");
+    return arr.map((item) => (<><p className="actualArticle">{item}</p></>)
+    )
+  };
 
   return (
     <div>
@@ -61,7 +80,7 @@ function Article() {
       <div className="backgroundPhotoCont">
         <img
           className={"blurredPhoto"}
-          src={article.path}
+          src={article.bgimage}
           alt={"Blurred BattleFront"}
         />
         <div className={"gameContainer"}>
@@ -72,23 +91,21 @@ function Article() {
           />
           <div className={"gameInfo"}>
             <p className={"gameTitle"}>{article.title}</p>
-            <p className={"gameFacts"}>Release Date:</p>
-            <p className={"gameFacts"}>Genre:</p>
+            <p
+              className={"gameFacts"}
+            >{`Release Date: ${article.releaseDate}`}</p>
+            <p className={"gameFacts"}>{`Genre: ${article.genre}`}</p>
+            <p className={"gameFacts"}>{`Author: ${article.reviewer}`}</p>
+            <p className={"gameFacts"}>{`Date: ${article.datePosted}`}</p>
           </div>
         </div>
       </div>
       <br />
-      <div className={"articleInfo"}>
-        <p className={"alignLeft"}>{`Author: ${article.reviewer}`}</p>
-        <p className={"alignRight"}>{`Date: ${article.datePosted}`}</p>
-      </div>
-      <br />
-      <hr className={"articleHr"} />
-      <br />
       <br />
       <div className={"bodyContainer"}>
         <div className={"articleContainer"}>
-          <p className={"actualArticle"}>{article.review}</p>
+          <SplitReview />
+          <img src={images[0]?.path} />
         </div>
         <div className={"possiblyAds"}>
           <div className={"unknown"}>

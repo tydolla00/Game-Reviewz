@@ -1,64 +1,61 @@
 .backgroundPhotoCont {
-  position: relative;
-  height: 60vh;
-  min-height: 300px;
   background-color: black;
-  width: 100%;
-  top: 0;
+  height: 60vh;
   left: 0;
+  min-height: 300px;
+  position: relative;
+  top: 0;
+  width: 100%;
 }
 
 .blurredPhoto {
-  position: relative;
-  width: 100%;
-  height: 100%;
   filter: blur(8px) brightness(50%);
+  height: 100%;
   object-fit: cover;
+  position: relative;
   top: 0;
-  left: 0;
+  width: 100%;
 }
 
 .gameBox {
-  position: absolute;
-  width: 150px;
   height: 252px;
   object-fit: cover;
+  position: absolute;
+  width: 150px;
 }
 
 .gameContainer {
+  display: flex;
+  height: 84%;
+  left: 5%;
   position: absolute;
   top: 8%;
-  left: 5%;
   width: 90%;
-  height: 84%;
-  display: flex;
 }
 
 .gameInfo {
   height: 100%;
   width: 100%;
+  margin-bottom: 0;
+  margin-left: 160px;
+  margin-top: 0;
 }
 
 .gameTitle {
-  margin-left: 160px;
   color: white;
   font-size: calc(20px + 0.5vw);
-  margin-top: 0;
-  margin-bottom: 0;
-  height: 215px;
+  margin: 0;
+  // height: 215px;
 }
 
 .gameFacts {
-  margin-left: 160px;
-  font-size: calc(13px + 0.1vw);
   color: white;
-  margin-top: 0;
-  margin-bottom: 0;
+  font-size: calc(13px + 0.1vw);
 }
 
 .articleInfo {
-  font-size: calc(12px + 0.1vw);
   color: #495057;
+  font-size: calc(12px + 0.1vw);
   height: calc(12px + 0.1vw);
   margin: 0 4%;
 }
@@ -77,77 +74,77 @@
 }
 
 .bodyContainer {
-  margin: 0 6%;
   display: flex;
+  margin: 0 6%;
 }
 .articleContainer {
-  width: 80%;
   border-right: 1px;
   border-style: none solid none none;
+  width: 80%;
 }
 
 .actualArticle {
   font-size: 16px;
-  margin: 0 3.25%;
   line-height: 1.5;
+  margin-bottom: 2em;
 }
 
 .possiblyAds {
-  width: 20%;
-  margin: 0 2.5%;
-  display: flex;
+  display: none;
   flex-direction: column;
+  margin: 0 2.5%;
+  width: 20%;
 }
 .unknown {
-  height: 300px;
-  width: 100%;
   background-color: white;
+  height: 300px;
   margin-bottom: 15%;
+  width: 100%;
 }
 
 .unknownTitle {
-  background-color: #900d09;
-  height: 10%;
-  margin: auto;
-  display: flex;
   align-items: center;
-  padding-left: 5%;
+  background-color: #900d09;
+  color: white;
+  display: flex;
   font-size: 16px;
   font-weight: bold;
-  color: white;
+  height: 10%;
+  margin: auto;
+  padding-left: 5%;
 }
 
 .commentsTitle {
   color: black;
   font-size: calc(20px + 0.5vw);
-  margin: 0 3%;
   font-weight: bold;
+  margin: 0 3%;
 }
 
 .commentsSection {
-  width: 80%;
-  margin: 0;
   display: flex;
-  max-width: 1000px;
   flex-direction: column;
+  margin: 0;
+  max-width: 1000px;
+  width: 80%;
 }
 
 .userCommentContainer {
+  border-style: none none solid none;
+  border: 2px;
+  display: flex;
   margin: 0 2.75% 10px 2.75%;
   padding-bottom: 10px;
-  display: flex;
-  border: 2px;
-  border-style: none none solid none;
 }
 
 .userPhotoContainer {
-  width: 100%;
+  margin: 1%;
   max-height: 80px;
   max-width: 80px;
-  min-width: 50px;
   min-height: 50px;
+  min-width: 50px;
   position: relative;
-  margin: 1%;
+  width: 100%;
 }
 .userPhotoContainer::after {
   content: "";
@@ -156,33 +153,33 @@
 }
 
 .userPhoto {
-  position: relative;
-  width: 100%;
+  border-radius: 50%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  position: relative;
+  width: 100%;
 }
 
 .userInfo {
-  text-align: center;
-  font-size: 14px;
   color: black;
+  font-size: 14px;
   height: 14px;
-  margin: 1.5% 1%;
   justify-content: space-between;
+  margin: 1.5% 1%;
+  text-align: center;
 }
 
 .otherContainer {
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  width: 100%;
 }
 
 .userComment {
-  margin: 1%;
   font-size: 14px;
   line-height: 1.5;
+  margin: 1%;
 }
 
 .comment {
@@ -190,19 +187,19 @@
 }
 
 .otherArticlesContainer {
-  width: 20%;
-  margin: 0 0 auto auto;
   display: flex;
-  min-width: 200px;
   flex-direction: column;
   justify-content: center;
+  margin: 0 0 auto auto;
+  min-width: 200px;
+  width: 20%;
 }
 
 .otherArticle {
-  height: 100%;
-  margin: auto 2.75% 25px 2.75%;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  margin: auto 2.75% 25px 2.75%;
 }
 
 .otherArticlePhoto {
@@ -213,11 +210,11 @@
 }
 
 .otherArticleTitle {
-  font-weight: bold;
-  width: 100%;
-  margin: 0;
   font-size: 13px;
+  font-weight: bold;
   line-height: 1.5;
+  margin: 0;
+  width: 100%;
 }
 
 @media only screen and (max-width: 900px) {
@@ -228,17 +225,17 @@
     display: none;
   }
   .articleContainer {
-    width: 100%;
     border-right: 0;
+    width: 100%;
   }
   .actualArticle {
-    width: 100%;
     margin: auto;
     text-align: left;
+    width: 100%;
   }
   .commentsSection {
-    width: 100%;
     max-width: 900px;
+    width: 100%;
   }
 }
 
@@ -249,6 +246,4 @@
   .articleContainer {
     width: available;
   }
-  // .actualArticle {
-  // }
 }
