@@ -20,6 +20,7 @@ public class Images {
 //    @ManyToOne
 //    @JoinColumn(name = "id")
 //    private GameArticles article;
+
     @Column(name = "games_id")
     private Long gameId;
 

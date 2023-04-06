@@ -123,7 +123,6 @@ function Article() {
           </div>
         </div>
       </div>
-
       <br />
       <br />
       <div className={"bodyContainer"}>
