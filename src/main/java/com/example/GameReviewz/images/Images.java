@@ -22,7 +22,7 @@ public class Images {
 //    private GameArticles article;
 
     @Column(name = "games_id")
-    private Long gamesdId;
+    private Long gameId;
 
     @Column(name="tech_id")
     private Long techId;

@@ -51,7 +51,9 @@ function Article() {
   };
 
   const getImages = (id) => {
-    ArticlesService.getGamesImagesById(id)
+    let path = window.location.pathname.substring(0, 6) === "/games";
+    if(path) {
+      ArticlesService.getGamesImagesById(id)
       .then((res) => {
         setImages(res.data);
         console.log(res.data);
@@ -59,6 +61,17 @@ function Article() {
       .catch((e) => {
         console.log(e);
       });
+    }
+    else {
+    ArticlesService.getTechImagesById(id)
+      .then((res) => {
+        setImages(res.data);
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    }
   };
 
   useEffect(() => {
@@ -70,7 +83,17 @@ function Article() {
 
   const SplitReview  = () => {
     const arr = article.review.split("@");
-    return arr.map((item) => (<><p className="actualArticle">{item}</p></>)
+    let i = 0;
+    return arr.map((item) => (
+      <>
+        <p className="actualArticle">{item}</p>
+        {
+          item.charAt(0) === '+' && <img src={images[i]?.path} alt="images"/>
+        }
+        {++i}
+        {console.log(i)}
+      </>
+      )
     )
   };
 
@@ -105,7 +128,7 @@ function Article() {
       <div className={"bodyContainer"}>
         <div className={"articleContainer"}>
           <SplitReview />
-          <img src={images[0]?.path} />
+          <img src={images[0]?.path} alt="apples" />
         </div>
         <div className={"possiblyAds"}>
           <div className={"unknown"}>
