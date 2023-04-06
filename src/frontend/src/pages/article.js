@@ -68,7 +68,11 @@ function Article() {
     getImages(id);
   }, [id]);
 
-  console.log(images.path);
+  const SplitReview  = () => {
+    const arr = article.review.split("@");
+    return arr.map((item) => (<><p className="actualArticle">{item}</p></>)
+    )
+  };
 
   return (
     <div>
@@ -76,7 +80,7 @@ function Article() {
       <div className="backgroundPhotoCont">
         <img
           className={"blurredPhoto"}
-          src={article.path}
+          src={article.bgimage}
           alt={"Blurred BattleFront"}
         />
         <div className={"gameContainer"}>
@@ -101,7 +105,7 @@ function Article() {
       <br />
       <div className={"bodyContainer"}>
         <div className={"articleContainer"}>
-          <p className={"actualArticle"}>{article.review}</p>
+          <SplitReview />
           <img src={images[0]?.path} />
         </div>
         <div className={"possiblyAds"}>
