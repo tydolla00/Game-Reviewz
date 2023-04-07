@@ -11,6 +11,7 @@ import {
 } from "react-bootstrap-icons";
 import "../styles/Contact.scss";
 import checkmark from "../assets/checkmark.png";
+import {useState} from "react";
 
 const Contact = () => {
   const validationSchema = Yup.object().shape({
@@ -46,6 +47,7 @@ const Contact = () => {
 
   return (
       <div>
+        <div className={"wholeContainer"}>
         <div className="contactUs">
           <p className="contactTitle">Contact Us</p>
           <p className="contactText">
@@ -144,6 +146,7 @@ const Contact = () => {
                 </div>:""}
           </form>
         </div>
+      </div>
       </div>
   );
 };
