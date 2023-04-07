@@ -10,11 +10,6 @@ import java.util.Optional;
 
 @Repository
 public interface ImagesRepository extends JpaRepository<Images, Long> {
-    @Query(value = "SELECT * FROM IMAGES WHERE article_id = :id", nativeQuery = true)
-    List<Images> findAllById(@Param("id") long articleId);
-
-@Repository
-public interface ImagesRepository extends JpaRepository<Images, Long> {
     @Query(value = "SELECT * FROM IMAGES WHERE games_id = :id", nativeQuery = true)
     List<Images> findAllGamesImagesById(@Param("id") long articleId);
 

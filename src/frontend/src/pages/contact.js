@@ -7,11 +7,13 @@ import {
   PersonCircle,
   EnvelopeFill,
   PencilFill,
-  PencilSquare,
+  PencilSquare, CheckCircleFill,
 } from "react-bootstrap-icons";
 import "../styles/Contact.scss";
 import checkmark from "../assets/checkmark.png";
 import {useState} from "react";
+import userService from "../services/UserService";
+import UserService from "../services/UserService";
 
 const Contact = () => {
   const validationSchema = Yup.object().shape({
@@ -20,8 +22,8 @@ const Contact = () => {
     // .min(6, 'Username must be at least 6 characters')
     // .max(20, 'Username must not exceed 20 characters'),
     email: Yup.string().required("Email is required").email("Email is invalid"),
-    subject: Yup.string().required("Subject is required"),
-    message: Yup.string().required("Message is required"),
+    subject: Yup.string().required("Subject is required") .max(50, "Subject cannot exceed 50 characters"),
+    message: Yup.string().required("Message is required") .max(300, "Message cannot exceed 300 characters"),
   });
 
   const {
@@ -34,7 +36,10 @@ const Contact = () => {
   });
 
   const onSubmit = (data) => {
+    UserService.addForm(data);
     console.log(JSON.stringify(data, null, 2));
+    handleClickOpen()
+
   };
 
   const[popup, setPop] = useState(false);
@@ -43,6 +48,7 @@ const Contact = () => {
   }
   const closePopup=()=>{
     setPop(false)
+    window.location.reload();
   }
 
   return (
@@ -134,13 +140,14 @@ const Contact = () => {
             </div>
 
             <div className="inputForms">
-              <button type="submit" className="btn btn-primary" onClick={handleClickOpen}>
+              <button type="submit" className="btn btn-primary" >
                 Send
               </button>
             </div>
             {popup?
                 <div className={"popup"}>
-                  <img src={checkmark} alt={checkmark}/>
+                  {/*<img src={checkmark} alt={"checkmark"}/>*/}
+                  <CheckCircleFill className={"checkCircleFill"}/>
                   <p>Message sent. Thank you.</p>
                   <button type={"button"} onClick={closePopup}>OK</button>
                 </div>:""}
