@@ -6,6 +6,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+
 @Repository
 public interface ImagesRepository extends JpaRepository<Images, Long> {
     @Query(value = "SELECT * FROM IMAGES WHERE games_id = :id", nativeQuery = true)

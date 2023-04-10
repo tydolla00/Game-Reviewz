@@ -1,7 +1,7 @@
 import axios from "axios";
 import { authHeader } from "./AuthService";
 
-const API_URL = "http://localhost:8080/api/v1/test/";
+const API_URL = "http://localhost:8080/api/v1/";
 
 const getPublicContent = () => {
   return axios.get(API_URL + "all");
@@ -24,11 +24,17 @@ const userInfo = () => {
   if (user) return user;
 };
 
+const addForm = (data) => {
+  return axios.post(API_URL + "contactform",data);
+}
+
 const UserService = {
   getPublicContent,
   getUserBoard,
   getModeratorBoard,
   getAdminBoard,
   userInfo,
+  addForm
 };
+
 export default UserService;
