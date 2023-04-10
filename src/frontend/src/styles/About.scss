@@ -7,6 +7,10 @@
   text-align: center;
   font-family: Open;
 }
+.linkedIn{
+  width: 100%;
+  margin: auto;
+}
 
 .aboutPhoto {
   top: 0;
@@ -42,7 +46,7 @@
   flex-direction: column;
   gap: 10px;
   align-items: center;
-  margin: 10% 0 10px 0;
+  margin: 5% 0 10px 0;
 }
 
 .cardContainer {
@@ -60,7 +64,7 @@
   position: relative;
 }
 
-hr {
+.hrAbout {
   width: 50%;
   border-width: 2px;
 }
@@ -75,9 +79,10 @@ hr {
 
 .glow-on-hover {
   width: 100%;
-  height: 50px;
+  height: 40px;
   border: none;
   outline: none;
+  font-size: calc(10px + .75vw);
   color: #fff;
   background: #111;
   cursor: pointer;
@@ -91,13 +96,14 @@ hr {
   background: linear-gradient(
     45deg,
     #ff0000,
-    #ff7300,
-    #fffb00,
-    #48ff00,
-    #00ffd5,
-    #002bff,
-    #7a00ff,
-    #ff00c8,
+                  #353935,
+                  #000000,
+                  #353437,
+                  #ff0000,
+                  #353437,
+                  #000000,
+                  #353935,
+                  #1A1A1B,
     #ff0000
   );
   position: absolute;
@@ -105,7 +111,7 @@ hr {
   left: -2px;
   background-size: 400%;
   z-index: -1;
-  filter: blur(5px);
+  filter: blur(1px);
   width: calc(100% + 4px);
   height: calc(100% + 4px);
   animation: glowing 20s linear infinite;
@@ -119,8 +125,8 @@ hr {
   content: "";
   position: absolute;
   width: 100%;
+  background-color: #1A1A1B;
   height: 100%;
-  background: #111;
   left: 0;
   top: 0;
   border-radius: 10px;
@@ -163,8 +169,9 @@ hr {
   width: 100%;
   margin: auto;
   img {
-    height: 55%;
+    height: 6vw;
     margin: auto;
+    min-height: 65px;
   }
 }
 
@@ -192,9 +199,11 @@ hr {
   justify-content: center;
   align-items: center;
 
-  a:nth-child(2) {
+  a:nth-child(1) {
     text-decoration: none;
-    margin-top: 5px;
+    min-width: 80px;
+    width: 25%;
+    margin-top: auto;
     color: #0000ee;
     font-size: Variables.$md-text;
   }
@@ -209,10 +218,10 @@ hr {
 }
 
 .profile {
-  height: 15vw;
+  height: 20vw;
   /* padding-top: 100%; */
   /* aspect-ratio: 1/1; */
-  width: 15vw;
+  width: 20vw;
   max-height: 150px;
   max-width: 150px;
   min-width: 75px;
@@ -253,13 +262,10 @@ hr {
 }
 
 .technologies {
-  background-color: white;
-  border-style: solid;
-  border-width: thin;
   flex-direction: column;
   height: 100%;
   margin: auto;
-  min-width: 450px;
+  min-width: 400px;
   width: 50%;
 }
 
@@ -285,11 +291,29 @@ hr {
   .nameText{
     font-size: Variables.$lg-text / 2;
   }
+  .technologies {
+  }
+
 
 }
-@media only screen and (max-width: 400px) {
+@media only screen and (max-width: 450px) {
+  .membersContainer {
+    flex-direction: column;
+  }
+  .cardContainer {
+    width: 80%;
+    margin: 5px auto;
+  }
+  .profile {
+    width: 35vw;
+    height: 35vw;
+  }
   .nameText{
-    font-size: 10px;
+    font-size: 15px;
+  }
+  .technologies {
+    width: 95%;
+    min-width: 0;
   }
 
 }

@@ -51,7 +51,9 @@ function Article() {
   };
 
   const getImages = (id) => {
-    ArticlesService.getGamesImagesById(id)
+    let path = window.location.pathname.substring(0, 6) === "/games";
+    if(path) {
+      ArticlesService.getGamesImagesById(id)
       .then((res) => {
         setImages(res.data);
         console.log(res.data);
@@ -59,6 +61,17 @@ function Article() {
       .catch((e) => {
         console.log(e);
       });
+    }
+    else {
+    ArticlesService.getTechImagesById(id)
+      .then((res) => {
+        setImages(res.data);
+        console.log(res.data);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    }
   };
 
   useEffect(() => {
@@ -68,7 +81,21 @@ function Article() {
     getImages(id);
   }, [id]);
 
-  console.log(images.path);
+  const SplitReview  = () => {
+    const arr = article.review.split("@");
+    let i = 0;
+    return arr.map((item) => (
+      <>
+        <p className="actualArticle">{item}</p>
+        {
+          item.charAt(0) === '+' && <img src={images[i]?.path} alt="images"/>
+        }
+        {++i}
+        {console.log(i)}
+      </>
+      )
+    )
+  };
 
   return (
     <div>
@@ -76,7 +103,7 @@ function Article() {
       <div className="backgroundPhotoCont">
         <img
           className={"blurredPhoto"}
-          src={article.path}
+          src={article.bgimage}
           alt={"Blurred BattleFront"}
         />
         <div className={"gameContainer"}>
@@ -96,13 +123,12 @@ function Article() {
           </div>
         </div>
       </div>
-
       <br />
       <br />
       <div className={"bodyContainer"}>
         <div className={"articleContainer"}>
-          <p className={"actualArticle"}>{article.review}</p>
-          <img src={images[0]?.path} />
+          <SplitReview />
+          <img src={images[0]?.path} alt="apples" />
         </div>
         <div className={"possiblyAds"}>
           <div className={"unknown"}>

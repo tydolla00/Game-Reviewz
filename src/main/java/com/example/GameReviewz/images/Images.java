@@ -20,8 +20,9 @@ public class Images {
 //    @ManyToOne
 //    @JoinColumn(name = "id")
 //    private GameArticles article;
+
     @Column(name = "games_id")
-    private Long gamesId;
+    private Long gameId;
 
     @Column(name="tech_id")
     private Long techId;
