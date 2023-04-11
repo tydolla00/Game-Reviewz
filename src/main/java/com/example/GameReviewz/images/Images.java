@@ -17,10 +17,6 @@ public class Images {
     @Column(name = "image_id")
     private Long imageId;
 
-//    @ManyToOne
-//    @JoinColumn(name = "id")
-//    private GameArticles article;
-
     @Column(name = "games_id")
     private Long gameId;
 
