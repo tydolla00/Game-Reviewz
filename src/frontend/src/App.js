@@ -17,12 +17,6 @@ import AuthVerify from "./services/AuthVerify";
 import AuthService from "./services/AuthService";
 import Profile from "./components/profile";
 
-// Navbar will be sticky and will contain links to Games, Tech, About, Community - Top Reviewers,
-// Moderators |, Login, and a Search Bar.
-const headerFunction = () => {
-  return <img src={logo} className="img" alt="Header" />;
-};
-
 // Contains the Routing for the layout of the website.
 // If app acts up with CORS, whitelabel error, switch to HashRouter.
 const App = () => {

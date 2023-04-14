@@ -7,12 +7,11 @@ import {
   PersonCircle,
   EnvelopeFill,
   PencilFill,
-  PencilSquare, CheckCircleFill,
+  PencilSquare,
+  CheckCircleFill,
 } from "react-bootstrap-icons";
 import "../styles/Contact.scss";
-import checkmark from "../assets/checkmark.png";
-import {useState} from "react";
-import userService from "../services/UserService";
+import { useState } from "react";
 import UserService from "../services/UserService";
 
 const Contact = () => {
@@ -22,8 +21,12 @@ const Contact = () => {
     // .min(6, 'Username must be at least 6 characters')
     // .max(20, 'Username must not exceed 20 characters'),
     email: Yup.string().required("Email is required").email("Email is invalid"),
-    subject: Yup.string().required("Subject is required") .max(50, "Subject cannot exceed 50 characters"),
-    message: Yup.string().required("Message is required") .max(300, "Message cannot exceed 300 characters"),
+    subject: Yup.string()
+      .required("Subject is required")
+      .max(50, "Subject cannot exceed 50 characters"),
+    message: Yup.string()
+      .required("Message is required")
+      .max(300, "Message cannot exceed 300 characters"),
   });
 
   const {
@@ -38,22 +41,21 @@ const Contact = () => {
   const onSubmit = (data) => {
     UserService.addForm(data);
     console.log(JSON.stringify(data, null, 2));
-    handleClickOpen()
-
+    handleClickOpen();
   };
 
-  const[popup, setPop] = useState(false);
-  const handleClickOpen=()=>{
+  const [popup, setPop] = useState(false);
+  const handleClickOpen = () => {
     setPop(!popup);
-  }
-  const closePopup=()=>{
-    setPop(false)
+  };
+  const closePopup = () => {
+    setPop(false);
     window.location.reload();
-  }
+  };
 
   return (
-      <div>
-        <div className={"wholeContainer"}>
+    <div>
+      <div className={"wholeContainer"}>
         <div className="contactUs">
           <p className="contactTitle">Contact Us</p>
           <p className="contactText">
@@ -69,10 +71,12 @@ const Contact = () => {
               <PersonFill size={13} color="red" />
               <label>Full Name</label>
               <input
-                  name="fullname"
-                  type="text"
-                  {...register("fullname")}
-                  className={`form-control ${errors.fullname ? "is-invalid" : ""}`}
+                name="fullname"
+                type="text"
+                {...register("fullname")}
+                className={`form-control ${
+                  errors.fullname ? "is-invalid" : ""
+                }`}
               />
               <div className="invalid-feedback">{errors.fullname?.message}</div>
             </div>
@@ -81,10 +85,12 @@ const Contact = () => {
               <PersonCircle size={13} color="red" />
               <label>Username (optional)</label>
               <input
-                  name="username"
-                  type="text"
-                  {...register("username")}
-                  className={`form-control ${errors.username ? "is-invalid" : ""}`}
+                name="username"
+                type="text"
+                {...register("username")}
+                className={`form-control ${
+                  errors.username ? "is-invalid" : ""
+                }`}
               />
               <div className="invalid-feedback">{errors.username?.message}</div>
             </div>
@@ -93,10 +99,10 @@ const Contact = () => {
               <EnvelopeFill size={13} color="red" />
               <label>Email</label>
               <input
-                  name="email"
-                  type="email"
-                  {...register("email")}
-                  className={`form-control ${errors.email ? "is-invalid" : ""}`}
+                name="email"
+                type="email"
+                {...register("email")}
+                className={`form-control ${errors.email ? "is-invalid" : ""}`}
               />
               <div className="invalid-feedback">{errors.email?.message}</div>
             </div>
@@ -105,10 +111,10 @@ const Contact = () => {
               <PencilFill size={13} color="red" />
               <label>Subject</label>
               <input
-                  name="subject"
-                  type="text"
-                  {...register("subject")}
-                  className={`form-control ${errors.subject ? "is-invalid" : ""}`}
+                name="subject"
+                type="text"
+                {...register("subject")}
+                className={`form-control ${errors.subject ? "is-invalid" : ""}`}
               />
               <div className="invalid-feedback">{errors.subject?.message}</div>
             </div>
@@ -131,30 +137,35 @@ const Contact = () => {
               <PencilSquare size={13} color="red" />
               <label>Message</label>
               <textarea
-                  name="message"
-                  placeholder="Write your message here..."
-                  {...register("message")}
-                  className={`form-control ${errors.message ? "is-invalid" : ""}`}
+                name="message"
+                placeholder="Write your message here..."
+                {...register("message")}
+                className={`form-control ${errors.message ? "is-invalid" : ""}`}
               ></textarea>
               <div className="invalid-feedback">{errors.message?.message}</div>
             </div>
 
             <div className="inputForms">
-              <button type="submit" className="btn btn-primary" >
+              <button type="submit" className="btn btn-primary">
                 Send
               </button>
             </div>
-            {popup?
-                <div className={"popup"}>
-                  {/*<img src={checkmark} alt={"checkmark"}/>*/}
-                  <CheckCircleFill className={"checkCircleFill"}/>
-                  <p>Message sent. Thank you.</p>
-                  <button type={"button"} onClick={closePopup}>OK</button>
-                </div>:""}
+            {popup ? (
+              <div className={"popup"}>
+                {/*<img src={checkmark} alt={"checkmark"}/>*/}
+                <CheckCircleFill className={"checkCircleFill"} />
+                <p>Message sent. Thank you.</p>
+                <button type={"button"} onClick={closePopup}>
+                  OK
+                </button>
+              </div>
+            ) : (
+              ""
+            )}
           </form>
         </div>
       </div>
-      </div>
+    </div>
   );
 };
 

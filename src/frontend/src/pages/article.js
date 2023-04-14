@@ -1,9 +1,9 @@
 import "../styles/Article.scss";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Battlefront2 from "../assets/battlefront2.jpg";
-import Battlefront2Box from "../assets/battlefront2box.jpg";
 import ArticlesService from "../services/ArticlesService";
+import MWII from "../assets/mwII.jpeg";
+import Ty from "../assets/ty.PNG";
 
 function Article() {
   let { id } = useParams();
@@ -52,25 +52,24 @@ function Article() {
 
   const getImages = (id) => {
     let path = window.location.pathname.substring(0, 6) === "/games";
-    if(path) {
+    if (path) {
       ArticlesService.getGamesImagesById(id)
-      .then((res) => {
-        setImages(res.data);
-        console.log(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-    }
-    else {
-    ArticlesService.getTechImagesById(id)
-      .then((res) => {
-        setImages(res.data);
-        console.log(res.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+        .then((res) => {
+          setImages(res.data);
+          console.log(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    } else {
+      ArticlesService.getTechImagesById(id)
+        .then((res) => {
+          setImages(res.data);
+          console.log(res.data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
     }
   };
 
@@ -81,20 +80,15 @@ function Article() {
     getImages(id);
   }, [id]);
 
-  const SplitReview  = () => {
+  const SplitReview = () => {
     const arr = article.review.split("@");
     let i = 0;
     return arr.map((item) => (
       <>
         <p className="actualArticle">{item}</p>
-        {
-          item.charAt(0) === '+' && <img src={images[i]?.path} alt="images"/>
-        }
-        {++i}
-        {console.log(i)}
+        {item.charAt(0) === "+" && <img src={images[i]?.path} alt="images" />}
       </>
-      )
-    )
+    ));
   };
 
   return (
@@ -128,7 +122,6 @@ function Article() {
       <div className={"bodyContainer"}>
         <div className={"articleContainer"}>
           <SplitReview />
-          <img src={images[0]?.path} alt="apples" />
         </div>
         <div className={"possiblyAds"}>
           <div className={"unknown"}>
@@ -154,7 +147,7 @@ function Article() {
             <div className={"userPhotoContainer"}>
               <img
                 className={"userPhoto"}
-                src={Battlefront2Box}
+                src={Ty}
                 alt={"BattleFront Box Art"}
               />
             </div>
@@ -175,7 +168,7 @@ function Article() {
             <div className={"userPhotoContainer"}>
               <img
                 className={"userPhoto"}
-                src={Battlefront2Box}
+                src={Ty}
                 alt={"BattleFront Box Art"}
               />
             </div>
@@ -191,7 +184,7 @@ function Article() {
             <div className={"userPhotoContainer"}>
               <img
                 className={"userPhoto"}
-                src={Battlefront2Box}
+                src={Ty}
                 alt={"BattleFront Box Art"}
               />
             </div>
@@ -207,7 +200,7 @@ function Article() {
             <div className={"userPhotoContainer"}>
               <img
                 className={"userPhoto"}
-                src={Battlefront2Box}
+                src={Ty}
                 alt={"BattleFront Box Art"}
               />
             </div>
@@ -224,7 +217,7 @@ function Article() {
           <div className={"otherArticle"}>
             <img
               className={"otherArticlePhoto"}
-              src={Battlefront2}
+              src={Ty}
               alt={"Blurred BattleFront"}
             ></img>
             <p className={"otherArticleTitle"}>Title of Game</p>
@@ -232,7 +225,7 @@ function Article() {
           <div className={"otherArticle"}>
             <img
               className={"otherArticlePhoto"}
-              src={Battlefront2}
+              src={Ty}
               alt={"Blurred BattleFront"}
             ></img>
             <p className={"otherArticleTitle"}>Title of Game</p>
@@ -240,7 +233,7 @@ function Article() {
           <div className={"otherArticle"}>
             <img
               className={"otherArticlePhoto"}
-              src={Battlefront2}
+              src={Ty}
               alt={"Blurred BattleFront"}
             ></img>
             <p className={"otherArticleTitle"}>Title of Game</p>

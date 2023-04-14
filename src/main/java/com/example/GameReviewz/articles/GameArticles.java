@@ -1,6 +1,7 @@
 package com.example.GameReviewz.articles;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @NoArgsConstructor
@@ -15,19 +16,25 @@ public class GameArticles{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-//    @OneToMany(mappedBy = "article", cascade = CascadeType.ALL)
-//    private Set<Images> images = new HashSet<>();
     @Column(name = "title")
     private String title;
 
     @Column(name = "reviewer")
     private String reviewer;
 
+    @Size(max = 4000)
     @Column(name = "review")
     private String review;
 
+    @Size(max = 1000)
+    @Column(name = "rating")
+    private String rating;
+
     @Column(name = "path")
     private String path;
+
+    @Column(name = "bg_image")
+    private String bgimage;
 
     @Column(columnDefinition = "integer default 0")
     private int comments;
@@ -44,11 +51,13 @@ public class GameArticles{
     @Column(name = "release_date")
     private String releaseDate;
 
-    public GameArticles(String title, String reviewer, String review, String path, int comments, String base, String datePosted, String genre, String releaseDate){
+    public GameArticles(String title, String reviewer, String review, String rating, String path, String bgimage, int comments, String base, String datePosted, String genre, String releaseDate){
         this.title = title;
         this.reviewer = reviewer;
         this.review = review;
+        this.rating = rating;
         this.path = path;
+        this.bgimage = bgimage;
         this.comments = comments;
         this.base = base;
         this.datePosted = datePosted;

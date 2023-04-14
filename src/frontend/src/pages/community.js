@@ -1,5 +1,4 @@
 import "../styles/Community.scss";
-import Battlefront2 from "../assets/battlefront2.jpg";
 import { Person } from "react-bootstrap-icons";
 import { BalloonFill } from "react-bootstrap-icons";
 import { Alarm } from "react-bootstrap-icons";
@@ -81,25 +80,25 @@ export default function Community() {
   ];
 
   const birthdayDB = [
-    {user: "tybroooks", birthday: "April 2", id: 1},
-    {user: "iamsith69", birthday: "June 6", id: 2},
-    {user: "johnbboy", birthday: "June 22", id: 3},
-    {user: "spadpaul", birthday: "July 23", id: 4},
-  ]
+    { user: "tybroooks", birthday: "April 2", id: 1 },
+    { user: "iamsith69", birthday: "June 6", id: 2 },
+    { user: "johnbboy", birthday: "June 22", id: 3 },
+    { user: "spadpaul", birthday: "July 23", id: 4 },
+  ];
 
   const gamesDB = [
-    {game: "Hogwarts Legacy", date: "2/10/23", id: 1},
-    {game: "Jedi Survivor", date: "3/17/23", id: 2},
-    {game: "Zelda: Tears of the Kingdom", date: "5/12/23", id: 3},
-    {game: "Suicide Squad: Kill the Justice League", date: "5/26/23", id: 4},
-  ]
+    { game: "Hogwarts Legacy", date: "2/10/23", id: 1 },
+    { game: "Jedi Survivor", date: "3/17/23", id: 2 },
+    { game: "Zelda: Tears of the Kingdom", date: "5/12/23", id: 3 },
+    { game: "Suicide Squad: Kill the Justice League", date: "5/26/23", id: 4 },
+  ];
 
   const techDB = [
-    {game: "iPhone 15", date: "2/10/23", id: 1},
-    {game: "Google Pixel 11", date: "3/17/23", id: 2},
-    {game: "Macbook Pro 2023", date: "5/12/23", id: 3},
-    {game: "Microsoft Surface 6", date: "5/26/23", id: 4},
-  ]
+    { game: "iPhone 15", date: "2/10/23", id: 1 },
+    { game: "Google Pixel 11", date: "3/17/23", id: 2 },
+    { game: "Macbook Pro 2023", date: "5/12/23", id: 3 },
+    { game: "Microsoft Surface 6", date: "5/26/23", id: 4 },
+  ];
 
   return (
     <>
@@ -195,7 +194,7 @@ export default function Community() {
                 <MostListUsers db={db} />
               </ul>
             </div>
-            
+
             <div className="column birthdays">
               <b className="mosts">Upcoming User Birthdays</b>
               <ul className="userNames">

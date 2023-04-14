@@ -84,7 +84,7 @@
     user-drag: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
-    animation: animateMoon 5s ease-in-out infinite;
+    animation: animateMoon 8s ease-in-out infinite;
   }
   .tyMe {
     position: absolute;
@@ -94,7 +94,7 @@
     // user-drag: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
-    animation: animateMoon 5s ease-in-out infinite;
+    animation: animateMoon 8s ease-in-out infinite;
     // box-shadow: inset 0 0 40px 16px;
   }
 }
@@ -103,8 +103,11 @@
   0% {
     transform: translateY(0px);
   }
-  100% {
+  50% {
     transform: translateY(50px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 

@@ -1,16 +1,7 @@
-// import CarouselContainer from "../components/carousel";
-import Zelda from "../assets/zelda.jpg";
-import Fifa from "../assets/fifa23.jpg";
-import Pixel from "../assets/googlepixel.jpg";
-import Jedi from "../assets/jedisurvivor.jpg";
-import LegoSW from "../assets/legostarwars.jpg";
-import Macbook from "../assets/macbook.jpg";
-import Platinum from "../assets/pokemonplatinum.jpg";
-import Iphone from "../assets/iphone14pro.jpg";
-import Switch from "../assets/switch.jpg";
-import Battlefront2 from "../assets/battlefront2.jpg";
+import Macbook from "../assets/macbookblur.jpg";
+import MW from "../assets/mwblurII.jpg";
+import iPad from "../assets/ipad9.jpg";
 import Seriesx from "../assets/seriesx.jpg";
-import Zfold from "../assets/zfold.jpg";
 import "../styles/Home.scss";
 import { useEffect, useState } from "react";
 import ArticlesService from "../services/ArticlesService";
@@ -23,21 +14,21 @@ import CarouselComponent from "../components/carousel";
 function Home() {
   const carouselDb = [
     {
-      img: Zelda,
-      title: "Zelda Tears of The Kingdom",
-      id: 5,
+      img: MW,
+      title: "Call of Duty: Modern Warfrare II",
+      id: 8,
       page: "games",
     },
     {
       img: Seriesx,
       title: "Xbox Series X",
-      id: 5,
+      id: 1,
       page: "tech",
     },
     {
-      img: Pixel,
-      title: "Google Pixel 7",
-      id: 1,
+      img: iPad,
+      title: "iPad 9th Generation",
+      id: 2,
       page: "tech",
     },
   ];
@@ -96,7 +87,7 @@ const Cards = (props) => {
     <>
       <NavLink to={`/${item.base}/` + item.id} className="navlink">
         <div key={item.id} className="card">
-          <img src={item.path} alt="Zelda: Tears of the Kingdom" />
+          <img className="cardimg" src={item.path} alt="Cards on Home Page" />
           <div id="title">{item.title}</div>
         </div>
       </NavLink>

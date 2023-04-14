@@ -15,7 +15,7 @@ function About() {
         <div className={"aboutPhoto"}> a</div>
         <div className="aboutUs">
           <p className="aboutTitle">About Us</p>
-            <hr className={"hrAbout"}/>
+          <hr className={"hrAbout"} />
           <p className="aboutText">
             We are a group of aspiring Software Engineers who came together to
             work on a common interest and become better developers. <br />
@@ -24,7 +24,8 @@ function About() {
               href="https://github.com/tydolla00/Game-Reviewz#readme"
               title="GameReviewz Github Repository"
             >
-              If you would like to read more about our process, click here!
+              If you would like to read more about our process, click here to go
+              to our Github Repository!
             </a>
           </p>
         </div>
@@ -33,15 +34,15 @@ function About() {
       <br />
       <br />
       <div>
-        <Card/>
+        <Card />
       </div>
       <br />
       <br />
       <div id="container">
         <div className="technologies">
           <p className="technologiesTitleFont">
-              Technologies
-              <hr className={"hrAbout"}/>
+            Technologies
+            <hr className={"hrAbout"} />
           </p>
           <div className="logosFit">
             {/* need to resize logos for responsiveness */}
@@ -90,9 +91,13 @@ function Card() {
           <div className="nameText">{item.name}</div>
           <div className="nameText">{item.city}</div>
           <div className="bottomContainer">
-              <a href={item.url}>
-                  <img className={"linkedIn"} src={Linkedin_logo} alt={"linkedin logo"}/>
-              </a>
+            <a href={item.url}>
+              <img
+                className={"linkedIn"}
+                src={Linkedin_logo}
+                alt={"linkedin logo"}
+              />
+            </a>
             <NavLink to={item.path}>
               <button className="glow-on-hover" type="button">
                 Personal Page
