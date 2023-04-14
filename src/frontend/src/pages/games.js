@@ -1,40 +1,40 @@
 import { SearchBar } from "../components/navigation";
 import ArticlesService from "../services/ArticlesService";
 import { useState, useEffect } from "react";
+import MW from "../assets/mwblurII.jpg";
+import ScarletViolet from "../assets/scarletvioletblur.jpg";
+import Fortnite from "../assets/fortnitecarousel.jpeg";
+import RocketLeague from "../assets/rocketleagueblur.jpeg";
 import "../styles/Games.scss";
 import { NavLink } from "react-router-dom";
 import CarouselComponent from "../components/carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import battlefront2Big from "../assets/battlefront2.jpeg"; //battlefront2.jpg
-import hogwartsBig from "../assets/hogwarts16-9.jpeg";
-import eldenringBig from "../assets/eldenring16-9.jpeg";
-import smashBig from "../assets/smash16-9.png";
 import { ChatFill } from "react-bootstrap-icons";
 
 const Games = (props) => {
   // ## Static Array for the Games Carousel component.
   let carouselDb = [
     {
-      img: battlefront2Big,
-      title: "Star Wars Battlefront II",
-      id: 4,
+      img: ScarletViolet,
+      title: "Pokemon Scarlet and Violet",
+      id: 7,
       page: "games",
     },
     {
-      img: hogwartsBig,
-      title: "Hogwarts Legacy",
+      img: Fortnite,
+      title: "Fortnite",
       id: 1,
       page: "games",
     },
     {
-      img: eldenringBig,
-      title: "Elden Ring",
-      id: 2,
+      img: MW,
+      title: "Call of Duty: Modern Warfrare II",
+      id: 8,
       page: "games",
     },
     {
-      img: smashBig,
-      title: "Super Smash Bros Ultimate",
+      img: RocketLeague,
+      title: "Rocket League",
       id: 9,
       page: "games",
     },
@@ -67,24 +67,7 @@ const Games = (props) => {
   return (
     <>
       <CarouselComponent array={carouselDb} />
-      {/* <div className="sortBox">
-        <form>
-          <label htmlFor="sort">Sort By:</label>
-          <select name="sortby" id="sort" className="selectOptions">
-            <option value="Release Date">Release Date</option>
-            <option value="Top Rated">Top Rated</option>
-            <option value="Most Reviews">Most Reviews</option>
-          </select>
-          <label htmlFor="genre">Genre:</label>
-          <select name="sortby" id="genre" className="selectOptions">
-            <option value="RPG">RPG</option>
-            <option value="FPS">FPS</option>
-            <option value="Fantasy">Fantasy</option>
-          </select>
-          <SearchBar />
-          <input id="" type="submit" value="submit" />
-        </form>
-      </div> */}
+      {/* Sort Here */}
       <br />
       <Articles db={props.articles == null ? article : props.articles} />
     </>
@@ -104,7 +87,8 @@ export const Articles = (props) => {
         <div className="vl"></div>
         <div>
           <h1>{`${item.title}? Worth It? Find Out More!`}</h1>
-          <p className="articleText">{item.review.split("@")[0] + "..."}</p>
+          {/* <p className="articleText">{item.review.split("@")[0] + "..."}</p> */}
+          <p className="articleText">{item.review.substring(0, 500) + "..."}</p>
           <div className="">
             <p id="bottom">Game: {item.title}</p>
             <p id="bottom">Reviewer: {item.reviewer}</p>

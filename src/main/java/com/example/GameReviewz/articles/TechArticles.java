@@ -1,6 +1,7 @@
 package com.example.GameReviewz.articles;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 @NoArgsConstructor
@@ -26,8 +27,13 @@ public class TechArticles {
     @Column(name = "review")
     private String review;
 
+    @Size(max = 1000)
+    @Column(name = "rating")
+    private String rating;
+
     @Column(name = "path")
     private String path;
+
     @Column(name = "bg_image")
     private String bgimage;
 

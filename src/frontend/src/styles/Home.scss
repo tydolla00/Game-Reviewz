@@ -18,6 +18,12 @@
   border-right: 2px solid black;
   margin-right: 1%;
 }
+
+.cardimg {
+  object-fit: cover;
+  object-position: 0 2%;
+}
+
 .hungrybox {
   height: 540px;
   width: 960px;

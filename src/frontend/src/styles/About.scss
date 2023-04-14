@@ -7,7 +7,7 @@
   text-align: center;
   font-family: Open;
 }
-.linkedIn{
+.linkedIn {
   width: 100%;
   margin: auto;
 }
@@ -62,6 +62,8 @@
   min-height: 250px;
   width: 100%;
   position: relative;
+  left: 0;
+  right: 0;
 }
 
 .hrAbout {
@@ -82,7 +84,7 @@
   height: 40px;
   border: none;
   outline: none;
-  font-size: calc(10px + .75vw);
+  font-size: calc(10px + 0.75vw);
   color: #fff;
   background: #111;
   cursor: pointer;
@@ -96,14 +98,14 @@
   background: linear-gradient(
     45deg,
     #ff0000,
-                  #353935,
-                  #000000,
-                  #353437,
-                  #ff0000,
-                  #353437,
-                  #000000,
-                  #353935,
-                  #1A1A1B,
+    #353935,
+    #000000,
+    #353437,
+    #ff0000,
+    #353437,
+    #000000,
+    #353935,
+    #1a1a1b,
     #ff0000
   );
   position: absolute;
@@ -125,7 +127,7 @@
   content: "";
   position: absolute;
   width: 100%;
-  background-color: #1A1A1B;
+  background-color: #1a1a1b;
   height: 100%;
   left: 0;
   top: 0;
@@ -142,6 +144,10 @@
   100% {
     background-position: 0 0;
   }
+}
+
+.groupContainer {
+  position: relative;
 }
 
 // #hr {
@@ -281,20 +287,17 @@
 // }
 
 @media only screen and (max-width: 700px) {
-  .nameText{
+  .nameText {
     font-size: Variables.$lg-text / 1.5;
   }
-
 }
 
 @media only screen and (max-width: 500px) {
-  .nameText{
+  .nameText {
     font-size: Variables.$lg-text / 2;
   }
   .technologies {
   }
-
-
 }
 @media only screen and (max-width: 450px) {
   .membersContainer {
@@ -308,12 +311,11 @@
     width: 35vw;
     height: 35vw;
   }
-  .nameText{
+  .nameText {
     font-size: 15px;
   }
   .technologies {
     width: 95%;
     min-width: 0;
   }
-
 }

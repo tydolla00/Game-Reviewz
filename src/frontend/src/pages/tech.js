@@ -2,29 +2,29 @@ import Games from "./games";
 import { useState, useEffect } from "react";
 import ArticlesService from "../services/ArticlesService";
 import Seriesx from "../assets/seriesx.jpg";
-import Zfold from "../assets/zfold.jpg";
-import Pixel from "../assets/googlepixel.jpg";
+import iPad from "../assets/ipad9.jpg";
+import iPhone from "../assets/iphone13problur.jpg";
 
 export default function Tech() {
   const [articles, setArticles] = useState([]);
 
   const carouselDb = [
     {
-      img: Zfold,
-      title: "Samsung Z Fold",
-      id: 6,
+      img: iPad,
+      title: "iPad 9th Generation",
+      id: 2,
       page: "tech",
     },
     {
       img: Seriesx,
       title: "Xbox Series X",
-      id: 5,
+      id: 1,
       page: "tech",
     },
     {
-      img: Pixel,
-      title: "Google Pixel 7",
-      id: 1,
+      img: iPhone,
+      title: "iPhone 13 Pro",
+      id: 5,
       page: "tech",
     },
   ];

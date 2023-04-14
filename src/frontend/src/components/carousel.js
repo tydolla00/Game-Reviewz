@@ -1,8 +1,8 @@
 import { Carousel } from "react-responsive-carousel";
-import battlefront2 from "../assets/battlefront2.jpeg";
-import hogwarts from "../assets/hogwarts16-9.jpeg";
-import eldenring from "../assets/eldenring16-9.jpeg";
-import smash from "../assets/smash16-9.png";
+import ScarletViolet from "../assets/scarletvioletblur.jpg";
+import Fortnite from "../assets/fortnitecarousel.jpeg";
+import SeriesX from "../assets/seriesx.jpg";
+import iPad from "../assets/ipad9Blur.jpg";
 
 export default function CarouselComponent({ array = undefined }) {
   // ## Can be used to render dynamically from the database. 300 x 970
@@ -11,32 +11,32 @@ export default function CarouselComponent({ array = undefined }) {
   // ## Default Slides Used If array is not specified.
   const defaultArray = [
     {
-      img: battlefront2,
-      title: "Star Wars Battlefront II",
-      id: 4,
+      img: ScarletViolet,
+      title: "Pokemon Scarlet and Violet",
+      id: 7,
       page: "games",
     },
     {
-      img: hogwarts,
-      title: "Hogwarts Legacy",
+      img: Fortnite,
+      title: "Fortnite",
       id: 1,
       page: "games",
     },
     {
-      img: eldenring,
-      title: "Elden Ring",
-      id: 2,
-      page: "games",
+      img: SeriesX,
+      title: "Xbox Series X",
+      id: 1,
+      page: "tech",
     },
     {
-      img: smash,
-      title: "Super Smash Bros Ultimate",
-      id: 9,
-      page: "games",
+      img: iPad,
+      title: "iPad 9th Generation",
+      id: 2,
+      page: "tech",
     },
   ];
 
-  if (array === undefined) array = defaultArray;
+  if (array === undefined || array.length < 1) array = defaultArray;
 
   const handleSlideClicked = (index) => {
     console.log("Hello World");
