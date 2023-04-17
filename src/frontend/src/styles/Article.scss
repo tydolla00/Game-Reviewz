@@ -17,6 +17,16 @@
   width: 100%;
 }
 
+.commentarea {
+  display: flex;
+  justify-content: center;
+  textarea {
+    padding: 1%;
+    width: 50%;
+    border-radius: 10px;
+  }
+}
+
 .gameBox {
   height: 252px;
   object-fit: cover;

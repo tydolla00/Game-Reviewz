@@ -77,6 +77,7 @@ function Home() {
         <Sidebar />
         {/* <CarouselContainer/> */}
       </div>
+      <br />
     </>
   );
 }

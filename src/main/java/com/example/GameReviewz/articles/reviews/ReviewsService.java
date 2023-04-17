@@ -37,7 +37,7 @@ public class ReviewsService {
 
     public Reviews addTechReview(Reviews reviews) {
         try{
-            return reviewsRepository.save(new Reviews(reviews.getTechId(), reviews.getReview()));
+            return reviewsRepository.save(new Reviews(reviews.getTechId(), reviews.getComment()));
         }
         catch (Exception e){
             throw new ArticleNotFoundException("Bad Request");
@@ -46,7 +46,7 @@ public class ReviewsService {
 
     public Reviews addGameReviewById(Reviews reviews) {
         try{
-            return reviewsRepository.save(new Reviews(reviews.getReview(), reviews.getGamesId()));
+            return reviewsRepository.save(new Reviews(reviews.getComment(), reviews.getGamesId()));
         }
         catch(Exception e){
             throw new ArticleNotFoundException("Bad Request");

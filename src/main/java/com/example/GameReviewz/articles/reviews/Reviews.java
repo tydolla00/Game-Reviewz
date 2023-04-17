@@ -12,13 +12,13 @@ import lombok.*;
 @Table(name = "reviews")
 public class Reviews {
 //  Used for TechPostMaps
-    public Reviews(long techId, String review){
+    public Reviews(long techId, String comment){
         this.techId = techId;
-        this.review = review;
+        this.comment = comment;
     }
 //  Used for GamesPostMaps
-    public Reviews(String review, Long gamesId){
-        this.review = review;
+    public Reviews(String comment, Long gamesId){
+        this.comment = comment;
         this.gamesId = gamesId;
     }
 
@@ -27,7 +27,16 @@ public class Reviews {
     private Long id;
 
     @Column
-    private String review;
+    private String comment;
+
+    @Column(name = "user_id")
+    private Long userId;
+
+    @Column(name = "parent_id")
+    private Integer parentId;
+
+    @Column
+    private
 
     @Column(name = "tech_id")
     private Long techId;
