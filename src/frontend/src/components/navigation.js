@@ -15,6 +15,9 @@ const Navbar = () => {
       <h1 id="logo" onClick={() => navigate("/")}>
         Game<span>Reviewz</span>
       </h1>
+      <h1 id="logoShort" onClick={() => navigate("/")}>
+        G<span>R</span>
+      </h1>
       <ul className="navItems">
         <li>
           {/* activeClassName */}
@@ -51,7 +54,7 @@ const Navbar = () => {
       {user ? (
         <Dropdown />
       ) : (
-        <div>
+        <div className={"loginContainer"}>
           <button
             className="loginButton"
             onClick={() => {
