@@ -1,4 +1,3 @@
-import axios from "axios";
 import http from "./http";
 
 // const http = () =>
@@ -42,3 +41,17 @@ const ArticlesService = {
   getTechImagesById,
 };
 export default ArticlesService;
+
+const getComments = () => {
+  return http.get("/comments");
+};
+const createComment = () => {};
+const updateComment = () => {};
+const deleteComment = () => {};
+
+export const CommentsService = {
+  getComments,
+  createComment,
+  updateComment,
+  deleteComment,
+};

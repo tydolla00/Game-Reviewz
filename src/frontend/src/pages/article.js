@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import ArticlesService from "../services/ArticlesService";
 import MWII from "../assets/mwII.jpeg";
 import Ty from "../assets/ty.PNG";
+import Comments from "../components/comments/Comments";
 
 function Article() {
   let { id } = useParams();
@@ -75,9 +76,11 @@ function Article() {
 
   useEffect(() => {
     console.log(window.location.pathname);
-    window.scrollTo(0, 0);
-    if (id) getArticle(id);
-    getImages(id);
+    console.log(id);
+    if (id) {
+      getArticle(id);
+      // window.scrollTo(0, 0);
+    }
   }, [id]);
 
   const SplitReview = () => {
@@ -139,8 +142,11 @@ function Article() {
       <br />
       <p className={"commentsTitle"}>Comments</p>
       <hr className={"articleHr"} />
-      <br />
-      <br />
+      <Comments currentUserId="1" />
+      {/* <h1 className="commentsTitle">Leave a comment</h1>
+      <div className="commentarea">
+        <textarea placeholder="Leave some text"></textarea>
+      </div>
       <div className={"bodyContainer"}>
         <div className={"commentsSection"}>
           <div className={"userCommentContainer"}>
@@ -241,7 +247,7 @@ function Article() {
         </div>
       </div>
       <br />
-      <br />
+      <br /> */}
     </div>
   );
 }
