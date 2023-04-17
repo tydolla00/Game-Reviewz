@@ -309,15 +309,31 @@ html {
 
 #logo {
   cursor: pointer;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
+#logoShort {
+  display: none;
+  cursor: pointer;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+
+.loginContainer{
+  display: flex;
+  min-width: 150px;
+  height: 100%;
+  justify-content: space-between;
+  margin: auto 10px;
+}
 .loginButton {
-  background-color: #007bff;
+  background-color: black;
   border: none;
   color: white;
   cursor: pointer;
-  font-size: 1.6rem;
-  margin-right: 10px;
+  font-size: 1.5rem;
   padding: 10px;
 }
 .loginButton.signup {
@@ -333,9 +349,8 @@ nav {
   align-items: center;
   display: flex;
   font-size: 1.5rem;
-  justify-content: space-around;
-  overflow: hidden;
   width: 100%;
+  background-color: white;
   span {
     color: red;
   }
@@ -350,19 +365,24 @@ nav a.active {
 }
 .navItems {
   display: flex;
-  padding-left: 1%;
+  height: 100%;
+  width: 100%;
+  margin: auto 10px;
+  padding: 0;
+  align-items: center;
+
 
   li {
     list-style: none;
+    margin: auto 10px;
 
     .navitem {
-      font-size: 1.6rem;
+      font-size: 1.5rem;
       text-decoration: none;
     }
   }
 }
 .navitem::after {
-  content: " / ";
 }
 .navitem:hover {
   color: red;
@@ -378,6 +398,52 @@ nav a:visited {
   position: absolute;
   right: 10px;
   top: 0;
+}
+@media only screen and (max-width: 810px) {
+  nav{
+    font-size: 1rem;
+  }
+  .navItems{
+    margin: 0;
+    li{
+      margin: auto 5px;
+      .navitem{
+        font-size: 1rem;
+      }
+    }
+  }
+  .loginButton{
+    font-size: 1rem;
+    padding: 6px;
+  }
+  .loginContainer{
+    min-width: 90px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  #logo{
+    display: none;
+  }
+  #logoShort{
+    display: inline-block;
+  }
+  .loginContainer{
+    margin: auto 5px;
+  }
+
+}
+@media only screen and (max-width: 410px) {
+  .loginContainer{
+    margin: auto;
+    width: auto;
+  }
+  .navItems {
+    width: auto;
+    li {
+      margin: auto 3px;
+    }
+  }
+
 }
 @keyframes notiAnimation {
   0% {

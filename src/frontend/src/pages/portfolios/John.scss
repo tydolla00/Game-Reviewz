@@ -1,0 +1,67 @@
+.container {
+  display: flex;
+  height: auto;
+}
+.profileContainer{
+  width: 100%;
+  padding: 0 10px;
+  margin: auto;
+  align-items: center;
+  display: flex;
+  background: url("https://e0.pxfuel.com/wallpapers/527/1001/desktop-wallpaper-sunset-top-best-sunset-background-relaxing-sunset.jpg") fixed;
+  background-size: cover;
+  background-position: center;
+}
+.profileIntro{
+  font-size: 16px;
+  width: 70%;
+  margin: 66.2px auto;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+.profilePhoto{
+  background-color: white;
+  margin: 7em auto;
+  width: 25em;
+  border-radius: 50%;
+  height: 25em;
+}
+.greetingPara{
+  font-size: 1.2em;
+  margin: 10px 0;
+  line-height: 1.5;
+  text-align: left;
+}
+.greeting{
+  margin: 0;
+  text-align: left;
+}
+
+@media only screen and (max-width: 975px) {
+  .profileContainer {
+    flex-direction: column-reverse;
+  }
+  .profilePhoto{
+    width: 20em;
+    height: 20em;
+    margin: 5em auto;
+  }
+  .profileIntro{
+    font-size: 14px;
+    width: 80%;
+    margin: 20px auto;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .profilePhoto{
+    width: 15em;
+    height: 15em;
+    margin:2.5em auto;
+  }
+  .profileIntro{
+    font-size: 12px;
+    width: 80%;
+    margin: 10px auto;
+  }
+}
