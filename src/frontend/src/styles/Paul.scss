@@ -1,0 +1,112 @@
+.paulAbout{
+    margin-left: 13%;
+    margin-right: 10%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    h3{
+        font-size: 1.5vw;
+        color: #18D5FE;
+    }
+    p{
+        font-size: 1.5vw;
+    }
+    a{
+        color: #18D5FE;
+    }
+}
+
+.paulHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+    h1{
+        font-size: 3vw;
+        font-size-adjust: .5;
+        color: white;
+    }
+    p{
+        font-size: 2vw;
+        font-size-adjust: 0.5;
+    }
+}
+
+.paulHeaderLeft{
+    float: left;
+    margin-left: 10%;
+}
+
+.paulHeaderPhoto{
+    float: right;
+    max-width: 40%;
+    height: 500px;
+    margin-right: 10%;
+    bottom: 0;
+    position: relative;
+
+    img{
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-100%);
+    }
+}
+
+.paulHome{
+    background-color: #18D5FE;
+    padding-bottom: 5%;
+}
+
+.paulLogos{
+    svg{
+        font-size: 8em;
+    }
+    margin: 0 5px;
+}
+
+.paulNav{
+    text-align: center;
+    padding: 10px;
+    // background-color: #FC4C02;
+    a{
+        text-decoration: none;
+        color: black;
+        font-size: 2em;
+        font-weight: bold;
+    }
+    a:hover{
+        color: white;
+    }
+    .mainLogo{
+        position: absolute;
+        top: 0;
+        right: 0;
+        font-size: 1.5vw;
+        padding: 1%;
+        span{
+            color: red;
+        }
+    }
+    .paulLogo{
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 3em;
+        padding: 1%;
+    }
+    ul{
+        display: inline-block;
+        list-style: none;
+        margin: 0;
+        padding: 1%;
+        text-align: center;
+        li{
+            display: inline-block;
+            margin: 0 10px;
+            span{
+                color: white;
+            }
+        }
+    }
+    
+}
