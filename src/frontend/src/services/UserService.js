@@ -25,8 +25,8 @@ const userInfo = () => {
 };
 
 const addForm = (data) => {
-  return axios.post(API_URL + "contactform",data);
-}
+  return axios.post(API_URL + "contact/contactform", data);
+};
 
 const UserService = {
   getPublicContent,
@@ -34,7 +34,7 @@ const UserService = {
   getModeratorBoard,
   getAdminBoard,
   userInfo,
-  addForm
+  addForm,
 };
 
 export default UserService;

@@ -8,10 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface ReviewsRepository extends JpaRepository<Reviews, Long> {
-    @Query(value = "SELECT * FROM Reviews WHERE games_id = :id", nativeQuery = true)
-    List<Reviews> findAllGamesById(@Param("id") long articleId);
-
+public interface TechReviewsRepository extends JpaRepository<TechReviews, Long> {
     @Query(value = "SELECT * FROM Reviews WHERE tech_id = :id", nativeQuery = true)
-    List<Reviews> findAllTechById(@Param("id") long articleId);
+    List<TechReviews> findAllTechById(@Param("id") long articleId);
 }
