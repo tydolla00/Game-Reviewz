@@ -11,12 +11,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ReviewsService {
     @Autowired
-    ReviewsRepository reviewsRepository;
+    GameReviewsRepository gameReviewsRepository;
+    @Autowired
+    TechReviewsRepository techReviewsRepository;
 
-    public List<Reviews> getGamesReviewsById(long articleId){
-        List<Reviews> reviews;
+    public List<GameReviews> getGamesReviewsById(long articleId){ // Get comments for Game Articles
+        List<GameReviews> reviews;
         try{
-            reviews = reviewsRepository.findAllGamesById(articleId);
+            reviews = gameReviewsRepository.findAllGamesById(articleId);
         }
         catch (Exception e){
             throw new ArticleNotFoundException("Bad Request in Reviews Repository");
@@ -24,10 +26,20 @@ public class ReviewsService {
         return reviews;
     }
 
-    public List<Reviews> getTechReviewsById(long articleId){
-        List<Reviews> reviews;
+    public GameReviews addGameReviewById(GameReviews reviews) {
         try{
-            reviews = reviewsRepository.findAllTechById(articleId);
+            return gameReviewsRepository.save(new GameReviews());
+        }
+        catch(Exception e){
+            throw new ArticleNotFoundException("Bad Request");
+        }
+
+    }
+
+    public List<TechReviews> getTechReviewsById(long articleId){ // Get Comments for Tech Articles
+        List<TechReviews> reviews;
+        try{
+            reviews = techReviewsRepository.findAllTechById(articleId);
         }
         catch (Exception e){
             throw new ArticleNotFoundException("Bad Request in reviews");
@@ -35,22 +47,13 @@ public class ReviewsService {
         return reviews;
     }
 
-    public Reviews addTechReview(Reviews reviews) {
+    public TechReviews addTechReviewById(TechReviews reviews) {
         try{
-            return reviewsRepository.save(new Reviews(reviews.getTechId(), reviews.getComment()));
+            return techReviewsRepository.save(new TechReviews(reviews.getComment(), reviews.getUserId(), reviews.getParentId(), reviews.getTechId()));
         }
         catch (Exception e){
             throw new ArticleNotFoundException("Bad Request");
         }
     }
 
-    public Reviews addGameReviewById(Reviews reviews) {
-        try{
-            return reviewsRepository.save(new Reviews(reviews.getComment(), reviews.getGamesId()));
-        }
-        catch(Exception e){
-            throw new ArticleNotFoundException("Bad Request");
-        }
-
-    }
 }

@@ -2,6 +2,8 @@ package com.example.GameReviewz.articles.reviews;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -9,17 +11,17 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "reviews")
-public class Reviews {
-//  Used for TechPostMaps
-    public Reviews(long techId, String comment){
+@Table(name = "tech_reviews")
+public class TechReviews {
+    public TechReviews(String comment, Long userId, Integer parentId, Long techId){
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        Date currdate = new Date();
+
+        this.comment = comment;
+        this.userId = userId;
+        this.parentId = parentId;
         this.techId = techId;
-        this.comment = comment;
-    }
-//  Used for GamesPostMaps
-    public Reviews(String comment, Long gamesId){
-        this.comment = comment;
-        this.gamesId = gamesId;
+        this.createdAt = format.format(currdate);
     }
 
     @Id
@@ -35,14 +37,11 @@ public class Reviews {
     @Column(name = "parent_id")
     private Integer parentId;
 
-    @Column
-    private
+    @Column(name = "created_at")
+    private String createdAt;
 
     @Column(name = "tech_id")
     private Long techId;
-
-    @Column(name = "games_id")
-    private Long gamesId;
 
     @Column(columnDefinition = "integer default 0")
     private int likes;

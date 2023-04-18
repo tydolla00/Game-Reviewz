@@ -320,8 +320,7 @@ html {
   margin-right: 5px;
 }
 
-
-.loginContainer{
+.loginContainer {
   display: flex;
   min-width: 150px;
   height: 100%;
@@ -371,7 +370,6 @@ nav a.active {
   padding: 0;
   align-items: center;
 
-
   li {
     list-style: none;
     margin: auto 10px;
@@ -385,8 +383,8 @@ nav a.active {
 .navitem::after {
 }
 .navitem:hover {
-  color: red;
-  font-weight: bold;
+  // color: red;
+  // font-weight: bold;
 }
 nav a:visited {
   color: black;
@@ -400,40 +398,39 @@ nav a:visited {
   top: 0;
 }
 @media only screen and (max-width: 810px) {
-  nav{
+  nav {
     font-size: 1rem;
   }
-  .navItems{
+  .navItems {
     margin: 0;
-    li{
+    li {
       margin: auto 5px;
-      .navitem{
+      .navitem {
         font-size: 1rem;
       }
     }
   }
-  .loginButton{
+  .loginButton {
     font-size: 1rem;
     padding: 6px;
   }
-  .loginContainer{
+  .loginContainer {
     min-width: 90px;
   }
 }
 @media only screen and (max-width: 500px) {
-  #logo{
+  #logo {
     display: none;
   }
-  #logoShort{
+  #logoShort {
     display: inline-block;
   }
-  .loginContainer{
+  .loginContainer {
     margin: auto 5px;
   }
-
 }
 @media only screen and (max-width: 410px) {
-  .loginContainer{
+  .loginContainer {
     margin: auto;
     width: auto;
   }
@@ -443,7 +440,6 @@ nav a:visited {
       margin: auto 3px;
     }
   }
-
 }
 @keyframes notiAnimation {
   0% {
