@@ -13,14 +13,27 @@ import java.util.Date;
 @Entity
 @Table(name = "tech_reviews")
 public class TechReviews {
-    public TechReviews(String comment, Long userId, Integer parentId, Long techId){
+    public TechReviews(String comment, Integer parentId, Long techId, Long userId, String createdAt, int likes){
         SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
         Date currdate = new Date();
 
         this.comment = comment;
-        this.userId = userId;
         this.parentId = parentId;
         this.techId = techId;
+        this.userId = userId;
+        this.createdAt = format.format(currdate);
+        this.likes = 0;
+
+    }
+    public TechReviews(String comment, Integer parentId, Long techId, Long userId, String username){
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        Date currdate = new Date();
+
+        this.comment = comment;
+        this.parentId = parentId;
+        this.techId = techId;
+        this.userId = userId;
+        this.username = username;
         this.createdAt = format.format(currdate);
     }
 
@@ -45,4 +58,7 @@ public class TechReviews {
 
     @Column(columnDefinition = "integer default 0")
     private int likes;
+
+    @Column
+    private String username;
 }

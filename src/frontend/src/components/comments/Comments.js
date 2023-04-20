@@ -7,6 +7,8 @@ const Comments = ({ currentUserId, pageId }) => {
   const [comments, setComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
 
+  let path = window.location.pathname.substring(0, 6) === "/games"; // Could cause problems when move to AWS.
+
   const rootComments = comments.filter((comment) => comment.parentId === null);
 
   const getReplies = (commentId) =>
@@ -18,10 +20,27 @@ const Comments = ({ currentUserId, pageId }) => {
       );
 
   const addComment = (text, parentId) => {
-    CommentsService.createComment(text, parentId).then((comment) => {
-      setComments([comment, ...comments]);
-      setActiveComment(null);
-    });
+    if (path) {
+      CommentsService.createGameComment(
+        text,
+        parentId,
+        pageId,
+        currentUserId
+      ).then((comment) => {
+        setComments([comment, ...comments]);
+        setActiveComment(null);
+      });
+    } else {
+      CommentsService.createTechComment(
+        text,
+        parentId,
+        pageId,
+        currentUserId
+      ).then((comment) => {
+        setComments([comment, ...comments]);
+        setActiveComment(null);
+      });
+    }
   };
 
   const updateComment = (text, commentId) => {
@@ -49,11 +68,19 @@ const Comments = ({ currentUserId, pageId }) => {
   };
 
   useEffect(() => {
-    CommentsService.getTechComments(pageId).then((res) => {
-      console.log(res.data);
-      setComments(res.data);
-      console.log(comments);
-    });
+    if (path) {
+      CommentsService.getGameComments(pageId).then((res) => {
+        console.log(res.data);
+        setComments(res.data);
+        console.log(comments);
+      });
+    } else {
+      CommentsService.getTechComments(pageId).then((res) => {
+        console.log(res.data);
+        setComments(res.data);
+        console.log(comments);
+      });
+    }
   }, []);
 
   return (

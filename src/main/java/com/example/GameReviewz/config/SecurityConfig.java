@@ -28,6 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public static final String[] PUBLIC_URL={
 
             "/api/v1/auth/**",
+            "/api/v1/articles/**",
+            "/api/v1/comments/get/**",
             "/api/v1/contact/**",
             "/api/v1/admin/login",
             "/api/user/",
@@ -48,6 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors()
+                .and()
                 .csrf()
                 .disable()
                 .authorizeHttpRequests()

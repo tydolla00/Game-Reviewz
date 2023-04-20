@@ -2,12 +2,12 @@ import "../styles/Article.scss";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import ArticlesService from "../services/ArticlesService";
-import MWII from "../assets/mwII.jpeg";
-import Ty from "../assets/ty.PNG";
 import Comments from "../components/comments/Comments";
+import UserService from "../services/UserService";
 
 function Article() {
   let { id } = useParams();
+  const user = UserService.userInfo();
 
   const initialState = {
     id: null,
@@ -142,7 +142,7 @@ function Article() {
       <br />
       <p className={"commentsTitle"}>Comments</p>
       <hr className={"articleHr"} />
-      <Comments pageId={id} currentUserId="1" />
+      <Comments pageId={id} currentUserId={user?.id} />
     </div>
   );
 }

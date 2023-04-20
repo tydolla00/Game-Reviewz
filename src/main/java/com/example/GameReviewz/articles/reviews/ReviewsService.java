@@ -1,6 +1,7 @@
 package com.example.GameReviewz.articles.reviews;
 
 import com.example.GameReviewz.Exceptions.ArticleNotFoundException;
+import com.example.GameReviewz.UserAuthentication.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,9 +27,11 @@ public class ReviewsService {
         return reviews;
     }
 
-    public GameReviews addGameReviewById(GameReviews reviews) {
+    public GameReviews addGameReview(GameReviews reviews) {
+        String user = gameReviewsRepository.findUsernameById(reviews.getUserId());
+        System.out.println(user);
         try{
-            return gameReviewsRepository.save(reviews);
+            return gameReviewsRepository.save(new GameReviews(reviews.getComment(), reviews.getParentId(), reviews.getGamesId(), reviews.getUserId(), user));
         }
         catch(Exception e){
             throw new ArticleNotFoundException("Bad Request");
@@ -47,9 +50,13 @@ public class ReviewsService {
         return reviews;
     }
 
-    public TechReviews addTechReviewById(TechReviews reviews) {
+    public TechReviews addTechReview(TechReviews reviews) {
+        String user = techReviewsRepository.findUsernameById(reviews.getUserId());
+        System.out.println(user);
         try{
-            return techReviewsRepository.save(reviews);
+            return techReviewsRepository.save(new TechReviews(reviews.getComment(),
+                    reviews.getParentId(), reviews.getTechId(), reviews.getUserId(),user));
+//            return techReviewsRepository.save(reviews);
         }
         catch (Exception e){
             throw new ArticleNotFoundException("Bad Request");
