@@ -101,26 +101,32 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="releasesList">
-        <h2 className="sidebarHeader">Upcoming Releases</h2>
+        <h2 className="sidebarHeader">Upcoming Releases</h2> 
+        <br/>
         <ul className="releases">
           <li className="games">
-            Spongebob Squarepants: The Cosmic Shake -{" "}
-            <p className="date">January 31st</p>
+            Spongebob Squarepants: The Cosmic Shake - {" "}
+            <span className="date">January 31st</span>
           </li>
+          <br/><br/>
           <li className="games">
-            Hogwarts Legacy - <p className="date">February 10</p>
+            Hogwarts Legacy - <span className="date">February 10</span>
           </li>
+          <br/><br/>
           <li className="games">
-            Star Wars Jedi Survivor - <p className="date">March 17</p>
+            Star Wars Jedi Survivor - <span className="date">March 17</span>
           </li>
+          <br/><br/>
           <li className="games">
             The Legend of Zelda: Tears of the Kingdom -{" "}
-            <p className="date">May 12</p>
+            <span className="date">May 12</span>
           </li>
+          <br/><br/>
           <li className="games">
             Suicide Squad: Kill the Justice League -{" "}
-            <p className="date">May 26</p>
+            <span className="date">May 26</span>
           </li>
+          <br/>
         </ul>
       </div>
     </div>

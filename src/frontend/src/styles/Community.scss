@@ -8,9 +8,13 @@
 
 .column {
   flex: 1;
-  margin: 2px;
+  margin: 1%;
   padding: 10px;
+  margin-bottom: 15px;
   transition: 0.3s;
+  border: 3px solid black;
+  border-radius: 10px;
+  background-color:#f2f2f2;
   width: 33%;
   margin-right: 50px;
 }
@@ -74,7 +78,7 @@
 
 .mosts {
   border-bottom: 2px solid #666;
-  width: 45%;
+  //width: 45%;
   display: flex;
   margin-bottom: 10px;
   flex-direction: column;
@@ -84,7 +88,13 @@
 }
 
 .mostSection {
-  display: flex;
+  display: block;
+  .leftValue{
+    float: left;
+  }
+  .rightValue{
+    float: right;
+  }
 }
 
 .option {
@@ -146,6 +156,7 @@
 
 .topMembers {
   margin-left: 10%;
+  margin-right: 10%;
   width: 80%;
   list-style: decimal;
   font-size: large;
@@ -183,4 +194,27 @@
   background-image: url("../assets/zelda.jpg");
   background-position: 40% 20%;
   filter: brightness(50%);
+}
+
+@media (max-width: 1100px){
+  .column{
+    margin-right: 60px;
+    width: 100%;
+    text-align: center;
+  }
+  .columns{
+    margin-left: 5%;
+    width: 85%;
+    display: block;
+  }
+  .poll{
+    float: none;
+    width: 80%;
+    height: fit-content;
+    margin-left: 7.5%;
+    margin-bottom: 50px;
+  }
+  .topMembers{
+    margin-left: 7.5%;
+  }
 }
