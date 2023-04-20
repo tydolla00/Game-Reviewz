@@ -17,7 +17,7 @@ const CommentForm = ({
   return (
     <form onSubmit={onSubmit}>
       <textarea
-        className=""
+        className="commentsection"
         value={text}
         onChange={(e) => setText(e.target.value)}
       />

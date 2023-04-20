@@ -75,14 +75,30 @@ const createGameComment = (comment, parentId, gamesId, userId) => {
     config
   );
 };
-const updateComment = () => {};
-const deleteComment = () => {};
+const updateGameComment = (comment, id) => {
+  return axios.put(
+    `${COMMENT_URL}/edit/games/reviews`,
+    { comment, id },
+    config
+  );
+};
+const updateTechComment = (comment, id) => {
+  return axios.put(`${COMMENT_URL}/edit/tech/reviews`, { comment, id }, config);
+};
+const deleteGameComment = (id) => {
+  return axios.delete(`${COMMENT_URL}/delete/games/reviews/${id}`, config);
+};
+const deleteTechComment = (id) => {
+  return axios.delete(`${COMMENT_URL}/delete/tech/reviews/${id}`, config);
+};
 
 export const CommentsService = {
   getTechComments,
   getGameComments,
   createTechComment,
   createGameComment,
-  updateComment,
-  deleteComment,
+  updateGameComment,
+  updateTechComment,
+  deleteGameComment,
+  deleteTechComment,
 };

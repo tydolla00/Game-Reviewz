@@ -36,7 +36,7 @@ const Comment = ({
       </div>
       <div className="">
         <div className="user">
-          <div className="">{comment.username}</div>
+          <div className="username">{comment.username}</div>
           <div>{comment.createdAt}</div>
         </div>
         {!isEditing && <div className="">{comment.comment}</div>}
@@ -51,7 +51,7 @@ const Comment = ({
             }}
           />
         )}
-        <div className="">
+        <div className="commentActions">
           {canReply && (
             <div
               className=""
@@ -88,7 +88,7 @@ const Comment = ({
           <div className="">
             {replies.map((reply) => (
               <Comment
-                comment={replies}
+                comment={reply}
                 key={reply.id}
                 setActiveComment={setActiveComment}
                 activeComment={activeComment}

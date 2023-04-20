@@ -79,9 +79,9 @@ function Article() {
     console.log(id);
     if (id) {
       getArticle(id);
-      // window.scrollTo(0, 0);
+      window.scrollTo(0, 0);
     }
-  }, [id]);
+  }, []);
 
   const SplitReview = () => {
     const arr = article.review.split("@");
