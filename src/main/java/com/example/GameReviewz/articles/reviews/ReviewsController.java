@@ -24,6 +24,15 @@ public class ReviewsController {
         return new ResponseEntity<>(reviewsService.addGameReview(reviews),HttpStatus.CREATED);
     }
 
+    @PutMapping("/edit/games/reviews")
+    public ResponseEntity<GameReviews> editGameReview(@RequestBody GameReviews reviews){
+        return new ResponseEntity<>(reviewsService.editGameReview(reviews),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/games/reviews/{id}")
+    public ResponseEntity<Long> deleteGameComment(@PathVariable("id") Long id){
+        return new ResponseEntity<>(reviewsService.deleteGameComment(id), HttpStatus.OK);
+    }
 
     @GetMapping("/string")
     public String getString(){
@@ -37,5 +46,14 @@ public class ReviewsController {
     @PostMapping("/tech/reviews")
     public ResponseEntity<TechReviews> addTechReview(@RequestBody TechReviews reviews){
         return new ResponseEntity<>(reviewsService.addTechReview(reviews),HttpStatus.CREATED);
+    }
+    @PutMapping("/edit/tech/reviews")
+    public ResponseEntity<TechReviews> editTechReview(@RequestBody TechReviews reviews){
+        return new ResponseEntity<>(reviewsService.editTechReview(reviews),HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete/tech/reviews/{id}")
+    public ResponseEntity<Long> deleteTechComment(@PathVariable("id") Long id){
+        return new ResponseEntity<>(reviewsService.deleteTechComment(id), HttpStatus.OK);
     }
 }

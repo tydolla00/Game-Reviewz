@@ -24,6 +24,32 @@
   gap: 10px;
   font-size: Variables.$md-text;
   margin-bottom: 10px;
+  padding: 10px;
+}
+.comment-form-title {
+  font-size: Variables.$lg-text;
+  font-weight: bold;
+}
+
+.commentActions {
+  display: flex;
+  gap: 10px;
+  font-size: Variables.$sm-text;
+  div {
+    cursor: pointer;
+    color: #495057;
+  }
+}
+
+.commentActions div:hover {
+  text-decoration: underline;
+}
+
+.commentsection {
+  border-radius: 10px;
+  display: flex;
+  width: 100%;
+  height: 50px;
 }
 
 .user {
@@ -198,6 +224,9 @@
   text-align: center;
 }
 
+.username {
+  color: rgb(6, 6, 172);
+}
 .otherContainer {
   display: flex;
   flex-direction: column;

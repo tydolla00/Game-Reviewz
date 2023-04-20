@@ -27,7 +27,8 @@ const Comments = ({ currentUserId, pageId }) => {
         pageId,
         currentUserId
       ).then((comment) => {
-        setComments([comment, ...comments]);
+        console.log(comment.data);
+        setComments([comment.data, ...comments]);
         setActiveComment(null);
       });
     } else {
@@ -44,26 +45,54 @@ const Comments = ({ currentUserId, pageId }) => {
   };
 
   const updateComment = (text, commentId) => {
-    CommentsService.updateComment(text).then(() => {
-      const updatedComments = comments.map((comment) => {
-        if (comment.id === commentId) {
-          return { ...comment, body: text };
-        }
-        return comment;
+    console.log("Updating " + commentId);
+    if (path) {
+      CommentsService.updateGameComment(text, commentId).then((res) => {
+        console.log(res.data);
+        const updatedComments = comments.map((comment) => {
+          if (comment.id === commentId) {
+            return { ...comment, comment: text };
+          }
+          return comment;
+        });
+        console.log(updatedComments + "updated comments");
+        setComments(updatedComments);
+        setActiveComment(null);
+        console.log(comments);
       });
-      setComments(updatedComments);
-      setActiveComment(null);
-    });
+    } else {
+      CommentsService.updateTechComment(text, commentId).then(() => {
+        const updatedComments = comments.map((comment) => {
+          if (comment.id === commentId) {
+            return { ...comment, body: text };
+          }
+          return comment;
+        });
+        setComments(updatedComments);
+        setActiveComment(null);
+      });
+    }
   };
 
   const deleteComment = (commentId) => {
-    if (window.confirm("Are you sure you want to delete your comment")) {
-      CommentsService.deleteComment().then(() => {
-        const updatedComments = comments.filter(
-          (comment) => comment.id !== commentId
-        );
-        setComments(updatedComments);
-      });
+    if (path) {
+      if (window.confirm("Are you sure you want to delete your comment")) {
+        CommentsService.deleteGameComment(commentId).then(() => {
+          const updatedComments = comments.filter(
+            (comment) => comment.id !== commentId
+          );
+          setComments(updatedComments);
+        });
+      }
+    } else {
+      if (window.confirm("Are you sure you want to delete your comment")) {
+        CommentsService.deleteTechComment(commentId).then(() => {
+          const updatedComments = comments.filter(
+            (comment) => comment.id !== commentId
+          );
+          setComments(updatedComments);
+        });
+      }
     }
   };
 
@@ -83,9 +112,10 @@ const Comments = ({ currentUserId, pageId }) => {
     }
   }, []);
 
+  // console.log(comments);
   return (
     <div className="comments">
-      <div className="comment-form-title">Write a comment</div>
+      <div className="comment-form-title">Leave a comment</div>
       <CommentForm submitLabel="Write" handleSubmit={addComment} />
       <div className="comments-container">
         {rootComments.map((rootComment) => (

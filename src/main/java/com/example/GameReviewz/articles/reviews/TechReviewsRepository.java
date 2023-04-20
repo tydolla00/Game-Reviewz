@@ -13,6 +13,9 @@ public interface TechReviewsRepository extends JpaRepository<TechReviews, Long> 
     @Query(value = "SELECT * FROM tech_reviews WHERE tech_id = :id", nativeQuery = true)
     List<TechReviews> findAllTechById(@Param("id") long articleId);
 
+    @Query(value = "SELECT * FROM tech_reviews WHERE id = :id", nativeQuery = true)
+    TechReviews findCommentById(@Param("id")long id);
+
     @Query(value = "SELECT users.username from users join tech_reviews tr on users.id = tr.user_id where users.id = :id LIMIT 1", nativeQuery = true)
     String findUsernameById(@Param("id") long id);
 }
