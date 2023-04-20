@@ -21,6 +21,14 @@
 
 .comment {
   display: flex;
+  gap: 10px;
+  font-size: Variables.$md-text;
+  margin-bottom: 10px;
+}
+
+.user {
+  display: flex;
+  gap: 10px;
   font-size: Variables.$md-text;
 }
 
@@ -203,8 +211,8 @@
   margin: 1%;
 }
 
-.comment {
-  margin: 0;
+.userIcon {
+  font-size: 5rem;
 }
 
 .otherArticlesContainer {

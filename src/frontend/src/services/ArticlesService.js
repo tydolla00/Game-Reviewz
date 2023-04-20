@@ -1,35 +1,38 @@
-import http from "./http";
+import axios from "axios";
+import { authHeader } from "./AuthService";
 
-// const http = () =>
-//   axios.create({
-//     baseURL: "http://localhost:8080/api/v1",
-//     headers: {
-//       "Content-type": "application/json",
-//     },
-//   });
+const ARTICLE_URL = "http://localhost:8080/api/v1/articles";
+const COMMENT_URL = "http://localhost:8080/api/v1/comments";
+
+const token = JSON.parse(localStorage.getItem("user"))?.token;
+console.log(token);
+
+const config = {
+  headers: { Authorization: `Bearer ${token}` },
+};
 
 const getAllGames = () => {
-  return http.get("/game/articles");
+  return axios.get(`${ARTICLE_URL}/game/articles`);
 };
 
 const getGamesById = (id) => {
-  return http.get(`/games/${id}`);
+  return axios.get(`${ARTICLE_URL}/games/${id}`);
 };
 
 const getGamesImagesById = (id) => {
-  return http.get(`/games/images/${id}`);
+  return axios.get(`${ARTICLE_URL}/games/images/${id}`);
 };
 
 const getTechImagesById = (id) => {
-  return http.get(`/tech/images/${id}`);
+  return axios.get(`${ARTICLE_URL}/tech/images/${id}`);
 };
 
 const getAllTech = () => {
-  return http.get("/tech/articles");
+  return axios.get(`${ARTICLE_URL}/tech/articles`);
 };
 
 const getTechById = (id) => {
-  return http.get(`/tech/${id}`);
+  return axios.get(`${ARTICLE_URL}/tech/${id}`);
 };
 
 const ArticlesService = {
@@ -43,15 +46,43 @@ const ArticlesService = {
 export default ArticlesService;
 
 const getTechComments = (id) => {
-  return http.get(`/comments/tech/reviews/${id}`);
+  return axios.get(`${COMMENT_URL}/get/tech/reviews/${id}`);
 };
-const createComment = () => {};
+const getGameComments = (id) => {
+  return axios.get(`${COMMENT_URL}/get/games/reviews/${id}`);
+};
+const createTechComment = (comment, parentId, techId, userId) => {
+  return axios.post(
+    `${COMMENT_URL}/tech/reviews`,
+    {
+      comment,
+      parentId,
+      techId,
+      userId,
+    },
+    config
+  );
+};
+const createGameComment = (comment, parentId, gamesId, userId) => {
+  return axios.post(
+    `${COMMENT_URL}/games/reviews`,
+    {
+      comment,
+      parentId,
+      gamesId,
+      userId,
+    },
+    config
+  );
+};
 const updateComment = () => {};
 const deleteComment = () => {};
 
 export const CommentsService = {
   getTechComments,
-  createComment,
+  getGameComments,
+  createTechComment,
+  createGameComment,
   updateComment,
   deleteComment,
 };

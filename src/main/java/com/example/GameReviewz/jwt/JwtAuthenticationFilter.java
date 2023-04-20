@@ -47,7 +47,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 System.out.println("Unable to get Jwt token");
             } catch (ExpiredJwtException e) {
                 System.out.println("Token has expired");
-
             } catch (MalformedJwtException e) {
                 System.out.println("invalid jwt");
 
@@ -67,12 +66,10 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
             }
 
-
         } else {
             System.out.println("invalid jwt");
 
         }
-
 
         try {
             filterChain.doFilter(request,response);

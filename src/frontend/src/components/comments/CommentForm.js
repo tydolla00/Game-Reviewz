@@ -1,12 +1,12 @@
 import { useState } from "react";
 
-const CommentForm = (
+const CommentForm = ({
   handleSubmit,
   submitLabel,
   hasCancelButton = false,
   handleCancel,
-  initialText = ""
-) => {
+  initialText = "",
+}) => {
   const [text, setText] = useState(initialText);
   const isTextAreaDisabled = text.length === 0;
   const onSubmit = (event) => {

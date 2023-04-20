@@ -25,6 +25,18 @@ public class GameReviews {
         this.gamesId = gamesId;
     }
 
+    public GameReviews(String comment, Integer parentId, Long gamesId, Long userId, String username){
+        SimpleDateFormat format = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
+        Date currdate = new Date();
+
+        this.comment = comment;
+        this.parentId = parentId;
+        this.gamesId = gamesId;
+        this.userId = userId;
+        this.username = username;
+        this.createdAt = format.format(currdate);
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -46,4 +58,7 @@ public class GameReviews {
 
     @Column(columnDefinition = "integer default 0")
     private int likes;
+
+    @Column
+    private String username;
 }

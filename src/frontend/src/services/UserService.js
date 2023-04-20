@@ -19,7 +19,7 @@ const getAdminBoard = () => {
   return axios.get(API_URL + "admin", { headers: authHeader() });
 };
 
-const userInfo = () => {
+export const userInfo = () => {
   const user = JSON.parse(localStorage.getItem("user"));
   if (user) return user;
 };

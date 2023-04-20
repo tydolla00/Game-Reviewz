@@ -32,10 +32,10 @@ const Comment = ({
   return (
     <div key={comment.id} className="comment">
       <div className="">
-        <PersonCircle />
+        <PersonCircle className="userIcon" />
       </div>
       <div className="">
-        <div className="comment">
+        <div className="user">
           <div className="">{comment.username}</div>
           <div>{comment.createdAt}</div>
         </div>
@@ -44,7 +44,7 @@ const Comment = ({
           <CommentForm
             submitLabel="Update"
             hasCancelButton
-            initialText={comment.body}
+            initialText={comment.comment}
             handleSubmit={(text) => updateComment(text, comment.id)}
             handleCancel={() => {
               setActiveComment(null);

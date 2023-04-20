@@ -14,14 +14,14 @@ import java.util.List;
 public class ReviewsController {
     private final ReviewsService reviewsService;
 
-    @GetMapping("/games/reviews/{articleId}")
+    @GetMapping("/get/games/reviews/{articleId}")
     public ResponseEntity<List<GameReviews>> getGamesReviewsById(@PathVariable("articleId") long articleId){
         return new ResponseEntity<>(reviewsService.getGamesReviewsById(articleId), HttpStatus.OK);
     }
 
     @PostMapping("/games/reviews")
-    public ResponseEntity<GameReviews> addGameReviewById(@RequestBody GameReviews reviews){
-        return new ResponseEntity<>(reviewsService.addGameReviewById(reviews),HttpStatus.CREATED);
+    public ResponseEntity<GameReviews> addGameReview(@RequestBody GameReviews reviews){
+        return new ResponseEntity<>(reviewsService.addGameReview(reviews),HttpStatus.CREATED);
     }
 
 
@@ -29,13 +29,13 @@ public class ReviewsController {
     public String getString(){
         return "helloworld";
     }
-    @GetMapping("/tech/reviews/{articleId}")
+    @GetMapping("/get/tech/reviews/{articleId}")
     public ResponseEntity<List<TechReviews>> getTechReviewsById(@PathVariable("articleId") long articleId){
         return new ResponseEntity<>(reviewsService.getTechReviewsById(articleId), HttpStatus.OK);
     }
 
     @PostMapping("/tech/reviews")
     public ResponseEntity<TechReviews> addTechReview(@RequestBody TechReviews reviews){
-        return new ResponseEntity<>(reviewsService.addTechReviewById(reviews),HttpStatus.CREATED);
+        return new ResponseEntity<>(reviewsService.addTechReview(reviews),HttpStatus.CREATED);
     }
 }
