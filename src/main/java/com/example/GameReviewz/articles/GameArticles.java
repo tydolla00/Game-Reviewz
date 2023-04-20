@@ -1,7 +1,7 @@
 package com.example.GameReviewz.articles;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.Size;
+import javax.persistence.*;
+import javax.validation.constraints.Size;
 import lombok.*;
 
 @NoArgsConstructor

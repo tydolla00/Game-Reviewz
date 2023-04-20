@@ -3,7 +3,7 @@ import CommentForm from "./CommentForm";
 import { CommentsService } from "../../services/ArticlesService";
 import { useEffect, useState } from "react";
 
-const Comments = ({ currentUserId }) => {
+const Comments = ({ currentUserId, pageId }) => {
   const [comments, setComments] = useState([]);
   const [activeComment, setActiveComment] = useState(null);
 
@@ -48,15 +48,16 @@ const Comments = ({ currentUserId }) => {
     }
   };
 
-  // useEffect(() => {
-  //   CommentsService.getComments().then((data) => {
-  //     setComments(data);
-  //   });
-  // }, []);
+  useEffect(() => {
+    CommentsService.getTechComments(pageId).then((res) => {
+      console.log(res.data);
+      setComments(res.data);
+      console.log(comments);
+    });
+  }, []);
 
   return (
     <div className="comments">
-      <h3 className="comments-title">Comments</h3>
       <div className="comment-form-title">Write a comment</div>
       <CommentForm submitLabel="Write" handleSubmit={addComment} />
       <div className="comments-container">

@@ -24,6 +24,11 @@ public class ReviewsController {
         return new ResponseEntity<>(reviewsService.addGameReviewById(reviews),HttpStatus.CREATED);
     }
 
+
+    @GetMapping("/string")
+    public String getString(){
+        return "helloworld";
+    }
     @GetMapping("/tech/reviews/{articleId}")
     public ResponseEntity<List<TechReviews>> getTechReviewsById(@PathVariable("articleId") long articleId){
         return new ResponseEntity<>(reviewsService.getTechReviewsById(articleId), HttpStatus.OK);

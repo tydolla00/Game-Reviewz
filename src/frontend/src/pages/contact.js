@@ -16,8 +16,8 @@ import UserService from "../services/UserService";
 
 const Contact = () => {
   const validationSchema = Yup.object().shape({
-    fullname: Yup.string().required("Fullname is required"),
-    username: Yup.string().optional("Enter a username if you have an account."),
+    fullName: Yup.string().required("Fullname is required"),
+    userName: Yup.string().optional("Enter a username if you have an account."),
     // .min(6, 'Username must be at least 6 characters')
     // .max(20, 'Username must not exceed 20 characters'),
     email: Yup.string().required("Email is required").email("Email is invalid"),
@@ -50,7 +50,7 @@ const Contact = () => {
   };
   const closePopup = () => {
     setPop(false);
-    window.location.reload();
+    // window.location.reload();
   };
 
   return (
@@ -73,12 +73,12 @@ const Contact = () => {
               <input
                 name="fullname"
                 type="text"
-                {...register("fullname")}
+                {...register("fullName")}
                 className={`form-control ${
-                  errors.fullname ? "is-invalid" : ""
+                  errors.fullName ? "is-invalid" : ""
                 }`}
               />
-              <div className="invalid-feedback">{errors.fullname?.message}</div>
+              <div className="invalid-feedback">{errors.fullName?.message}</div>
             </div>
 
             <div className="inputForms">
@@ -87,12 +87,12 @@ const Contact = () => {
               <input
                 name="username"
                 type="text"
-                {...register("username")}
+                {...register("userName")}
                 className={`form-control ${
-                  errors.username ? "is-invalid" : ""
+                  errors.userName ? "is-invalid" : ""
                 }`}
               />
-              <div className="invalid-feedback">{errors.username?.message}</div>
+              <div className="invalid-feedback">{errors.userName?.message}</div>
             </div>
 
             <div className="inputForms">

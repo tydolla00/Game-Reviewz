@@ -1,3 +1,5 @@
+@use "Variables";
+
 .backgroundPhotoCont {
   background-color: black;
   height: 60vh;
@@ -15,6 +17,15 @@
   position: relative;
   top: 0;
   width: 100%;
+}
+
+.comment {
+  display: flex;
+  font-size: Variables.$md-text;
+}
+
+.comments {
+  margin: 0 3%;
 }
 
 .commentarea {
