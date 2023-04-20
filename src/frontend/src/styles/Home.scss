@@ -93,13 +93,14 @@
 .releases {
   list-style: none;
   margin: 0;
+  font-size: 1.5em;
   // width: 250px;
 }
 
 .releasesList {
   h2 {
     // background-color: blue;
-    color: white;
+    color: grey;
     text-align: center;
     padding-left: 5px;
     //border-bottom: 2px solid black;
@@ -112,11 +113,12 @@
 
 .sidebar {
   // float: left;
+  display: block;
   width: 18%;
 }
 
 .sidebarHeader {
-  font-size: 2em;
+  font-size: 2.5em;
   margin: auto;
 }
 
@@ -138,6 +140,43 @@
   // width: 250px;
 }
 
+@media screen and (max-width:855px) {
+  .card{
+    width: 240px;
+    img{
+      width: 240px;
+    }
+  }
+  .cardsContainer{
+    margin-left: 1%;
+    border-right: none;
+    width: 98%;
+    margin-bottom: 5%;
+  }
+  .homeContainer{
+    display: block;
+  }
+  .releasesList{
+    margin-left: 1%;
+  }
+  .sidebar{
+    width: 90%;
+    margin-left: 5%;
+    li{
+      margin-left: 3%;
+    }
+  }
+}
+
+@media screen and (max-width:500px) {
+  .card{
+    width: 150px;
+    font-size: 19px;
+    img{
+      width: 150px;
+    }
+  }
+}
 /*
  @media screen and (max-width: 1870px)
 {  
