@@ -3,8 +3,10 @@ package com.example.GameReviewz.UserAuthentication;
 import com.example.GameReviewz.Exceptions.AuthenticationInvalidException;
 import com.example.GameReviewz.UserAuthentication.authentication.AuthenticationRequest;
 import com.example.GameReviewz.UserAuthentication.authentication.AuthenticationResponse;
+import com.example.GameReviewz.UserAuthentication.authentication.AuthenticationService;
 import com.example.GameReviewz.UserAuthentication.authentication.RegisterRequest;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +16,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
 public class AuthenticationController {
-    private final AuthenticationService service;
+    @Autowired
+    private AuthenticationService service;
     @PostMapping("/register")
     public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) throws Exception{
 //       try{
@@ -24,7 +27,7 @@ public class AuthenticationController {
 //       }
     }
     @PostMapping("/authenticate")
-    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request){
+    public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) throws Exception {
         try {
             return ResponseEntity.ok(service.authenticate(request));
         }

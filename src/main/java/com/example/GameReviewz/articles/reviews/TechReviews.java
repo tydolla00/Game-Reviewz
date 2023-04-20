@@ -1,6 +1,6 @@
 package com.example.GameReviewz.articles.reviews;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;

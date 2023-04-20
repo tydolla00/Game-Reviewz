@@ -42,15 +42,15 @@ const ArticlesService = {
 };
 export default ArticlesService;
 
-const getComments = () => {
-  return http.get("/comments");
+const getTechComments = (id) => {
+  return http.get(`/comments/tech/reviews/${id}`);
 };
 const createComment = () => {};
 const updateComment = () => {};
 const deleteComment = () => {};
 
 export const CommentsService = {
-  getComments,
+  getTechComments,
   createComment,
   updateComment,
   deleteComment,

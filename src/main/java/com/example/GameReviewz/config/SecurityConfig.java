@@ -1,68 +1,80 @@
 package com.example.GameReviewz.config;
 
-import jakarta.servlet.Filter;
-import lombok.RequiredArgsConstructor;
+
+import com.example.GameReviewz.jwt.CustomUserDetailService;
+import com.example.GameReviewz.jwt.JwtAuthenticationEntryPoint;
+import com.example.GameReviewz.jwt.JwtAuthenticationFilter;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
-import static org.springframework.security.config.Customizer.withDefaults;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @EnableWebSecurity
-@RequiredArgsConstructor
-public class SecurityConfig{
-    private final JwtAuthenticationFilter jwtAuthFilter;
-    private final AuthenticationProvider authenticationProvider;
+@EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableWebMvc
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public static final String[] PUBLIC_URL={
+
+            "/api/v1/auth/**",
+            "/api/v1/contact/**",
+            "/api/v1/admin/login",
+            "/api/user/",
+            "/api/v1/file/**",
+            "/api/v1/seller/login**"
+    };
+    @Autowired
+    private JwtAuthenticationFilter jwtAuthenticationFilter;
+
+    @Autowired
+    private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
+    @Autowired
+    private CustomUserDetailService customUserDetailService;
+
+    @Autowired
+    PasswordEncoder passwordEncoder;
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
         http
-                .cors()
-                .and()
                 .csrf()
                 .disable()
-//                .securityMatcher("/auth/**")
-//                .authorizeHttpRequests(authorize -> authorize
-//                        .requestMatchers("/api/v1/**").permitAll()
-//                        .requestMatchers("/auth/**").authenticated()
-//                        .requestMatchers("/admin/**").hasRole("ADMIN")
-//                        .requestMatchers("/db/**").access(new WebExpressionAuthorizationManager("hasRole('ADMIN') and hasRole('DBA')"))
-//                )
                 .authorizeHttpRequests()
+                .antMatchers(PUBLIC_URL).permitAll()
                 .anyRequest()
-                .permitAll()
+                .authenticated()
                 .and()
-//                .authorizeHttpRequests()
-//                .requestMatchers("/api/v1/**","/api/v1/contact/**")
-//                .permitAll()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .oauth2Client(withDefaults())
+                .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
+                .and()
                 .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+                .sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+
+        http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
+
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(customUserDetailService).passwordEncoder(passwordEncoder);
+
+    }
 
 
-//                .requestMatchers("/api/v1/auth/**")
-//                .permitAll()
-//                .anyRequest()
-//                .authenticated()
-//                .and()
-//                .sessionManagement()
-//                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-//                .and()
-//                .authenticationProvider(authenticationProvider)
-//                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-        return http.build();
+
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
     }
 }

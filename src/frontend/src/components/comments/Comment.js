@@ -1,3 +1,4 @@
+import { PersonCircle } from "react-bootstrap-icons";
 import CommentForm from "./CommentForm";
 
 const Comment = ({
@@ -26,19 +27,19 @@ const Comment = ({
   const canReply = Boolean(currentUserId);
   const canEdit = currentUserId === comment.userId && !timePassed;
   const replyId = parentId ? parentId : comment.id;
-  const createdAt = new Date(comment.createdAt).toLocaleDateString();
+  // const createdAt = new Date(comment.createdAt).toLocaleDateString();
 
   return (
-    <div key={comment.id} className="">
+    <div key={comment.id} className="comment">
       <div className="">
-        <img src="" />
+        <PersonCircle />
       </div>
       <div className="">
-        <div className="">
+        <div className="comment">
           <div className="">{comment.username}</div>
-          <div>{createdAt}</div>
+          <div>{comment.createdAt}</div>
         </div>
-        {!isEditing && <div className="">{comment.body}</div>}
+        {!isEditing && <div className="">{comment.comment}</div>}
         {isEditing && (
           <CommentForm
             submitLabel="Update"

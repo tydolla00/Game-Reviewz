@@ -1,7 +1,7 @@
 package com.example.GameReviewz.images;
 
 import com.example.GameReviewz.articles.GameArticles;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 
 @NoArgsConstructor
