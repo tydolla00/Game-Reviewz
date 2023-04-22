@@ -1,8 +1,8 @@
 import { XCircleFill } from "react-bootstrap-icons";
 
-const ErrorNotification = ({ header, body, setLoginError }) => {
+const ErrorNotification = ({ header, body, setLoginError, bgcolor }) => {
   return (
-    <div className="notification">
+    <div className={`notification ${bgcolor ? "successNoti" : ""}`}>
       <button onClick={() => setLoginError(false)} className="xButton">
         <XCircleFill />
       </button>

@@ -5,7 +5,6 @@ const ARTICLE_URL = "http://localhost:8080/api/v1/articles";
 const COMMENT_URL = "http://localhost:8080/api/v1/comments";
 
 const token = JSON.parse(localStorage.getItem("user"))?.token;
-console.log(token);
 
 const config = {
   headers: { Authorization: `Bearer ${token}` },

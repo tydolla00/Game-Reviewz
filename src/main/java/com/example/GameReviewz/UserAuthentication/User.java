@@ -11,10 +11,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Builder
 @NoArgsConstructor
@@ -46,6 +43,9 @@ public class User implements UserDetails {
     @NotBlank
     @Size(min = 6, max = 65)
     private String password;
+
+    @Column(columnDefinition = "boolean default false")
+    private boolean voted;
 
     @Enumerated(EnumType.STRING)
     private Role role;

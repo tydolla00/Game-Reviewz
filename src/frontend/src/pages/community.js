@@ -1,7 +1,10 @@
+import { useState } from "react";
 import "../styles/Community.scss";
 import { Person } from "react-bootstrap-icons";
 import { BalloonFill } from "react-bootstrap-icons";
 import { Alarm } from "react-bootstrap-icons";
+import UserService from "../services/UserService";
+import ErrorNotification from "../components/errorAlert";
 
 // Made changes due to li affecting other pages.
 let poll = {
@@ -72,6 +75,26 @@ const Releases = (props) => {
 };
 
 export default function Community() {
+  const [pollOption, setpollOption] = useState("option1");
+  const [isError, setIsError] = useState("");
+  const user = UserService.userInfo();
+
+  const handleSubmit = (e) => {
+    const obj = {
+      pollOption: pollOption,
+    };
+    e.preventDefault();
+    console.log(pollOption);
+    if (user) {
+      UserService.addVote(obj).catch((error) => {
+        setIsError(error.response.data);
+        console.log(error.response.data);
+      });
+    } else {
+      setIsError("Please Login, To Vote!");
+    }
+  };
+
   const db = [
     { user: "spadpaul", value: 27, id: 1 },
     { user: "tybrooks", value: 19, id: 2 },
@@ -107,27 +130,48 @@ export default function Community() {
           <h3 className="question">
             What game are you most looking forward to in 2023?
           </h3>
-          <form className="pollOptions">
+          <h1 style={{ color: "red" }}>{isError}</h1>
+          <form className="pollOptions" onSubmit={handleSubmit}>
             <li className="option zelda">
-              <input type="radio" name="answer"></input>
+              <input
+                type="radio"
+                name="answer"
+                value="option1"
+                onChange={() => setpollOption("option1")}
+              ></input>
               <label id="zelda">Zelda Tears of the Kingdom</label>
             </li>
             <li className="option jedi">
-              <input type="radio" name="answer"></input>
+              <input
+                type="radio"
+                name="answer"
+                value="option2"
+                onChange={() => setpollOption("option2")}
+              ></input>
               <label id="jedi">Jedi Survivor</label>
             </li>
             <li className="option spongebob">
-              <input type="radio" name="answer"></input>
+              <input
+                type="radio"
+                name="answer"
+                value="option3"
+                onChange={() => setpollOption("option3")}
+              ></input>
               <label id="spongebob">Spongebob Cosmic Shake</label>
             </li>
             <li className="option hogwarts">
-              <input type="radio" name="answer"></input>
+              <input
+                type="radio"
+                name="answer"
+                value="option4"
+                onChange={() => setpollOption("option4")}
+              ></input>
               <label id="hogwarts">Hogwarts Legacy</label>
             </li>
+            <div id="submitButton">
+              <button type="submit">Submit</button>
+            </div>
           </form>
-          <div id="submitButton">
-            <input type="submit" value="Submit"></input>
-          </div>
         </div>
 
         <div className="poll results">
