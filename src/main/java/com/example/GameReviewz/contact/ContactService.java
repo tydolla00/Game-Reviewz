@@ -13,8 +13,8 @@ public class ContactService {
     ContactRepository contactRepository;
     public ContactForm addForm(ContactForm contactForm) {
         try{
-            return contactRepository.save(new ContactForm(contactForm.getFullName(),
-                    contactForm.getUserName(), contactForm.getEmail(),
+            return contactRepository.save(new ContactForm(contactForm.getFullname(),
+                    contactForm.getUsername(), contactForm.getEmail(),
                     contactForm.getMessage(), contactForm.getSubject()));
         }
         catch (Exception e){

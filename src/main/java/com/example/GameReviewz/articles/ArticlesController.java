@@ -16,11 +16,6 @@ public class ArticlesController {
 
     private final ArticlesService articlesService;
 
-    public void createArticle() { // ignore
-//        Articles a = new Articles(1000000000L, "Title Test", "TyTest", "This is a test review", "path/totest", 10);
-//        articlesRepository.save(a);
-    }
-
     @GetMapping("/game/articles")
     public ResponseEntity<List<GameArticles>> getAllGameArticles() {
         return new ResponseEntity<>(articlesService.getAllGameArticles(),HttpStatus.OK);
