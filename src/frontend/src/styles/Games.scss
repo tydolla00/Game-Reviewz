@@ -89,7 +89,7 @@
 }
 
 @media only screen and (max-width: 700px) {
-  .articleBox{
+  .articleBox {
     flex-direction: column;
     a {
       margin: auto;
@@ -107,12 +107,12 @@
 }
 
 @media only screen and (max-width: 480px) {
-  .articleboxcontainer{
-    h1{
+  .articleboxcontainer {
+    h1 {
       font-size: 2rem;
     }
   }
-  .articleText{
+  .articleText {
     font-size: 1.5rem;
   }
   #bottom {

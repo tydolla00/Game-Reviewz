@@ -1,9 +1,17 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import AuthService from "../services/AuthService";
+import ErrorNotification from "./errorAlert";
+import { ArrowClockwise } from "react-bootstrap-icons";
 
 const SignupForm = ({ setLogin }) => {
+  const [loading, setLoading] = useState(false); // Loading Status
+  const [success, setSuccess] = useState(false);
+  const [loginError, setLoginError] = useState(false); // Show Login Error
+  const [errorResponse, setErrorResponse] = useState(""); // Set Error Response
+
   const ValidationSchema = Yup.object().shape({
     fullname: Yup.string(),
     username: Yup.string()
@@ -23,24 +31,35 @@ const SignupForm = ({ setLogin }) => {
   const {
     register,
     handleSubmit,
-    reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(ValidationSchema) });
 
   const onSubmit = (data, e) => {
+    setLoginError(false);
+    setLoading(true);
     e.preventDefault();
     const fullname = data.fullname.split(" ", 2);
     const firstName = fullname[0];
     const lastName = fullname[1];
+    let username = data.username.replaceAll(" ", "");
     AuthService.register(
       firstName,
       lastName,
-      data.username,
+      username,
       data.email,
       data.password
-    ).catch((error) => {
-      console.log(error.response.data);
-    });
+    )
+      .catch((error) => {
+        setLoginError(true);
+        setErrorResponse(error.response.data);
+        console.log(error.response.data);
+      })
+      .finally(() => {
+        setLoading(false);
+        if (!loginError) {
+          setSuccess(true);
+        }
+      });
   };
 
   return (
@@ -105,11 +124,9 @@ const SignupForm = ({ setLogin }) => {
       </div>
       <div className="formGroup">
         <button className="btn" type="submit">
+          <div>{loading && <ArrowClockwise className="loading" />}</div>
           Sign Up
         </button>
-        {/* <button className="btn reset" onClick={() => reset()} type="button">
-          Reset
-        </button> */}
       </div>
       <div className="formGroup">
         <div
@@ -120,6 +137,21 @@ const SignupForm = ({ setLogin }) => {
           Already Signed Up? Click here!
         </div>
       </div>
+      {loginError && (
+        <ErrorNotification
+          header={"Oops, Something went wrong with your Authentication"}
+          body={errorResponse}
+          setLoginError={setLoginError}
+        />
+      )}
+      {success && (
+        <ErrorNotification
+          header={"Welcome To GameReviewz!"}
+          body={"Succesfully Signed Up!"}
+          setLoginError={setSuccess}
+          bgcolor={true}
+        />
+      )}
     </form>
   );
 };

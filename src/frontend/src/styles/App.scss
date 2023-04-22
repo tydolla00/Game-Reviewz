@@ -394,6 +394,7 @@ nav a:visited {
   animation: notiAnimation 1 1.5s;
   background-color: lightcoral;
   position: absolute;
+  width: 300px;
   right: 10px;
   top: 0;
 }
@@ -462,6 +463,10 @@ nav a:visited {
   border: none;
   font-size: 1.5rem;
   outline: none;
+}
+
+.successNoti {
+  background-color: rgb(12, 191, 12);
 }
 
 .xButton {

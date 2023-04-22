@@ -19,8 +19,13 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationService service;
     @PostMapping("/register")
-    public ResponseEntity<AuthenticationResponse> register(@RequestBody RegisterRequest request) throws Exception{
-           return ResponseEntity.ok(service.register(request));
+    public ResponseEntity<Object> register(@RequestBody RegisterRequest request) throws Exception{
+        try{
+            return ResponseEntity.ok(service.register(request));
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
     }
     @PostMapping("/authenticate")
     public ResponseEntity<AuthenticationResponse> authenticate(@RequestBody AuthenticationRequest request) throws Exception {

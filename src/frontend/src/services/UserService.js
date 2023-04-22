@@ -3,6 +3,11 @@ import { authHeader } from "./AuthService";
 
 const API_URL = "http://localhost:8080/api/v1/";
 
+const token = JSON.parse(localStorage.getItem("user"))?.token;
+const config = {
+  headers: { Authorization: `Bearer ${token}` },
+};
+
 const getPublicContent = () => {
   return axios.get(API_URL + "all");
 };
@@ -28,6 +33,11 @@ const addForm = (data) => {
   return axios.post(API_URL + "contact/contactform", data);
 };
 
+const addVote = (data) => {
+  console.log(data);
+  return axios.put(API_URL + "polls/vote", data, config);
+};
+
 const UserService = {
   getPublicContent,
   getUserBoard,
@@ -35,6 +45,7 @@ const UserService = {
   getAdminBoard,
   userInfo,
   addForm,
+  addVote,
 };
 
 export default UserService;

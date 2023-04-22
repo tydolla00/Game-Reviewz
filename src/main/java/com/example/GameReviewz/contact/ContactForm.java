@@ -13,9 +13,9 @@ import lombok.*;
 @Table(name = "contact")
 
 public class ContactForm {
-    public ContactForm(String fullName, String userName, String email, String subject, String message) {
-        this.fullName = fullName;
-        this.userName = userName;
+    public ContactForm(String fullname, String username, String email, String subject, String message) {
+        this.fullname = fullname;
+        this.username = username;
         this.email = email;
         this.subject = subject;
         this.message = message;
@@ -26,11 +26,11 @@ public class ContactForm {
 
     @NonNull
     @Column(name = "full_name")
-    private String fullName;
+    private String fullname;
 
     @NonNull
     @Column(name = "user_name")
-    private String userName;
+    private String username;
 
     @NonNull
     @Column(name = "email")
