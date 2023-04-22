@@ -8,19 +8,16 @@
 
 .column {
   flex: 1;
-  margin: 1%;
+  margin: 15px 1%;
   padding: 10px;
-  margin-bottom: 15px;
   transition: 0.3s;
   border: 3px solid black;
   border-radius: 10px;
   background-color:#f2f2f2;
-  width: 33%;
-  margin-right: 50px;
 }
 
 .columns {
-  margin-left: 100px;
+  margin: auto 10px;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -80,15 +77,15 @@
   border-bottom: 2px solid #666;
   //width: 45%;
   display: flex;
-  margin-bottom: 10px;
+  margin: auto auto 10px auto;
   flex-direction: column;
   text-align: center;
-  padding-left: 6%;
-  font-size: 1.4em;
+  font-size: 1.3em;
 }
 
 .mostSection {
-  display: block;
+  justify-content: space-between;
+  text-align: left;
   .leftValue{
     float: left;
   }
@@ -126,6 +123,7 @@
 
 .pollOptions {
   list-style: none;
+  padding: 0;
 }
 
 .profPic {
@@ -135,7 +133,7 @@
 
 .question {
   margin-bottom: 1em;
-  font-size: 2.5em;
+  font-size: 2em;
   text-align: center;
   border-bottom: 2px solid #666;
 }
@@ -155,9 +153,8 @@
 }
 
 .topMembers {
-  margin-left: 10%;
-  margin-right: 10%;
-  width: 80%;
+  margin: auto;
+  width: 87%;
   list-style: decimal;
   font-size: large;
   display: inline-block;
@@ -166,6 +163,7 @@
   border-radius: 10px;
   margin-bottom: 3%;
   background-color: white;
+  display: flex;
 }
 
 #topMembersTitle {
@@ -180,7 +178,8 @@
   display: inline-block;
   justify-content: center;
   padding-inline-start: 0;
-  font-size: 1.4em;
+  font-size: 1.2em;
+  width: 95%;
 }
 
 .userValue {
@@ -198,23 +197,43 @@
 
 @media (max-width: 1100px){
   .column{
-    margin-right: 60px;
-    width: 100%;
-    text-align: center;
-  }
-  .columns{
-    margin-left: 5%;
-    width: 85%;
-    display: block;
+    flex: 40%;
   }
   .poll{
     float: none;
-    width: 80%;
+    width: 90%;
     height: fit-content;
-    margin-left: 7.5%;
-    margin-bottom: 50px;
+    margin: auto auto 50px auto;
+  }
+
+  .communityPage{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+  .mosts{
+    margin: 10px;
+  }
+}
+
+@media (max-width: 800px){
+  .column{
+    margin: auto auto 15px auto;
+    text-align: center;
+    width: 98%;
+    padding: 0;
+    flex: 1 1;
+  }
+  .columns{
+    margin: 15px;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
   }
   .topMembers{
-    margin-left: 7.5%;
+    margin: auto auto 50px auto;
+    width: 90%;
+    padding: 0;
+    align-items: center;
   }
 }
