@@ -79,19 +79,29 @@ function Article() {
     console.log(id);
     if (id) {
       getArticle(id);
+      getImages(id);
       window.scrollTo(0, 0);
     }
   }, []);
 
   const SplitReview = () => {
     const arr = article.review.split("@");
+    const displayArticle = [];
     let i = 0;
-    return arr.map((item) => (
-      <>
-        <p className="actualArticle">{item}</p>
-        {item.charAt(0) === "+" && <img src={images[i]?.path} alt="images" />}
-      </>
-    ));
+
+    for (let i = 0; i < arr.length; i++) {
+      let j = 0;
+      while (arr[i].charAt(j) === "+") {
+        displayArticle.push(
+          <img className="articleImages" src={images[j]?.path} alt="images" />
+        );
+        j++;
+      }
+      displayArticle.push(
+        <p className="actualArticle">{arr[i].substring(j)}</p>
+      );
+    }
+    return <>{displayArticle}</>;
   };
 
   return (

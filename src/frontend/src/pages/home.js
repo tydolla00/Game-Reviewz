@@ -85,14 +85,14 @@ export default Home;
 
 const Cards = (props) => {
   return props.db.map((item) => (
-    <>
+    <div key={item.id + item.base}>
       <NavLink to={`/${item.base}/` + item.id} className="navlink">
         <div key={item.id} className="card">
           <img className="cardimg" src={item.path} alt="Cards on Home Page" />
           <div id="title">{item.title}</div>
         </div>
       </NavLink>
-    </>
+    </div>
   ));
 };
 
@@ -101,32 +101,36 @@ const Sidebar = () => {
   return (
     <div className="sidebar">
       <div className="releasesList">
-        <h2 className="sidebarHeader">Upcoming Releases</h2> 
-        <br/>
+        <h2 className="sidebarHeader">Upcoming Releases</h2>
+        <br />
         <ul className="releases">
           <li className="games">
-            Spongebob Squarepants: The Cosmic Shake - {" "}
+            Spongebob Squarepants: The Cosmic Shake -{" "}
             <span className="date">January 31st</span>
           </li>
-          <br/><br/>
+          <br />
+          <br />
           <li className="games">
             Hogwarts Legacy - <span className="date">February 10</span>
           </li>
-          <br/><br/>
+          <br />
+          <br />
           <li className="games">
             Star Wars Jedi Survivor - <span className="date">March 17</span>
           </li>
-          <br/><br/>
+          <br />
+          <br />
           <li className="games">
             The Legend of Zelda: Tears of the Kingdom -{" "}
             <span className="date">May 12</span>
           </li>
-          <br/><br/>
+          <br />
+          <br />
           <li className="games">
             Suicide Squad: Kill the Justice League -{" "}
             <span className="date">May 26</span>
           </li>
-          <br/>
+          <br />
         </ul>
       </div>
     </div>

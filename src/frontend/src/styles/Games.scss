@@ -6,6 +6,10 @@
   align-items: center;
 }
 
+.articleboxcontainer:hover {
+  background-color: lightgray;
+}
+
 .articleBox {
   display: flex;
   margin: 15px auto;
@@ -34,6 +38,10 @@
 .articleText {
   font-size: Variables.$lg-text;
   font-style: italic;
+}
+
+.bottomArticleBox {
+  cursor: pointer;
 }
 
 #bottom {
@@ -89,6 +97,10 @@
 }
 
 @media only screen and (max-width: 700px) {
+  .articleboxcontainer {
+    border-color: black;
+    border-width: 10px;
+  }
   .articleBox {
     flex-direction: column;
     a {

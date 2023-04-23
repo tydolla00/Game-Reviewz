@@ -173,3 +173,49 @@
 #text-center {
   text-align: center;
 }
+
+@media only screen and (max-width: 410px) {
+  .btn {
+    width: 250px;
+  }
+  .modal {
+    height: 370px;
+    width: 300px;
+  }
+  .modalBody {
+    .formGroup {
+      margin-bottom: 5px;
+    }
+    .formGroup input {
+      width: 290px;
+      height: 20px;
+      padding: 0px;
+    }
+  }
+}
+
+@media only screen and (max-width: 610px) {
+  .btn {
+    width: 250px;
+  }
+  .formGroup {
+    height: 50px;
+    label {
+      font-size: large;
+    }
+  }
+  .modal {
+    height: 470px;
+    width: 400px;
+  }
+  .modalBody {
+    .formGroup {
+      margin-bottom: 5px;
+    }
+    .formGroup input {
+      width: 290px;
+      height: 20px;
+      padding: 0px;
+    }
+  }
+}

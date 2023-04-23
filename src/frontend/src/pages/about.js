@@ -5,6 +5,7 @@ import Java_logo from "../assets/Java_logo.png";
 import React_logo from "../assets/React_logo.png";
 import Discord_logo from "../assets/discord_logo.png";
 import Linkedin_logo from "../assets/Linkedin_Logo.png";
+import Ty from "../assets/tyabout.jpeg";
 import { NavLink } from "react-router-dom";
 
 function About() {
@@ -40,10 +41,8 @@ function About() {
       <br />
       <div id="container">
         <div className="technologies">
-          <p className="technologiesTitleFont">
-            Technologies
-            <hr className={"hrAbout"} />
-          </p>
+          <p className="technologiesTitleFont">Technologies</p>
+          <hr className={"hrAbout"} />
           <div className="logosFit">
             {/* need to resize logos for responsiveness */}
             <img src={HTML_logo} alt={"HTML Logo"} />
@@ -67,26 +66,31 @@ function Card() {
       url: "https://www.linkedin.com/in/tyheir",
       city: "Bronx, NY",
       path: "/portfolio/tyheir",
+      img: Ty,
     },
     {
       name: "John Beltran",
       url: "https://www.birdforum.net/",
       city: "White Plains, NY",
       path: "/portfolio/john",
+      img: "",
     },
     {
       name: "Paul Spadaccini",
       url: "https://www.linkedin.com/in/paul-spadaccini/",
       city: "Dobbs Ferry, NY",
       path: "/portfolio/paul",
+      img: "",
     },
   ];
   return (
     <div className="membersContainer">
       {collaborators.map((item, index) => (
-        <div className="cardContainer">
+        <div key={index} className="cardContainer">
           <div className="flexContainer">
-            <div className="profile"></div>
+            <div className="profile">
+              <img className="tyabout" src={Ty} />
+            </div>
           </div>
           <div className="nameText">{item.name}</div>
           <div className="nameText">{item.city}</div>
