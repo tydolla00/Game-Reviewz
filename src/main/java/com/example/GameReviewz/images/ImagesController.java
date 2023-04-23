@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000/")
-@RequestMapping("/api/v1")
+@RequestMapping("/api/v1/articles")
 @RestController
 @AllArgsConstructor
 public class ImagesController {

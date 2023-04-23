@@ -35,7 +35,6 @@
   width: 95%;
   display: flex;
   min-height: 150px;
-
 }
 
 .bottomContainer {
@@ -92,17 +91,17 @@
 .glow-on-hover:before {
   content: "";
   background: linear-gradient(
-                  45deg,
-                  #ff0000,
-                  #353935,
-                  #000000,
-                  #353437,
-                  #ff0000,
-                  #353437,
-                  #000000,
-                  #353935,
-                  #1a1a1b,
-                  #ff0000
+    45deg,
+    #ff0000,
+    #353935,
+    #000000,
+    #353437,
+    #ff0000,
+    #353437,
+    #000000,
+    #353935,
+    #1a1a1b,
+    #ff0000
   );
   position: absolute;
   top: -2px;
@@ -221,6 +220,7 @@
 
 .profile {
   height: 20vw;
+  display: flex;
   /* padding-top: 100%; */
   /* aspect-ratio: 1/1; */
   width: 20vw;
@@ -231,6 +231,7 @@
   border-radius: 50%;
   background-color: gray;
   justify-items: center;
+  overflow: hidden;
 }
 
 .profilePic {
@@ -276,6 +277,17 @@
   margin: 10px 0;
   font-size: calc(14px + 1vw);
   text-align: center;
+}
+
+.tyabout {
+  object-fit: cover;
+  overflow: scroll;
+  zoom: 30px;
+  // height: 50%;
+}
+.tyabout:hover {
+  transform: scale(1.5);
+  transition: 0.5s;
 }
 
 // view {

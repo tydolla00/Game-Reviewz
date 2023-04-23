@@ -2,6 +2,7 @@ import { useState } from "react";
 
 const CommentForm = ({
   handleSubmit,
+  currentUserId,
   submitLabel,
   hasCancelButton = false,
   handleCancel,
@@ -9,6 +10,7 @@ const CommentForm = ({
 }) => {
   const [text, setText] = useState(initialText);
   const isTextAreaDisabled = text.length === 0;
+  const notLoggedIn = currentUserId === undefined;
   const onSubmit = (event) => {
     event.preventDefault();
     handleSubmit(text);
@@ -18,7 +20,9 @@ const CommentForm = ({
     <form onSubmit={onSubmit}>
       <textarea
         className="commentsection"
+        placeholder={notLoggedIn && "Please Login to leave a comment"}
         value={text}
+        disabled={notLoggedIn}
         onChange={(e) => setText(e.target.value)}
       />
       <button className="" disabled={isTextAreaDisabled}>

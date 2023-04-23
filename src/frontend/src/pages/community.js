@@ -40,37 +40,37 @@ let poll = {
 
 const MostListUsers = (props) => {
   return props.db.map((item) => (
-    <>
-      <div key={item.id} className="mostSection">
+    <div key={item.id}>
+      <div className="mostSection">
         <Person />
         {item.user} {" - "}
         {item.value}
       </div>
-    </>
+    </div>
   ));
 };
 
 const Birthdays = (props) => {
   return props.db.map((item) => (
-    <>
-      <div key={item.id} className="mostSection">
+    <div key={item.id}>
+      <div className="mostSection">
         <BalloonFill color="red" />
         {item.user} {" - "}
         {item.birthday}
       </div>
-    </>
+    </div>
   ));
 };
 
 const Releases = (props) => {
   return props.db.map((item) => (
-    <>
-      <div key={item.id} className="mostSection">
+    <div key={item.id}>
+      <div className="mostSection">
         <Alarm />
         {item.game} {" - "}
         <i>{item.date}</i>
       </div>
-    </>
+    </div>
   ));
 };
 
@@ -229,8 +229,6 @@ export default function Community() {
                 <Releases db={gamesDB} />
               </ul>
             </div>
-
-            <div class="break"></div>
 
             <div className="column">
               <b className="mosts">Most Comments</b>
