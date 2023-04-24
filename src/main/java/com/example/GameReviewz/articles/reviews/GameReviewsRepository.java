@@ -17,4 +17,6 @@ public interface GameReviewsRepository extends JpaRepository<GameReviews, Long> 
 
     @Query(value = "SELECT username from users where users.id = :id", nativeQuery = true)
     String findUsernameById(@Param("id") long id);
+
+
 }

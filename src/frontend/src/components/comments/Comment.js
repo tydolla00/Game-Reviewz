@@ -47,6 +47,7 @@ const Comment = ({
             submitLabel="Update"
             hasCancelButton
             initialText={comment.comment}
+            currentUserId={currentUserId}
             handleSubmit={(text) => updateComment(text, comment.id)}
             handleCancel={() => {
               setActiveComment(null);
@@ -83,6 +84,7 @@ const Comment = ({
         {isReplying && (
           <CommentForm
             submitLabel="Reply"
+            currentUserId={currentUserId}
             handleSubmit={(text) => addComment(text, replyId)}
           />
         )}

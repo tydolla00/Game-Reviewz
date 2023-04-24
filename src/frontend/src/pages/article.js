@@ -82,7 +82,7 @@ function Article() {
       getImages(id);
       window.scrollTo(0, 0);
     }
-  }, []);
+  }, [id]);
 
   const SplitReview = () => {
     const arr = article.review.split("@");
@@ -98,7 +98,9 @@ function Article() {
         j++;
       }
       displayArticle.push(
-        <p className="actualArticle">{arr[i].substring(j)}</p>
+        <p key={i} className="actualArticle">
+          {arr[i].substring(j)}
+        </p>
       );
     }
     return <>{displayArticle}</>;
@@ -150,7 +152,6 @@ function Article() {
       </div>
       <br />
       <br />
-      <p className={"commentsTitle"}>Comments</p>
       <hr className={"articleHr"} />
       <Comments pageId={id} currentUserId={user?.id} />
     </div>

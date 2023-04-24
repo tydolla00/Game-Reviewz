@@ -1,5 +1,5 @@
 import Navbar from "./components/navigation";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home";
 import Contact from "./pages/contact";
 import About from "./pages/about";
@@ -8,7 +8,6 @@ import Tech from "./pages/tech";
 import Community from "./pages/community";
 import Article from "./pages/article";
 import "./styles/App.scss";
-import logo from "./assets/smashultimate.jpeg";
 import TyPage from "./pages/portfolios/ty";
 import JohnPage from "./pages/portfolios/john";
 import PaulPage from "./pages/portfolios/paul";
@@ -22,7 +21,6 @@ import Profile from "./components/profile";
 const App = () => {
   return (
     <div>
-      {/* {headerFunction()} */}
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Home />} />
