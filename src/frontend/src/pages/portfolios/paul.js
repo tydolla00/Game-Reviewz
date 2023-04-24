@@ -28,12 +28,31 @@ export default function PaulPage() {
     };
   }, []);
 
-  //window.scrollTo(0, 0);
+  //Enable hidden nav bar
+  {
+    let lastScrollY = window.scrollY;
+
+    window.addEventListener("scroll", () => {
+      let currSrollY = window.scrollY;
+      if(lastScrollY < currSrollY && window.pageYOffset > 125)
+      {
+        document.querySelector(".paulNav").style.top = "-75px";
+      }
+      else  
+      {
+        document.querySelector(".paulNav").style.top = "0px";
+      }
+
+      lastScrollY = currSrollY;
+    });
+    
+  }
+
+  window.scrollTo(0, 0);
 
   return (
     <div className="paulContainer">
-      <div className="paulHome">
-        <div className="paulNav">
+      <div className="paulNav">
           <br className="paulMobileBreak" />
           <ul>
             <li>
@@ -59,8 +78,9 @@ export default function PaulPage() {
               </NavLink>
             </li>
           </ul>
-        </div>
+      </div>
 
+      <div className="paulHome">
         <div className="paulHeader">
           <div className="paulHeaderLeft">
             <p>Hi, my name is</p>
@@ -255,36 +275,34 @@ export default function PaulPage() {
           ways!
         </p>
         <table>
-          <tr>
-            <a href="tel:914-295-4201">
+          <tbody>
+            <tr>
               <td>
-                <TelephoneFill color="green" />
-              </td>
-              <td className="paulTableText">914-295-4201</td>
-            </a>
-          </tr>
-
-          <br />
-          <tr>
-            <a href="mailto:spadpaul@gmail.com">
-              <td>
-                <Envelope color="red" />
-              </td>
-              <td className="paulTableText">spadpaul@gmail.com</td>
-            </a>
-          </tr>
-
-          <br />
-          <tr>
-            <a href="https://www.linkedin.com/in/paul-spadaccini/">
-              <td>
-                <Linkedin color="#0A66C2" />
+                <a href="mailto:spadpaul@gmail.com">
+                  <Envelope color="red" />
+                </a>
               </td>
               <td className="paulTableText">
-                linkedin.com/in/paul-spadaccini/
+                <a href="mailto:spadpaul@gmail.com">
+                  spadpaul@gmail.com
+                </a>
               </td>
-            </a>
-          </tr>
+            </tr>
+
+            <tr>
+              <td>
+                <a href="https://www.linkedin.com/in/paul-spadaccini/">
+                  <Linkedin color="#0A66C2" />
+                </a>
+              </td>
+              <td className="paulTableText">
+               <a href="https://www.linkedin.com/in/paul-spadaccini/">
+                  linkedin.com/in/paul-spadaccini/
+                </a>
+              </td>
+            </tr>
+
+          </tbody>
         </table>
       </div>
     </div>
