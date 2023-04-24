@@ -20,7 +20,9 @@ const CommentForm = ({
     <form onSubmit={onSubmit}>
       <textarea
         className="commentsection"
-        placeholder={notLoggedIn && "Please Login to leave a comment"}
+        placeholder={
+          notLoggedIn ? "Please Login to leave a comment" : undefined
+        }
         value={text}
         disabled={notLoggedIn}
         onChange={(e) => setText(e.target.value)}

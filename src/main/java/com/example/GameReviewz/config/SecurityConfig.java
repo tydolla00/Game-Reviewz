@@ -27,12 +27,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public static final String[] PUBLIC_URL={
 
-            "/api/v1/auth/**",
+            "/api/v1/auth/register",
+            "/api/v1/auth/authenticate",
             "/api/v1/articles/**",
             "/api/v1/comments/get/**",
             "/api/v1/contact/**",
             "/api/v1/admin/login",
-            "/api/user/",
             "/api/v1/file/**",
             "/api/v1/seller/login**"
     };

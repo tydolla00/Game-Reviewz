@@ -6,6 +6,7 @@ import React_logo from "../assets/React_logo.png";
 import Discord_logo from "../assets/discord_logo.png";
 import Linkedin_logo from "../assets/Linkedin_Logo.png";
 import Ty from "../assets/tyabout.jpeg";
+import Paul from "../assets/paul_about.png";
 import { NavLink } from "react-router-dom";
 
 function About() {
@@ -20,14 +21,16 @@ function About() {
           <p className="aboutText">
             We are a group of aspiring Software Engineers who came together to
             work on a common interest and become better developers. <br />
-            <a
+            
+            If you would like to read more about our process, 
+              <a
               style={{ textDecoration: "none", color: "##007bff" }}
               href="https://github.com/tydolla00/Game-Reviewz#readme"
               title="GameReviewz Github Repository"
-            >
-              If you would like to read more about our process, click here to go
-              to our Github Repository!
-            </a>
+              >
+                {" "}click here   
+               </a>
+                {" "} to go to our Github Repository!
           </p>
         </div>
       </div>
@@ -80,7 +83,7 @@ function Card() {
       url: "https://www.linkedin.com/in/paul-spadaccini/",
       city: "Dobbs Ferry, NY",
       path: "/portfolio/paul",
-      img: "",
+      img: Paul,
     },
   ];
   return (
@@ -89,7 +92,7 @@ function Card() {
         <div key={index} className="cardContainer">
           <div className="flexContainer">
             <div className="profile">
-              <img className="tyabout" src={Ty} />
+              <img className="tyabout" src={item.img} />
             </div>
           </div>
           <div className="nameText">{item.name}</div>
