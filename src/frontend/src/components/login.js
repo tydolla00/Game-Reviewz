@@ -54,12 +54,12 @@ const LoginForm = ({
   };
   return (
     <>
-      <div className="google">
+      {/* <div className="google">
         <button disabled id="googlebutton">
           <Google />
           <div> Sign in With Google</div>
         </button>
-      </div>
+      </div> */}
 
       <form className="modalform" onSubmit={handleSubmit(onSubmit)}>
         <label className="modallabel">Email:</label>
