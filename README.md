@@ -1,5 +1,7 @@
-# Game-Reviewz 
+# Game-Reviewz
 Hello, and welcome to GameReviewz! This is a passion project collaborated on by three friends (Ty, Paul, and John), in an effort to develop better Front-End developer skills. We started this project in January of 2023 and continue developing today! 
+
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/90355178/234018929-fdc8136e-7617-4172-8f1d-efb67a801766.png">
 
 ## What is GameReviewz?
 As more of our world becomes digital, it gets increasingly difficult to confirm the legitimacy of a product before you get it. Reliability, price, and much more are common factors in determining whether a product is a proper fit. GameReviewz is a website where you can look up Gaming and Tech related products and find reviews from real people before making a purchase. We want to bridge the gap between purchasing a product and knowing if it's right for you. Here are some of our website's current features with many more to come! 
@@ -9,6 +11,8 @@ As more of our world becomes digital, it gets increasingly difficult to confirm 
 - Accessibility
 - Customization
 - Weekly Poll Interaction
+
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/90355178/234022222-cae7856d-3437-45e7-829c-e0803ca79411.png">
 
 ## Our Code Stack
 We utilized React for our Front-End and Spring Boot(Java) for our Backend. We also worked with these technologies for our dev experience. We participated in bi-weekly sprints and met often to discuss progress.
