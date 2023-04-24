@@ -30,6 +30,10 @@
     }
 }
 
+.navHidden{
+    transform: translateY(calc(-1 * var(--nav-height)));
+}
+
 .paulAbout{
     margin-left: 10%;
     margin-right: 10%;
@@ -47,6 +51,7 @@
     text-align: center;
     justify-content: center;
     margin-left: 10%;
+    margin-bottom: 5%;
     margin-right: 10%;
     p{
         font-family: myFontLight;
@@ -56,7 +61,7 @@
         margin: auto;
     }
     tr{
-        border-bottom: 3px solid black;
+        display: block;
     }
     svg{
         font-size: 5vw;
@@ -150,9 +155,11 @@
 }
 
 .paulHome{
-    background-color: black;
-    padding-bottom: 3%;
+    background-color:#18D5FE;
+    border-bottom: 50px solid black;
     font-family: myFontMedium;
+    --nav-height: 65px;
+    padding-top: var(--nav-height);
 }
 
 .paulLinkedLogos{
@@ -167,14 +174,21 @@
 
 .paulNav{
     text-align: center;
+    height: 55px;
     padding: 10px;
+    transition: 0.2s;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     background-color: #3db4cf;
     font-family: myFontBold;
+    z-index: 1;
     a{
         text-decoration: none;
         color: black;
         font-size: 2em;
-        font-weight: bold;
+        font-weight: bolder;
     }
     a:hover{
         color: white;
@@ -291,7 +305,7 @@
         padding-right: 5%;
     }
     .paulNav {
-        position: relative;
+        //position: relative;
         .paulLogo{
             font-size: 2em;
         }
@@ -314,6 +328,7 @@
     }
     .paulHeader {
         flex-wrap: wrap;
+        margin-top: 5%;
         justify-content: center;
         align-items: center;
         padding: 2%;
@@ -340,7 +355,7 @@
     }
 
     .paulNav {
-        position: relative;
+        //position: relative;
         .paulLogo{
             font-size: 2em;
         }
