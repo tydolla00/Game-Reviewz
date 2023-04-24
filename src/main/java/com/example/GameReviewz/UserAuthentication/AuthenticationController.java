@@ -37,8 +37,8 @@ public class AuthenticationController {
             throw new AuthenticationInvalidException("User Authentication failed");
         }
     }
-    @GetMapping("/user") // In demo controller since authenticated already just call this method with object of authcontroller.
-    public ResponseEntity<User> getUser(@RequestBody AuthenticationRequest request){
-        return new ResponseEntity<>(service.getUser(request), HttpStatus.OK);
+    @GetMapping("/user/{id}") // In demo controller since authenticated already just call this method with object of authcontroller.
+    public ResponseEntity<User> getUser(@PathVariable("id") Integer id){
+        return new ResponseEntity<>(service.getUser(id), HttpStatus.OK);
     }
 }

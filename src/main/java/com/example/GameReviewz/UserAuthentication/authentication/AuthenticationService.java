@@ -61,14 +61,9 @@ public class AuthenticationService {
         return new AuthenticationResponse(token,user.getId(),user.getEmail(),user.getRealUsername());
     }
 
-    public User getUser (@RequestBody AuthenticationRequest request){
-        try {
-            authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
-        }catch (Exception e){
-            return new User();
-        }
-        return userRepository.findByEmail(request.getEmail()).orElseThrow();
-
+    public User getUser (Integer id){
+        User user = userRepository.findById(id).orElseThrow();
+        return new User(user.getId(), user.getFirstName(), user.getLastName(), user.getEmail(), user.getRealUsername(), user.getRole());
     }
 
     private void authenticate2(String email, String password) throws Exception {

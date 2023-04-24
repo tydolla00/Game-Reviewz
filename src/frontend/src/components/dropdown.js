@@ -77,7 +77,7 @@ export const Dropdown = () => {
         <div className="dropdowntab" onClick={() => navigate("/profile")}>
           <div>
             <PersonCircle />
-            <div>Edit Profile</div>
+            <div>My Profile</div>
           </div>
           <ArrowRight className="arrowdropdown" />
         </div>

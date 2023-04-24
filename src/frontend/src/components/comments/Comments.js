@@ -115,6 +115,7 @@ const Comments = ({ currentUserId, pageId }) => {
   // console.log(comments);
   return (
     <div className="comments">
+      <p className={"commentsTitle"}>{`Comments(${comments.length})`}</p>
       <div className="comment-form-title">Leave a comment</div>
       <CommentForm
         submitLabel="Write"
