@@ -52,7 +52,6 @@ const SignupForm = ({ setLogin }) => {
       .catch((error) => {
         setLoginError(true);
         setErrorResponse(error.response.data);
-        console.log(error.response.data);
       })
       .finally(() => {
         setLoading(false);

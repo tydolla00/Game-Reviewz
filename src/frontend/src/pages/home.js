@@ -54,7 +54,6 @@ function Home() {
         });
       })
       .catch((e) => {
-        console.log(e);
         return <div>Hello You have found an error</div>;
       });
   };

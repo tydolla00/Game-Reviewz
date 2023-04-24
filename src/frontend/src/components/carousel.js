@@ -39,7 +39,6 @@ export default function CarouselComponent({ array = undefined }) {
   if (array === undefined || array.length < 1) array = defaultArray;
 
   const handleSlideClicked = (index) => {
-    console.log("Hello World");
     window.location.assign(
       `http://localhost:3000/${array[index].page}/${array[index].id}`
     );

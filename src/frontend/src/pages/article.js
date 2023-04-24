@@ -35,19 +35,14 @@ function Article() {
       ArticlesService.getGamesById(id)
         .then((res) => {
           setArticle(res.data);
-          console.log(res.data);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => {});
     } else {
       ArticlesService.getTechById(id)
         .then((res) => {
           setArticle(res.data);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => {});
     }
   };
 
@@ -57,26 +52,18 @@ function Article() {
       ArticlesService.getGamesImagesById(id)
         .then((res) => {
           setImages(res.data);
-          console.log(res.data);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => {});
     } else {
       ArticlesService.getTechImagesById(id)
         .then((res) => {
           setImages(res.data);
-          console.log(res.data);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => {});
     }
   };
 
   useEffect(() => {
-    console.log(window.location.pathname);
-    console.log(id);
     if (id) {
       getArticle(id);
       getImages(id);
@@ -93,7 +80,12 @@ function Article() {
       let j = 0;
       while (arr[i].charAt(j) === "+") {
         displayArticle.push(
-          <img className="articleImages" src={images[j]?.path} alt="images" />
+          <img
+            key={images[j]?.id}
+            className="articleImages"
+            src={images[j]?.path}
+            alt="images"
+          />
         );
         j++;
       }
