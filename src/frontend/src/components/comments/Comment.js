@@ -31,12 +31,14 @@ const Comment = ({
 
   return (
     <div key={comment.id} className="comment">
-      <div className="">
+      <div>
         <PersonCircle className="userIcon" />
       </div>
-      <div className="">
+      <div>
         <div className="user">
-          <div className="username">{comment.username}</div>
+          <div className="username">
+            {comment.username ? comment.username : "Deleted User"}
+          </div>
           <div>{comment.createdAt}</div>
         </div>
         {!isEditing && <div className="">{comment.comment}</div>}

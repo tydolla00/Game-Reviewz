@@ -58,7 +58,7 @@ export default function CarouselComponent({ array = undefined }) {
         width="100%"
       >
         {array.map((item, index) => (
-          <div>
+          <div key={item.id}>
             <img
               className="imgstyle"
               src={item.img === undefined ? defaultArray[index] : item.img}

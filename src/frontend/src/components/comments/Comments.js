@@ -116,7 +116,11 @@ const Comments = ({ currentUserId, pageId }) => {
   return (
     <div className="comments">
       <div className="comment-form-title">Leave a comment</div>
-      <CommentForm submitLabel="Write" handleSubmit={addComment} />
+      <CommentForm
+        submitLabel="Write"
+        handleSubmit={addComment}
+        currentUserId={currentUserId}
+      />
       <div className="comments-container">
         {rootComments.map((rootComment) => (
           <Comment

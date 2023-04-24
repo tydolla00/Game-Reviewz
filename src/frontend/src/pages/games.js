@@ -10,6 +10,7 @@ import { NavLink } from "react-router-dom";
 import CarouselComponent from "../components/carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { ChatFill } from "react-bootstrap-icons";
+import { useNavigate } from "react-router-dom";
 
 const Games = (props) => {
   // ## Static Array for the Games Carousel component.
@@ -77,15 +78,19 @@ export default Games;
 
 // Currently working on getting the correct images in place.
 export const Articles = (props) => {
+  const navigate = useNavigate();
   const page = window.location.pathname;
   return props.db.map((item) => (
-    <div className="articleboxcontainer">
+    <div key={item.id} className="articleboxcontainer">
       <div className="articleBox">
         <NavLink to={`${page}/` + item.id}>
           <img src={item.path} className="articleStyle" alt="A Game" />
         </NavLink>
         <div className="vl"></div>
-        <div>
+        <div
+          className="bottomArticleBox"
+          onClick={() => navigate(`${page}/${item.id}`)}
+        >
           <h1>{`${item.title}? Worth It? Find Out More!`}</h1>
           {/* <p className="articleText">{item.review.split("@")[0] + "..."}</p> */}
           <p className="articleText">{item.review.substring(0, 500) + "..."}</p>
