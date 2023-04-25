@@ -25,6 +25,7 @@ export default function PaulPage() {
 
     return () => {
       nav.style.display = "";
+      window.removeEventListener("scroll", this);
     };
   }, []);
 
@@ -34,18 +35,14 @@ export default function PaulPage() {
 
     window.addEventListener("scroll", () => {
       let currSrollY = window.scrollY;
-      if(lastScrollY < currSrollY && window.pageYOffset > 125)
-      {
+      if (lastScrollY < currSrollY && window.pageYOffset > 125) {
         document.querySelector(".paulNav").style.top = "-75px";
-      }
-      else  
-      {
+      } else {
         document.querySelector(".paulNav").style.top = "0px";
       }
 
       lastScrollY = currSrollY;
     });
-    
   }
 
   window.scrollTo(0, 0);
@@ -53,31 +50,31 @@ export default function PaulPage() {
   return (
     <div className="paulContainer">
       <div className="paulNav">
-          <br className="paulMobileBreak" />
-          <ul>
-            <li>
-              <NavLink to="/portfolio/paul" className={"paulLogo"}>
-                <span>Paul</span>Spad
-              </NavLink>
-            </li>
-            <li>
-              <a href="#paulAbout">About</a>
-            </li>
-            <li>
-              <a href="#paulExperience">Experience</a>
-            </li>
-            <li>
-              <a href="#paulResume">Resume</a>
-            </li>
-            <li>
-              <a href="#paulContact">Contact</a>
-            </li>
-            <li>
-              <NavLink to="/" className={"mainLogo"}>
-                Game<span>Reviewz</span>
-              </NavLink>
-            </li>
-          </ul>
+        <br className="paulMobileBreak" />
+        <ul>
+          <li>
+            <NavLink to="/portfolio/paul" className={"paulLogo"}>
+              <span>Paul</span>Spad
+            </NavLink>
+          </li>
+          <li>
+            <a href="#paulAbout">About</a>
+          </li>
+          <li>
+            <a href="#paulExperience">Experience</a>
+          </li>
+          <li>
+            <a href="#paulResume">Resume</a>
+          </li>
+          <li>
+            <a href="#paulContact">Contact</a>
+          </li>
+          <li>
+            <NavLink to="/" className={"mainLogo"}>
+              Game<span>Reviewz</span>
+            </NavLink>
+          </li>
+        </ul>
       </div>
 
       <div className="paulHome">
@@ -283,9 +280,7 @@ export default function PaulPage() {
                 </a>
               </td>
               <td className="paulTableText">
-                <a href="mailto:spadpaul@gmail.com">
-                  spadpaul@gmail.com
-                </a>
+                <a href="mailto:spadpaul@gmail.com">spadpaul@gmail.com</a>
               </td>
             </tr>
 
@@ -296,12 +291,11 @@ export default function PaulPage() {
                 </a>
               </td>
               <td className="paulTableText">
-               <a href="https://www.linkedin.com/in/paul-spadaccini/">
+                <a href="https://www.linkedin.com/in/paul-spadaccini/">
                   linkedin.com/in/paul-spadaccini/
                 </a>
               </td>
             </tr>
-
           </tbody>
         </table>
       </div>

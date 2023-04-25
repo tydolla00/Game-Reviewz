@@ -44,7 +44,6 @@ const LoginForm = ({
       })
       .catch((error) => {
         // Should work in the future when returning error statements from backend.
-        console.log(error);
         setErrorResponse(JSON.stringify(error.message));
         setLoginError(true);
       })

@@ -84,11 +84,9 @@ export default function Community() {
       pollOption: pollOption,
     };
     e.preventDefault();
-    console.log(pollOption);
     if (user) {
       UserService.addVote(obj).catch((error) => {
         setIsError(error.response.data);
-        console.log(error.response.data);
       });
     } else {
       setIsError("Please Login, To Vote!");
