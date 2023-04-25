@@ -87,7 +87,7 @@ const Cards = (props) => {
     <div key={item.id + item.base}>
       <NavLink to={`/${item.base}/` + item.id} className="navlink">
         <div key={item.id} className="card">
-          <img className="cardimg" src={item.path} alt="Cards on Home Page" />
+          <img className="cardimg" src={item.path} alt={item.title} />
           <div id="title">{item.title}</div>
         </div>
       </NavLink>

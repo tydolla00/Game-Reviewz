@@ -283,6 +283,19 @@
   width: 100%;
 }
 
+.ratings {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.starfill {
+  position: relative;
+  top: -5px;
+  color: gold;
+  font-size: 3rem;
+}
+
 @media only screen and (max-width: 900px) {
   .possiblyAds {
     display: none;

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import ArticlesService from "../services/ArticlesService";
 import Comments from "../components/comments/Comments";
 import UserService from "../services/UserService";
+import { StarFill } from "react-bootstrap-icons";
 
 function Article() {
   let { id } = useParams();
@@ -98,6 +99,21 @@ function Article() {
     return <>{displayArticle}</>;
   };
 
+  const SplitRating = () => {
+    const arr = article.rating?.split("@");
+    console.log(arr);
+    const displayArticle = [];
+    return arr?.map((item) => (
+      <div>
+        <div className="displayflex">
+          <div className="ratings ">{item.substring(0, item.indexOf(" "))}</div>
+          <StarFill className="starfill" />
+        </div>
+        <div className="ratings">{item.substring(item.indexOf(" ") + 1)}</div>
+      </div>
+    ));
+  };
+
   return (
     <div>
       <br />
@@ -129,6 +145,7 @@ function Article() {
       <div className={"bodyContainer"}>
         <div className={"articleContainer"}>
           <SplitReview />
+          <SplitRating />
         </div>
         <div className={"possiblyAds"}>
           <div className={"unknown"}>
