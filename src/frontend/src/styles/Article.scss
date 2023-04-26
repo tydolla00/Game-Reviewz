@@ -1,5 +1,11 @@
 @use "Variables";
 
+
+.articleIMG{
+  justify-content: center;
+  display: flex;
+}
+
 .articleImages {
   height: 250px;
   // width: 500px;
@@ -281,6 +287,19 @@
   line-height: 1.5;
   margin: 0;
   width: 100%;
+}
+
+.ratings {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+}
+
+.starfill {
+  position: relative;
+  top: -5px;
+  color: gold;
+  font-size: 3rem;
 }
 
 @media only screen and (max-width: 900px) {

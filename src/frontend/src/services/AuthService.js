@@ -22,7 +22,6 @@ const login = (email, password) => {
       if (response.data.token) {
         localStorage.setItem("user", JSON.stringify(response.data));
       }
-      console.log("authenticated " + response.data.token);
       return response.data.token;
     })
     .catch(() => {

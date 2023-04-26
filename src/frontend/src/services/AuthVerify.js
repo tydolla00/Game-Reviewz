@@ -30,16 +30,12 @@ const AuthVerify = (props) => {
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
-    const token = JSON.parse(localStorage.getItem("user"))?.token;
-    console.log(token);
 
     if (user) {
       const decodedJwt = parseJwt(user.token);
-      console.log(decodedJwt.exp);
 
       if (decodedJwt.exp * 1000 < Date.now()) {
         props.logOut();
-        console.log("you have been logged out");
       }
     }
   }, [location, props]);

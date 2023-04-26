@@ -49,8 +49,6 @@ const Games = (props) => {
   // useEffect is called whenever the page is rendered/rerendered. [] allows for API to only be called once.
   useEffect(() => {
     retrieveArticles();
-    console.log("componenent is mounted");
-    console.log(window.location.pathname);
   }, []);
 
   // gets all Articles from the Database. Calls getMethod from API which returns rows in database, then pass the data into Articles
@@ -58,11 +56,8 @@ const Games = (props) => {
     ArticlesService.getAllGames()
       .then((response) => {
         setArticles(response.data);
-        // console.log(response.data);
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 
   return (

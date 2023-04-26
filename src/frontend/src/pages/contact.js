@@ -48,9 +48,7 @@ const Contact = () => {
       contactInfo.username = user.username;
       contactInfo.email = user.email;
     }
-    console.log(JSON.stringify(contactInfo));
     UserService.addForm(contactInfo);
-    console.log(JSON.stringify(data, null, 2));
     handleClickOpen();
   };
 

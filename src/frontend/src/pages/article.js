@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import ArticlesService from "../services/ArticlesService";
 import Comments from "../components/comments/Comments";
 import UserService from "../services/UserService";
+import { StarFill } from "react-bootstrap-icons";
 
 function Article() {
   let { id } = useParams();
@@ -35,19 +36,14 @@ function Article() {
       ArticlesService.getGamesById(id)
         .then((res) => {
           setArticle(res.data);
-          console.log(res.data);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => {});
     } else {
       ArticlesService.getTechById(id)
         .then((res) => {
           setArticle(res.data);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => {});
     }
   };
 
@@ -57,26 +53,18 @@ function Article() {
       ArticlesService.getGamesImagesById(id)
         .then((res) => {
           setImages(res.data);
-          console.log(res.data);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => {});
     } else {
       ArticlesService.getTechImagesById(id)
         .then((res) => {
           setImages(res.data);
-          console.log(res.data);
         })
-        .catch((e) => {
-          console.log(e);
-        });
+        .catch((e) => {});
     }
   };
 
   useEffect(() => {
-    console.log(window.location.pathname);
-    console.log(id);
     if (id) {
       getArticle(id);
       getImages(id);
@@ -88,14 +76,23 @@ function Article() {
     const arr = article.review.split("@");
     const displayArticle = [];
     let i = 0;
+    let k = 0;
 
     for (let i = 0; i < arr.length; i++) {
       let j = 0;
       while (arr[i].charAt(j) === "+") {
         displayArticle.push(
-          <img className="articleImages" src={images[j]?.path} alt="images" />
+          <div className="articleIMG">
+          <img
+            key={images[k]?.id}
+            className="articleImages"
+            src={images[k]?.path}
+            alt="images"
+          />
+          </div>
         );
         j++;
+        k++;
       }
       displayArticle.push(
         <p key={i} className="actualArticle">
@@ -104,6 +101,21 @@ function Article() {
       );
     }
     return <>{displayArticle}</>;
+  };
+
+  const SplitRating = () => {
+    const arr = article.rating?.split("@");
+    console.log(arr);
+    const displayArticle = [];
+    return arr?.map((item) => (
+      <div>
+        <div className="displayflex">
+          <div className="ratings ">{item.substring(0, item.indexOf(" "))}</div>
+          <StarFill className="starfill" />
+        </div>
+        <div className="ratings">{item.substring(item.indexOf(" ") + 1)}</div>
+      </div>
+    ));
   };
 
   return (
@@ -137,6 +149,7 @@ function Article() {
       <div className={"bodyContainer"}>
         <div className={"articleContainer"}>
           <SplitReview />
+          <SplitRating />
         </div>
         <div className={"possiblyAds"}>
           <div className={"unknown"}>
