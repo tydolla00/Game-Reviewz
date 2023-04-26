@@ -9,10 +9,10 @@ import java.util.List;
 
 @Repository
 public interface ImagesRepository extends JpaRepository<Images, Long> {
-    @Query(value = "SELECT * FROM IMAGES WHERE games_id = :id", nativeQuery = true)
+    @Query(value = "SELECT * FROM IMAGES WHERE games_id = :id ORDER BY image_id", nativeQuery = true)
     List<Images> findAllGamesImagesById(@Param("id") long articleId);
 
-    @Query(value = "SELECT * FROM IMAGES WHERE tech_id = :id", nativeQuery = true)
+    @Query(value = "SELECT * FROM IMAGES WHERE tech_id = :id ORDER BY image_id", nativeQuery = true)
     List<Images> findAllTechImagesById(@Param("id") long articleId);
 
 //    @Query(value = "SELECT * FROM IMAGES WHERE ID = :targetid", nativeQuery = true)
