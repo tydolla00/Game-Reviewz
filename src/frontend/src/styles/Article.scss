@@ -1,5 +1,11 @@
 @use "Variables";
 
+
+.articleIMG{
+  justify-content: center;
+  display: flex;
+}
+
 .articleImages {
   height: 250px;
   // width: 500px;
