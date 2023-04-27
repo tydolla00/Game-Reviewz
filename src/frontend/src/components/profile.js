@@ -31,8 +31,6 @@ const Profile = () => {
     getUser();
   }, []);
 
-  console.log(userInfo);
-
   return (
     <div>
       <div className="profileHeader">

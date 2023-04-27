@@ -33,11 +33,8 @@ export default function Tech() {
     ArticlesService.getAllTech()
       .then((response) => {
         setArticles(response.data);
-        // console.log(response.data);
       })
-      .catch((e) => {
-        console.log(e);
-      });
+      .catch((e) => {});
   };
 
   useEffect(() => {

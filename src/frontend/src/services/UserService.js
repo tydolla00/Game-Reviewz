@@ -34,7 +34,6 @@ const addForm = (data) => {
 };
 
 const addVote = (data) => {
-  console.log(data);
   return axios.put(API_URL + "polls/vote", data, config);
 };
 

@@ -27,7 +27,6 @@ const Comments = ({ currentUserId, pageId }) => {
         pageId,
         currentUserId
       ).then((comment) => {
-        console.log(comment.data);
         setComments([comment.data, ...comments]);
         setActiveComment(null);
       });
@@ -45,20 +44,16 @@ const Comments = ({ currentUserId, pageId }) => {
   };
 
   const updateComment = (text, commentId) => {
-    console.log("Updating " + commentId);
     if (path) {
       CommentsService.updateGameComment(text, commentId).then((res) => {
-        console.log(res.data);
         const updatedComments = comments.map((comment) => {
           if (comment.id === commentId) {
             return { ...comment, comment: text };
           }
           return comment;
         });
-        console.log(updatedComments + "updated comments");
         setComments(updatedComments);
         setActiveComment(null);
-        console.log(comments);
       });
     } else {
       CommentsService.updateTechComment(text, commentId).then(() => {
@@ -99,20 +94,15 @@ const Comments = ({ currentUserId, pageId }) => {
   useEffect(() => {
     if (path) {
       CommentsService.getGameComments(pageId).then((res) => {
-        console.log(res.data);
         setComments(res.data);
-        console.log(comments);
       });
     } else {
       CommentsService.getTechComments(pageId).then((res) => {
-        console.log(res.data);
         setComments(res.data);
-        console.log(comments);
       });
     }
   }, []);
 
-  // console.log(comments);
   return (
     <div className="comments">
       <p className={"commentsTitle"}>{`Comments(${comments.length})`}</p>
