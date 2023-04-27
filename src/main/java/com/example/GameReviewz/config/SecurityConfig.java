@@ -26,7 +26,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public static final String[] PUBLIC_URL={
-//            "/index.html", "/", "/home","/login",
+            "/index.html", "/", "/home","/login, /favicon.ico",
             "/api/v1/auth/register",
             "/api/v1/auth/authenticate",
             "/api/v1/articles/**",
