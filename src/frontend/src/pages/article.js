@@ -76,18 +76,21 @@ function Article() {
     const arr = article.review.split("@");
     const displayArticle = [];
     let i = 0;
+    let k = 0;
 
     for (let i = 0; i < arr.length; i++) {
       let j = 0;
       let k = 0;
       while (arr[i].charAt(j) === "+") {
         displayArticle.push(
+          <div className="articleIMG">
           <img
-            key={images[j]?.id}
+            key={images[k]?.id}
             className="articleImages"
-            src={images[j]?.path}
+            src={images[k]?.path}
             alt="images"
           />
+          </div>
         );
         // images.shift();
         j++;
