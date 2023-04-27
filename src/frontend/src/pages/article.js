@@ -80,6 +80,7 @@ function Article() {
 
     for (let i = 0; i < arr.length; i++) {
       let j = 0;
+      let k = 0;
       while (arr[i].charAt(j) === "+") {
         displayArticle.push(
           <div className="articleIMG">
@@ -91,6 +92,7 @@ function Article() {
           />
           </div>
         );
+        // images.shift();
         j++;
         k++;
       }
