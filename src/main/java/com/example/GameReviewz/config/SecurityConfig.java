@@ -20,12 +20,13 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 @EnableWebMvc
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     public static final String[] PUBLIC_URL={
+//            "/index.html", "/", "/home","/login",
             "/api/v1/auth/register",
             "/api/v1/auth/authenticate",
             "/api/v1/articles/**",
@@ -58,6 +59,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest()
                 .authenticated()
                 .and()
+//                .authorizeHttpRequests().anyRequest().permitAll().and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 .and()
                 .sessionManagement()
