@@ -179,7 +179,11 @@
     font-size: 19px;
     img {
       width: 150px;
+      object-position: 50% 50%;
     }
+  }
+  #title {
+    height: 45px;
   }
   .releasesList {
     margin-left: 1%;
