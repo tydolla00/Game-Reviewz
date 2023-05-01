@@ -7,6 +7,7 @@ import Discord_logo from "../assets/discord_logo.png";
 import Linkedin_logo from "../assets/Linkedin_Logo.png";
 import Ty from "../assets/tyabout.jpeg";
 import Paul from "../assets/paul_about.png";
+import John from "../assets/john.jpg";
 import { NavLink } from "react-router-dom";
 
 function About() {
@@ -21,16 +22,16 @@ function About() {
           <p className="aboutText">
             We are a group of aspiring Software Engineers who came together to
             work on a common interest and become better developers. <br />
-            
-            If you would like to read more about our process, 
-              <a
+            If you would like to read more about our process,
+            <a
               style={{ textDecoration: "none", color: "##007bff" }}
               href="https://github.com/tydolla00/Game-Reviewz#readme"
               title="GameReviewz Github Repository"
-              >
-                {" "}click here   
-               </a>
-                {" "} to go to our Github Repository!
+            >
+              {" "}
+              click here
+            </a>{" "}
+            to go to our Github Repository!
           </p>
         </div>
       </div>
@@ -76,7 +77,7 @@ function Card() {
       url: "https://www.birdforum.net/",
       city: "White Plains, NY",
       path: "/portfolio/john",
-      img: "",
+      img: John,
     },
     {
       name: "Paul Spadaccini",

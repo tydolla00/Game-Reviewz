@@ -67,6 +67,9 @@
     }
   }
 }
+.tybottombackground {
+  background-color: black;
+}
 
 .tybackground {
   background-color: black;
@@ -79,8 +82,8 @@
 .typictures {
   .moon {
     position: absolute;
-    right: 0;
-    top: 40px;
+    right: 150px;
+    top: 60px;
     user-drag: none;
     -moz-user-select: none;
     -webkit-user-drag: none;
@@ -97,6 +100,23 @@
     animation: animateMoon 8s ease-in-out infinite;
     // box-shadow: inset 0 0 40px 16px;
   }
+}
+
+.tyRectangle {
+  height: 400px;
+  width: 250px;
+  background-color: #0d0d0d;
+  .tyRectangleText {
+    color: white;
+    font-size: Variables.$lg-text;
+    font-weight: bold;
+  }
+}
+
+.tyRectangleContainer {
+  display: flex;
+  column-gap: 20px;
+  justify-content: center;
 }
 
 @keyframes animateMoon {
@@ -120,4 +140,6 @@
     width: 100%;
     color: aqua;
   }
+}
+@media only screen and (max-width: 1440px) {
 }

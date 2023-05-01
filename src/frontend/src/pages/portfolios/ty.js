@@ -13,13 +13,16 @@ export default function TyPage() {
   useEffect(() => {
     const nav = document.getElementById("nav");
     nav.style.display = "none";
+    const footer = document.querySelector("footer");
+    footer.style.display = "none";
 
     const options = {
       strings: [
         "I am a coder",
         "I am a Software Developer",
-        "I am your next hire",
         "I am a gamer",
+        "I am your next hire",
+        "Welcome to GameReviewz!",
       ],
       typeSpeed: 50,
       backSpeed: 50,
@@ -28,59 +31,94 @@ export default function TyPage() {
     return () => {
       typed.current.destroy();
       nav.style.display = "";
+      footer.style.display = "";
     };
   }, []);
 
   return (
-    <div className="tybackground">
-      <div className="navbanner">
-        <div className="navban">
-          <a href="#" className="logo">
-            <span>My</span>Portfolio
-          </a>
+    <div>
+      <div className="tybackground">
+        <div className="navbanner">
+          <div className="navban">
+            <a href="#" className="logo">
+              <span>My</span>Portfolio
+            </a>
+            <ul>
+              <li>
+                <NavLink to="/">Home</NavLink>
+              </li>
+              <li>
+                <NavLink to="/">About</NavLink>
+              </li>
+              <li>
+                <NavLink to="/">Projects</NavLink>
+              </li>
+              <li>
+                <NavLink to="/">Contact</NavLink>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="typedwrap">
+          <h1 className="hiworld">Hello...</h1>
+          <span ref={el} />
+        </div>
+        <div className="typictures">
+          <img className="moon" src={Moon} />
+          <img className="tyMe" src={Ty} />
+        </div>
+        <div className="sidelinks">
           <ul>
             <li>
-              <NavLink to="/">Home</NavLink>
+              <a href="https://www.linkedin.com/in/tyheir">
+                <Linkedin />
+              </a>
             </li>
             <li>
-              <NavLink to="/">About</NavLink>
+              <a href="https://www.github.com/tydolla00">
+                <Github />
+              </a>
             </li>
             <li>
-              <NavLink to="/">Projects</NavLink>
+              <a to=""></a>
             </li>
             <li>
-              <NavLink to="/">Contact</NavLink>
+              <a to=""></a>
             </li>
           </ul>
         </div>
       </div>
-      <div className="typedwrap">
-        <h1 className="hiworld">Hello...</h1>
-        <span ref={el} />
-      </div>
-      <div className="typictures">
-        <img className="moon" src={Moon} />
-        <img className="tyMe" src={Ty} />
-      </div>
-      <div className="sidelinks">
-        <ul>
-          <li>
-            <a href="https://www.linkedin.com/in/tyheir">
-              <Linkedin />
-            </a>
-          </li>
-          <li>
-            <a href="https://www.github.com/tydolla00">
-              <Github />
-            </a>
-          </li>
-          <li>
-            <a to=""></a>
-          </li>
-          <li>
-            <a to=""></a>
-          </li>
-        </ul>
+      <div className="tybottombackground">
+        <div className="tyRectangleContainer">
+          <div className="tyRectangle">
+            <div style={{ height: "50%" }}></div>
+            <h1 className="tyRectangleText">Hello Man</h1>
+            <div className="tyRectangleText">
+              Hello World one of the favorite games of the world is tisk tisk
+            </div>
+          </div>
+          <div className="tyRectangle">
+            <div style={{ height: "50%" }}></div>
+            <h1 className="tyRectangleText">Hello Man</h1>
+            <div className="tyRectangleText">
+              Hello World one of the favorite games of the world is tisk tisk
+            </div>
+          </div>
+          <div className="tyRectangle">
+            <div style={{ height: "50%" }}></div>
+            <h1 className="tyRectangleText">Hello Man</h1>
+            <div className="tyRectangleText">
+              Hello World one of the favorite games of the world is tisk tisk
+            </div>
+          </div>
+          <div className="tyRectangle">
+            <div style={{ height: "50%" }}></div>
+            <h1 className="tyRectangleText">Hello Man</h1>
+            <div className="tyRectangleText">
+              Hello World one of the favorite games of the world is tisk tisk
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
