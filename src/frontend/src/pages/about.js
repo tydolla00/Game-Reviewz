@@ -93,7 +93,7 @@ function Card() {
         <div key={index} className="cardContainer">
           <div className="flexContainer">
             <div className="profile">
-              <img className="tyabout" src={item.img} />
+              <img className="tyabout" src={item.img} alt="Developer" />
             </div>
           </div>
           <div className="nameText">{item.name}</div>
