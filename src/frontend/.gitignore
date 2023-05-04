@@ -20,8 +20,6 @@ src/frontend/package-lock.json
 *.env
 .env
 
-
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
