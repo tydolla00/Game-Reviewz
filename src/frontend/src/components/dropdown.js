@@ -54,13 +54,11 @@ export const Dropdown = () => {
     if (!darkMode) {
       body.classList.toggle("darkmode");
       user.theme = "dark";
-      console.log(user.theme);
       localStorage.setItem("user", JSON.stringify(user));
       darkMode = true;
     } else {
       body.classList.remove("darkmode");
       user.theme = "light";
-      console.log(user.theme);
       localStorage.setItem("user", JSON.stringify(user));
       darkMode = false;
     }
