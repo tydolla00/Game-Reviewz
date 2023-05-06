@@ -15,7 +15,7 @@ import java.util.function.Function;
 @Service
 public class JwtTokenHelper {
 
-    private String SECRET_KEY = "743777217A24432646294A404E635266556A586E3272357538782F413F442A47";
+    private String SECRET_KEY = "743777217A24432646294A404E635266556A586E3272357538782F413F442A47"; //Use Production Secret
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
