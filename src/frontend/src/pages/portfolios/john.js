@@ -17,6 +17,7 @@ export default function JohnPage() {
   useEffect(() => {
     const nav = document.getElementById("nav");
     nav.style.display = "none";
+    window.scrollTo(0, 0);
 
     return () => {
       nav.style.display = "";
