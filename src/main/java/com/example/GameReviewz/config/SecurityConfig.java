@@ -34,7 +34,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             "/api/v1/contact/**",
             "/api/v1/admin/login",
             "/api/v1/file/**",
-            "/api/v1/seller/login**"
+            "/api/v1/seller/login**",
+            "/api/v1/upcomingReleases/releases"
     };
     @Autowired
     private JwtAuthenticationFilter jwtAuthenticationFilter;
