@@ -3,12 +3,22 @@ import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/App.scss";
 import Modal from "./modal/modal";
 import { Dropdown } from "./dropdown";
+import UserService from "../services/UserService";
 
 const Navbar = () => {
   const [modalShow, setModalShow] = useState(false);
   const [login, setLogin] = useState(false);
-  const user = JSON.parse(localStorage.getItem("user")); // Gets user from localstorage.
   const navigate = useNavigate();
+  const user = UserService.userInfo();
+
+  const nav = [
+    { text: "Home", link: "/" },
+    { text: "Games", link: "/games" },
+    { text: "Tech", link: "/tech" },
+    { text: "About", link: "/about" },
+    { text: "Community", link: "/community" },
+    { text: "Contact", link: "/contact" },
+  ];
 
   return (
     <nav id="nav">
@@ -19,37 +29,20 @@ const Navbar = () => {
         G<span>R</span>
       </h1>
       <ul className="navItems">
-        <li>
-          {/* activeClassName */}
-          <NavLink className="navitem" to="/">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="navitem" to="/games">
-            &nbsp;Games
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="navitem" to="/tech">
-            &nbsp;Tech
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="navitem" to="/about">
-            &nbsp;About
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="navitem" to="/community">
-            &nbsp;Community
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className="navitem" to="/contact">
-            &nbsp;Contact
-          </NavLink>
-        </li>
+        {nav.map((item) => (
+          <li>
+            <NavLink className="navitem" to={`${item.link}`}>
+              {item.text}
+            </NavLink>
+          </li>
+        ))}
+        {user?.role === "ADMIN" && (
+          <li>
+            <NavLink className="navitem" to="/adminboard">
+              Admin
+            </NavLink>
+          </li>
+        )}
       </ul>
       {user ? (
         <Dropdown />
@@ -76,30 +69,7 @@ const Navbar = () => {
         </div>
       )}
       {modalShow && <Modal show={setModalShow} loginPage={login} />}
-      {/* <form>
-        {SearchBar()}
-        <button type="submit">Search</button>
-      </form> */}
     </nav>
   );
 };
 export default Navbar;
-
-// export const SearchBar = () => {
-//   const [searchInput, setSearchInput] = useState("");
-//   const handleChange = (e) => {
-//     e.preventDefault();
-//     setSearchInput(e.target.value);
-//   };
-//   return (
-//     <>
-//       <input
-//         type="text"
-//         className="searchinput"
-//         placeholder="Search..."
-//         onChange={handleChange}
-//         value={searchInput}
-//       />
-//     </>
-//   );
-// };

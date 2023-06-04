@@ -49,7 +49,7 @@ public class AuthenticationService {
 
         String token= jwtTokenHelper.generateToken(userDetails);
 
-        return new AuthenticationResponse(token,user.getId(),user.getEmail(),user.getUsername());
+        return new AuthenticationResponse(token,user.getId(),user.getEmail(),user.getUsername(),user.getRole().toString());
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) throws Exception {
@@ -58,7 +58,7 @@ public class AuthenticationService {
 
         String token= jwtTokenHelper.generateToken(userDetails);
         User user = userRepository.findByEmail(request.getEmail()).orElseThrow();
-        return new AuthenticationResponse(token,user.getId(),user.getEmail(),user.getRealUsername());
+        return new AuthenticationResponse(token,user.getId(),user.getEmail(),user.getRealUsername(),user.getRole().toString());
     }
 
     public User getUser (Integer id){

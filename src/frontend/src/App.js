@@ -16,6 +16,7 @@ import Footer from "./components/footer";
 import AuthVerify from "./services/AuthVerify";
 import AuthService from "./services/AuthService";
 import Profile from "./components/profile";
+import Admin from "./pages/admin";
 
 // Contains the Routing for the layout of the website.
 // If app acts up with CORS, whitelabel error, switch to HashRouter.
@@ -54,6 +55,7 @@ const App = () => {
         <Route path="/portfolio/john" element={<JohnPage />} />
         <Route path="/portfolio/paul" element={<PaulPage />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/adminboard" element={<Admin />} />
       </Routes>
       <AuthVerify logOut={AuthService.logout} />
       <Footer />
