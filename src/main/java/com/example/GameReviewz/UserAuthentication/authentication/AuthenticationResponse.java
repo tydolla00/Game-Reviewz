@@ -14,4 +14,5 @@ public class AuthenticationResponse {
     private Integer id;
     private String email;
     private String username;
+    private String role;
 }

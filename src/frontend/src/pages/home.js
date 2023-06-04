@@ -8,9 +8,9 @@ import { NavLink } from "react-router-dom";
 import CarouselComponent from "../components/carousel";
 import ReleasesService from "../services/ReleasesService";
 
-//Notes for Paul, when defining a class use className, class is reserved for classes in React.
-// Maybe turn the container into a grid??? Can also be called from the database, maybe add columnPriority as a column and then give a priority number,
-// then in database select top 16 from columnPriority
+// Maybe turn the container into a grid??? Can also be called from the database,
+// Maybe add columnPriority as a column and then give a priority number,
+// Then in database select top 16 from columnPriority
 function Home() {
   const carouselDb = [
     {
@@ -52,30 +52,28 @@ function Home() {
     ReleasesService.getAllReleases()
       .then((response) => {
         let sortedArray = response.data;
-        sortedArray.sort(function(a,b){
+        sortedArray.sort(function (a, b) {
           return new Date(a.releaseDate) - new Date(b.releaseDate);
         });
-        
+
         let today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
         var yyyy = today.getFullYear();
 
-        today = mm + '/' + dd + '/' + yyyy;
+        today = mm + "/" + dd + "/" + yyyy;
         const t = Date.parse(today);
-        const limitedArray = sortedArray.filter(function(obj) {
+        const limitedArray = sortedArray.filter(function (obj) {
           let objDate = Date.parse(obj.releaseDate);
           const d = new Date(objDate);
           return t <= d;
-        })
+        });
         setReleases(limitedArray.splice(0, 10));
       })
       .catch((e) => {
-        return <div>Error Occured</div>
-      })
-  }
-
-
+        return <div>Error Occured</div>;
+      });
+  };
 
   const retrieveArticles = () => {
     ArticlesService.getAllGames()
@@ -103,12 +101,10 @@ function Home() {
     <>
       <CarouselComponent array={carouselDb} />
       <div className="homeContainer" id="home">
-        {/* <CarouselComponent img1={Zelda} img2={Seriesx} img3={Pixel} /> */}
         <div className="cardsContainer">
           <Cards db={demodb} />
         </div>
         <Sidebar db={releases} />
-        {/* <CarouselContainer/> */}
       </div>
       <br />
     </>
@@ -133,17 +129,16 @@ const Releases = (props, i) => {
   return props.db.map((item) => (
     <div key={item.id}>
       <li className="games">
-        {item.product} -{" "}
-        <span className="date"> {item.releaseDate}</span>
+        {item.product} - <span className="date"> {item.releaseDate}</span>
       </li>
       <br />
       <br />
     </div>
-  ))
-}
+  ));
+};
 
 // This can be reworked to function/look better.
-const Sidebar = ({db}) => {
+const Sidebar = ({ db }) => {
   return (
     <div className="sidebar">
       <div className="releasesList">
@@ -154,5 +149,5 @@ const Sidebar = ({db}) => {
         </ul>
       </div>
     </div>
-  )
+  );
 };
