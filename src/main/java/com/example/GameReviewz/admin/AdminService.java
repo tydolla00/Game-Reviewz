@@ -17,9 +17,11 @@ import com.example.GameReviewz.images.ImagesRepository;
 import com.example.GameReviewz.polls.Polls;
 import com.example.GameReviewz.polls.PollsRepository;
 import lombok.RequiredArgsConstructor;
+import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.util.List;
 @Service
 @RequiredArgsConstructor
@@ -41,7 +43,7 @@ public class AdminService {
     @Autowired
     private UserRepository userRepository;
     public List<ContactForm> getContactTable() {
-        return contactRepository.findAll();
+            return contactRepository.findAll();
     }
 
     public List<GameArticles> getGameArticlesTable() {

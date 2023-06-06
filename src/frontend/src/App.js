@@ -15,7 +15,7 @@ import PaulPage from "./pages/portfolios/paul";
 import Footer from "./components/footer";
 import AuthVerify from "./services/AuthVerify";
 import AuthService from "./services/AuthService";
-import Profile from "./components/profile";
+import Profile from "./components/dropdown/profile";
 import Admin from "./pages/admin";
 
 // Contains the Routing for the layout of the website.

@@ -5,8 +5,8 @@ import {
   Moon,
   PersonCircle,
 } from "react-bootstrap-icons";
-import UserService from "../services/UserService";
-import AuthService from "../services/AuthService";
+import UserService from "../../services/UserService";
+import AuthService from "../../services/AuthService";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 

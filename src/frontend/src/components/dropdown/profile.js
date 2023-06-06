@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import UserService from "../services/UserService";
+import UserService from "../../services/UserService";
 import { PersonCircle } from "react-bootstrap-icons";
-import "../styles/Profile.scss";
+import "../../styles/Profile.scss";
 
 const user = UserService.userInfo();
 
