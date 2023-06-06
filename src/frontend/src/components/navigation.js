@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../styles/App.scss";
 import Modal from "./modal/modal";
-import { Dropdown } from "./dropdown";
+import { Dropdown } from "./dropdown/dropdown";
 import UserService from "../services/UserService";
 
 const Navbar = () => {
@@ -30,7 +30,7 @@ const Navbar = () => {
       </h1>
       <ul className="navItems">
         {nav.map((item) => (
-          <li>
+          <li key={item.link}>
             <NavLink className="navitem" to={`${item.link}`}>
               {item.text}
             </NavLink>

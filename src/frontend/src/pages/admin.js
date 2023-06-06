@@ -78,7 +78,7 @@ const Admin = () => {
     },
     {
       data: images,
-      columns: ["imageId", "path", "gamesId", "techId"],
+      columns: ["imageId", "path", "gameId", "techId"],
       headers: ["ImageId", "Path", "GamesId", "TechId"],
       heading: "Images",
     },
@@ -211,6 +211,7 @@ const Admin = () => {
     })();
     setFinished(true);
   }, []);
+
   return (
     <div>
       {finished ? (

@@ -5,6 +5,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { useEffect, useReducer, useState } from "react";
+import "../styles/App.scss";
 // id, email, fullName, message, subject, userName
 const Table = (props) => {
   const columnHelper = createColumnHelper();
@@ -21,7 +22,6 @@ const Table = (props) => {
       })
     );
   }
-  console.log(columns);
   const table = useReactTable({
     data,
     columns,
@@ -33,6 +33,7 @@ const Table = (props) => {
         {props.sql.heading}
       </h1>
       <table
+        className="sqltable"
         style={{ width: "100%", color: "white", border: "1px solid white" }}
       >
         <thead>
