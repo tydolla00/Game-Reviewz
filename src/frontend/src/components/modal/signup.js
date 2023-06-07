@@ -5,8 +5,9 @@ import * as Yup from "yup";
 import AuthService from "../../services/AuthService";
 import ErrorNotification from "../errorAlert";
 import { ArrowClockwise } from "react-bootstrap-icons";
+import { XCircleFill } from "react-bootstrap-icons";
 
-const SignupForm = ({ setLogin }) => {
+const SignupForm = ({ setLogin, show }) => {
   const [loading, setLoading] = useState(false); // Loading Status
   const [success, setSuccess] = useState(false);
   const [loginError, setLoginError] = useState(false); // Show Login Error
@@ -56,98 +57,90 @@ const SignupForm = ({ setLogin }) => {
         setLoading(false);
       });
   };
+  const data = [
+    {
+      name: "fullname",
+      type: "text",
+      class: `form-control ${errors.fullname ? "is-invalid" : ""}`,
+      message: errors.fullname?.message,
+      label: "Full Name",
+    },
+    {
+      name: "username",
+      type: "text",
+      class: `form-control ${errors.username ? "is-invalid" : ""}`,
+      message: errors.username?.message,
+      label: "Username",
+    },
+    {
+      name: "email",
+      type: "text",
+      class: `form-control ${errors.email ? "is-invalid" : ""}`,
+      message: errors.email?.message,
+      label: "Email",
+    },
+    {
+      name: "password",
+      type: "password",
+      class: `form-control ${errors.password ? "is-invalid" : ""}`,
+      message: errors.password?.message,
+      label: "Password",
+    },
+    {
+      name: "confirmPassword",
+      type: "password",
+      class: `form-control ${errors.confirmPassword ? "is-invalid" : ""}`,
+      message: errors.confirmPassword?.message,
+      label: "Confirm Password",
+    },
+  ];
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <div className="formGroup">
-        <label>Full Name</label>
-        <input
-          name="fullname"
-          type="text"
-          {...register("fullname")}
-          className={`form-control ${errors.fullname ? "is-invalid" : ""} `}
-        />
-        <div className="invalid-feedback">{errors.fullname?.message}</div>
-      </div>
-
-      <div className="formGroup">
-        <label>Username</label>
-        <input
-          name="username"
-          type="text"
-          {...register("username")}
-          className={`form-control ${errors.username ? "is-invalid" : ""} `}
-        />
-        <div className="invalid-feedback">{errors.username?.message}</div>
-      </div>
-
-      <div className="formGroup">
-        <label>Email</label>
-        <input
-          name="email"
-          type="text"
-          {...register("email")}
-          className={`form-control ${errors.email ? "is-invalid" : ""} `}
-        />
-        <div className="invalid-feedback">{errors.email?.message}</div>
-      </div>
-
-      <div className="formGroup">
-        <label>Password</label>
-        <input
-          name="password"
-          type="password"
-          {...register("password")}
-          className={`form-control ${errors.password ? "is-invalid" : ""} `}
-        />
-        <div className="invalid-feedback">{errors.password?.message}</div>
-      </div>
-
-      <div className="formGroup">
-        <label>Confirm Password</label>
-        <input
-          name="confirmPassword"
-          type="password"
-          {...register("confirmPassword")}
-          className={`form-control ${
-            errors.confirmPassword ? "is-invalid" : ""
-          } `}
-        />
-        <div className="invalid-feedback">
-          {errors.confirmPassword?.message}
+    <>
+      <div className="modal animate">
+        <div className="modalX" onClick={() => show(false)}>
+          <XCircleFill />
         </div>
+        <h1 id="text-center">Please Sign Up to Join GameReviewz</h1>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          {data.map((item) => (
+            <div className="formGroup">
+              <label>{item?.label}</label>
+              <input
+                name={`${item.name}`}
+                type={`${item.type}`}
+                {...register(`${item.name}`)}
+                className={item.class}
+              />
+              <div className="invalid-feedback">{item.message}</div>
+            </div>
+          ))}
+
+          <div className="formGroup">
+            <button className="btn" type="submit" disabled={loading}>
+              <div>{loading && <ArrowClockwise className="loading" />}</div>
+              Sign Up
+            </button>
+          </div>
+          <div className="formGroup"></div>
+          {loginError && (
+            <ErrorNotification
+              header={"Oops, Something went wrong with your Authentication"}
+              body={errorResponse}
+              setLoginError={setLoginError}
+            />
+          )}
+          {success && (
+            <ErrorNotification
+              header={"Welcome To GameReviewz!"}
+              body={"Succesfully Signed Up!"}
+              setLoginError={setSuccess}
+              bgcolor={true}
+            />
+          )}
+        </form>
       </div>
-      <div className="formGroup">
-        <button className="btn" type="submit" disabled={loading}>
-          <div>{loading && <ArrowClockwise className="loading" />}</div>
-          Sign Up
-        </button>
-      </div>
-      <div className="formGroup">
-        <div
-          className="justifycenter"
-          type="button"
-          onClick={() => setLogin(true)}
-        >
-          Already Signed Up? Click here!
-        </div>
-      </div>
-      {loginError && (
-        <ErrorNotification
-          header={"Oops, Something went wrong with your Authentication"}
-          body={errorResponse}
-          setLoginError={setLoginError}
-        />
-      )}
-      {success && (
-        <ErrorNotification
-          header={"Welcome To GameReviewz!"}
-          body={"Succesfully Signed Up!"}
-          setLoginError={setSuccess}
-          bgcolor={true}
-        />
-      )}
-    </form>
+    </>
   );
 };
 export default SignupForm;

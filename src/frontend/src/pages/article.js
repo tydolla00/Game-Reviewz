@@ -1,10 +1,11 @@
 import "../styles/Article.scss";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ArticlesService from "../services/ArticlesService";
 import Comments from "../components/comments/Comments";
 import UserService from "../services/UserService";
 import { StarFill } from "react-bootstrap-icons";
+import Modal from "../components/modal/modal";
 
 function Article() {
   let { id } = useParams();
@@ -63,29 +64,42 @@ function Article() {
       window.scrollTo(0, 0);
     }
   }, [id]);
+  const [modalShow, setModalShow] = useState(false);
+  const ref = useRef();
+  const handleImgClick = () => {};
 
   const SplitReview = () => {
     const arr = article.review.split("@");
-     const displayArticle = [];
-     let i = 0;
-     let k = 0;
+    const displayArticle = [];
+    let k = 0;
 
-     for (let i = 0; i < arr.length; i++) {
-       let j = 0;
-       while (arr[i].charAt(j) === "+") {
-         displayArticle.push(
-           <div className="articleIMG">
-           <img
-             key={images[k]?.id}
-             className="articleImages"
-             src={images[k]?.path}
-             alt="images"
-           />
-           </div>
-         );
-         j++;
-         k++;
-       }
+    for (let i = 0; i < arr.length; i++) {
+      let j = 0;
+      while (arr[i].charAt(j) === "+") {
+        displayArticle.push(
+          <>
+            <div
+              id={k}
+              onClick={() => setModalShow(true)}
+              className="articleIMG"
+            >
+              <img
+                key={images[k]?.id}
+                className="articleImages"
+                src={images[k]?.path}
+                alt="images"
+              />
+            </div>
+            {/* {modalShow && (
+              <Modal show={setModalShow}>
+                <img className="modalImg" src={images[k]?.path} alt="images" />
+              </Modal>
+            )} */}
+          </>
+        );
+        j++;
+        k++;
+      }
       displayArticle.push(
         <p key={i} className="actualArticle">
           {arr[i].substring(j)}

@@ -4,9 +4,12 @@ import "../styles/App.scss";
 import Modal from "./modal/modal";
 import { Dropdown } from "./dropdown/dropdown";
 import UserService from "../services/UserService";
+import SignupForm from "./modal/signup";
+import LoginForm from "./modal/login";
 
 const Navbar = () => {
   const [modalShow, setModalShow] = useState(false);
+  const [signUp, setSignUp] = useState(false);
   const [login, setLogin] = useState(false);
   const navigate = useNavigate();
   const user = UserService.userInfo();
@@ -47,12 +50,33 @@ const Navbar = () => {
       {user ? (
         <Dropdown />
       ) : (
-        <div className={"loginContainer"}>
+        // <div className="loginContainer">
+        //   <button
+        //     className="loginButton"
+        //     onClick={() => {
+        //       setModalShow(true);
+        //       setLogin(true);
+        //     }}
+        //   >
+        //     Login
+        //   </button>
+        //   <button
+        //     className="loginButton signup"
+        //     onClick={() => {
+        //       setModalShow(true);
+        //       setLogin(false);
+        //     }}
+        //   >
+        //     Sign Up
+        //   </button>
+        // </div>
+        <div className="loginContainer">
           <button
             className="loginButton"
             onClick={() => {
               setModalShow(true);
               setLogin(true);
+              setSignUp(false);
             }}
           >
             Login
@@ -61,14 +85,20 @@ const Navbar = () => {
             className="loginButton signup"
             onClick={() => {
               setModalShow(true);
+              setSignUp(true);
               setLogin(false);
             }}
           >
             Sign Up
           </button>
+          {modalShow && (
+            <Modal show={setModalShow}>
+              {signUp && <SignupForm show={setModalShow} />}
+              {login && <LoginForm show={setModalShow} />}
+            </Modal>
+          )}
         </div>
       )}
-      {modalShow && <Modal show={setModalShow} loginPage={login} />}
     </nav>
   );
 };
