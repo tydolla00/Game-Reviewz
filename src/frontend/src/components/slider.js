@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import Ty from "../assets/tyabout.jpeg";
+import "../assets/wwdc.png";
 import { ArrowLeftCircle, ArrowRightCircle } from "react-bootstrap-icons";
 const SlideContainer = ({ cards, offset }) => {
   return (
