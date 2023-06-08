@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 
 const Modal = (props) => {
   const show = props.show;
-  console.log(show);
   const handleScroll = (event) => {
     event.preventDefault();
     event.stopPropagation();

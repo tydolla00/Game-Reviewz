@@ -8,9 +8,6 @@ import { StarFill } from "react-bootstrap-icons";
 import Modal from "../components/modal/modal";
 
 function Article() {
-  let { id } = useParams();
-  const user = UserService.userInfo();
-
   const initialState = {
     id: null,
     title: "",
@@ -22,9 +19,23 @@ function Article() {
 
   const [article, setArticle] = useState(initialState);
   const [images, setImages] = useState([]);
+  const [modalShow, setModalShow] = useState(false);
+  const [imgPath, setImgPath] = useState("");
 
+  let { id } = useParams();
+  const user = UserService.userInfo();
+
+  useEffect(() => {
+    if (id) {
+      getArticle(id);
+      getImages(id);
+      window.scrollTo(0, 0);
+    }
+  }, [id]);
+
+  // Get The Article in the DB by the id.
   const getArticle = (id) => {
-    let path = window.location.pathname.substring(0, 6) === "/games"; // Could cause problems when move to AWS.
+    let path = window.location.pathname.substring(0, 6) === "/games";
     if (path) {
       ArticlesService.getGamesById(id)
         .then((res) => {
@@ -40,6 +51,7 @@ function Article() {
     }
   };
 
+  // Get the images for the current article by it's id.
   const getImages = (id) => {
     let path = window.location.pathname.substring(0, 6) === "/games";
     if (path) {
@@ -57,17 +69,18 @@ function Article() {
     }
   };
 
-  useEffect(() => {
-    if (id) {
-      getArticle(id);
-      getImages(id);
-      window.scrollTo(0, 0);
-    }
-  }, [id]);
-  const [modalShow, setModalShow] = useState(false);
-  const ref = useRef();
-  const handleImgClick = () => {};
+  // When an img is clicked display the image as a modal.
+  const handleImgClick = (img) => {
+    setModalShow(true);
+    setImgPath(img.path);
+    return (
+      <Modal show={setModalShow}>
+        <img className="modalImg" src={img.path} alt="images" />
+      </Modal>
+    );
+  };
 
+  // Format the Article based by +, @ syntax. Sets the article how it is to be displayed.
   const SplitReview = () => {
     const arr = article.review.split("@");
     const displayArticle = [];
@@ -76,25 +89,18 @@ function Article() {
     for (let i = 0; i < arr.length; i++) {
       let j = 0;
       while (arr[i].charAt(j) === "+") {
+        const img = images[k];
         displayArticle.push(
           <>
-            <div
-              id={k}
-              onClick={() => setModalShow(true)}
-              className="articleIMG"
-            >
+            <div className="articleIMG">
               <img
                 key={images[k]?.id}
+                onClick={() => handleImgClick(img)}
                 className="articleImages"
                 src={images[k]?.path}
                 alt="images"
               />
             </div>
-            {/* {modalShow && (
-              <Modal show={setModalShow}>
-                <img className="modalImg" src={images[k]?.path} alt="images" />
-              </Modal>
-            )} */}
           </>
         );
         j++;
@@ -109,6 +115,7 @@ function Article() {
     return <>{displayArticle}</>;
   };
 
+  // Add stars for the ratings.
   const addStars = (item) => {
     let stars = item.charAt(item.indexOf(":") + 1);
     let j = 1;
@@ -126,6 +133,7 @@ function Article() {
     return <>{displayArticle}</>;
   };
 
+  // Split the ratings. Based off formatting.
   const SplitRating = () => {
     const arr = article.rating?.split("@");
     return arr?.map((item) => (
@@ -142,6 +150,11 @@ function Article() {
   return (
     <div>
       <br />
+      {modalShow && (
+        <Modal show={setModalShow}>
+          <img className="modalImg" src={imgPath} alt="images" />
+        </Modal>
+      )}
       <div className="backgroundPhotoCont">
         <img
           className={"blurredPhoto"}
