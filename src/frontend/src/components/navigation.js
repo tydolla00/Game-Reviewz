@@ -50,26 +50,6 @@ const Navbar = () => {
       {user ? (
         <Dropdown />
       ) : (
-        // <div className="loginContainer">
-        //   <button
-        //     className="loginButton"
-        //     onClick={() => {
-        //       setModalShow(true);
-        //       setLogin(true);
-        //     }}
-        //   >
-        //     Login
-        //   </button>
-        //   <button
-        //     className="loginButton signup"
-        //     onClick={() => {
-        //       setModalShow(true);
-        //       setLogin(false);
-        //     }}
-        //   >
-        //     Sign Up
-        //   </button>
-        // </div>
         <div className="loginContainer">
           <button
             className="loginButton"
