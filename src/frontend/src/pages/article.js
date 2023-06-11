@@ -1,6 +1,6 @@
 import "../styles/Article.scss";
 import { useParams } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import ArticlesService from "../services/ArticlesService";
 import Comments from "../components/comments/Comments";
 import UserService from "../services/UserService";
@@ -69,17 +69,6 @@ function Article() {
     }
   };
 
-  // When an img is clicked display the image as a modal.
-  const handleImgClick = (img) => {
-    setModalShow(true);
-    setImgPath(img.path);
-    return (
-      <Modal show={setModalShow}>
-        <img className="modalImg" src={img.path} alt="images" />
-      </Modal>
-    );
-  };
-
   // Format the Article based by +, @ syntax. Sets the article how it is to be displayed.
   const SplitReview = () => {
     const arr = article.review.split("@");
@@ -95,7 +84,10 @@ function Article() {
             <div className="articleIMG">
               <img
                 key={images[k]?.id}
-                onClick={() => handleImgClick(img)}
+                onClick={() => {
+                  setModalShow(true);
+                  setImgPath(img.path);
+                }}
                 className="articleImages"
                 src={images[k]?.path}
                 alt="images"
@@ -169,9 +161,9 @@ function Article() {
           />
           <div className={"gameInfo"}>
             <p className={"gameTitle"}>{article.title}</p>
-            <p
-              className={"gameFacts"}
-            >{`Release Date: ${article.releaseDate}`}</p>
+            <p className={"gameFacts"}>
+              {`Release Date: ${article.releaseDate}`}
+            </p>
             <p className={"gameFacts"}>{`Genre: ${article.genre}`}</p>
             <p className={"gameFacts"}>{`Author: ${article.reviewer}`}</p>
             <p className={"gameFacts"}>{`Date: ${article.datePosted}`}</p>

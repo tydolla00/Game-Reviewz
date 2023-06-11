@@ -2,33 +2,46 @@ import { useRef } from "react";
 import Ty from "../assets/tyabout.jpeg";
 import "../assets/wwdc.png";
 import { ArrowLeftCircle, ArrowRightCircle } from "react-bootstrap-icons";
+import { NavLink } from "react-router-dom";
 const SlideContainer = ({ cards, offset }) => {
   return (
     <div ref={offset} className="slideContainer">
       {cards.map((card) => (
-        <Slide title={card.title} img={card.img} desc={card.desc} />
+        <Slide
+          title={card.title}
+          img={card.img}
+          desc={card.desc}
+          id={card.id}
+          page={card.page}
+        />
       ))}
     </div>
   );
 };
 
-const Slide = ({ title, img, desc }) => {
+const Slide = ({ title, img, desc, id, page }) => {
   return (
     <div className="slide">
-      <img style={{ height: "250px", width: "100%" }} src={img} />
-      <div>
-        <p>{title}</p>
-        <p>
-          <i>{desc}</i>
-        </p>
-      </div>
+      <NavLink to={`/${page}/` + id} className="navlink">
+        <img
+          style={{ height: "250px", width: "100%", objectFit: "cover" }}
+          src={img}
+          alt={id}
+        />
+        <div>
+          <p>{title}</p>
+          <p>
+            <i>{desc}</i>
+          </p>
+        </div>
+      </NavLink>
     </div>
   );
 };
 
-const Slider = () => {
+const Slider = (props) => {
   const ref = useRef(null);
-  const data = [
+  const data = props.data || [
     {
       title: "Apple WWDC Review",
       img: Ty,
@@ -60,17 +73,29 @@ const Slider = () => {
   };
   return (
     <>
-      <h1>Hot Topics 🔥</h1>
+      <h1 style={{ marginLeft: "2%" }}>Trending Topics 🔥</h1>
       <div style={{ display: "flex" }}>
         <ArrowLeftCircle
-          style={{ fontSize: "300px", cursor: "pointer" }}
+          style={{
+            fontSize: "30px",
+            cursor: "pointer",
+            position: "absolute",
+            left: 0,
+            top: 650,
+          }}
           onClick={() => scroll(-300)}
         />
         <div>
           <SlideContainer offset={ref} cards={data} />
         </div>
         <ArrowRightCircle
-          style={{ fontSize: "300px", cursor: "pointer" }}
+          style={{
+            fontSize: "30px",
+            cursor: "pointer",
+            position: "absolute",
+            right: 0,
+            top: 650,
+          }}
           onClick={() => scroll(300)}
         />
       </div>

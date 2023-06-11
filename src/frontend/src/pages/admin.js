@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import AdminService from "../services/AdminService";
 import Table from "../components/table";
+import Modal from "../components/modal/modal";
 
 const Admin = () => {
   const [contact, setContact] = useState([]);
@@ -12,6 +13,7 @@ const Admin = () => {
   const [techArticles, setTechArticles] = useState([]);
   const [techReviews, setTechReviews] = useState([]);
   const [users, setUsers] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   const data = [
     {
@@ -214,21 +216,37 @@ const Admin = () => {
 
   return (
     <div>
+      <button className="glow-on-hover" onClick={() => setShowModal(true)}>
+        New Query
+      </button>
+      {showModal && (
+        <Modal show={setShowModal}>
+          <div
+            style={{
+              width: "80%",
+              height: "600px",
+              backgroundColor: "black",
+              color: "white",
+            }}
+          >
+            <h1>Hello World</h1>
+          </div>
+        </Modal>
+      )}
       {finished ? (
         <div>
-          <Table data={contact} sql={data[0]} />{" "}
+          <Table data={contact} sql={data[0]} />
           <Table data={gamesArticles} sql={data[1]} />
-          <Table data={gameReviews} sql={data[2]} />{" "}
+          <Table data={gameReviews} sql={data[2]} />
           <Table data={images} sql={data[3]} />
-          <Table data={polls} sql={data[4]} />{" "}
+          <Table data={polls} sql={data[4]} />
           <Table data={techArticles} sql={data[5]} />
-          <Table data={techReviews} sql={data[6]} />{" "}
+          <Table data={techReviews} sql={data[6]} />
           <Table data={users} sql={data[7]} />
         </div>
       ) : (
         <h1>Loading</h1>
       )}
-      {/* <Table data={contact} /> */}
     </div>
   );
 };
