@@ -8,6 +8,7 @@ import { NavLink } from "react-router-dom";
 import CarouselComponent from "../components/carousel";
 import ReleasesService from "../services/ReleasesService";
 import Slider from "../components/slider";
+import WWDC from "../assets/wwdc.jpeg";
 
 // Maybe turn the container into a grid??? Can also be called from the database,
 // Maybe add columnPriority as a column and then give a priority number,
@@ -31,6 +32,15 @@ function Home() {
       title: "iPad 9th Generation",
       id: 2,
       page: "tech",
+    },
+  ];
+  const trendingSlider = [
+    {
+      img: WWDC,
+      title: "Apple's WWDC Review",
+      id: 7,
+      page: "tech",
+      desc: "This year's WWDC was action packed with exciting updates and brand new products!",
     },
   ];
 
@@ -101,7 +111,7 @@ function Home() {
   return (
     <>
       <CarouselComponent array={carouselDb} />
-      <Slider />
+      <Slider data={trendingSlider} />
       <div className="homeContainer" id="home">
         <div className="cardsContainer">
           <Cards db={demodb} />
