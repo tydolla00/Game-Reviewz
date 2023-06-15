@@ -1,5 +1,4 @@
 import axios from "axios";
-import iPad from "../assets/ipad9.jpg";
 
 const RELEASES_URL =
   window.location.hostname === "localhost"
@@ -7,10 +6,10 @@ const RELEASES_URL =
     : "https://gamereviewz.link/api/v1/upcomingReleases";
 
 const getAllReleases = () => {
-    return axios.get(`${RELEASES_URL}/releases`);
-}
+  return axios.get(`${RELEASES_URL}/releases`);
+};
 
 const ReleasesService = {
-    getAllReleases
+  getAllReleases,
 };
-export default ReleasesService
+export default ReleasesService;

@@ -15,19 +15,18 @@ const Comment = ({
   const isEditing =
     activeComment &&
     activeComment.id === comment.id &&
-    activeComment.type === "editing";
+    activeComment.type === "editing"; // * When replying, set to editing mode.
   const isReplying =
     activeComment &&
     activeComment.id === comment.id &&
-    activeComment.type === "replying";
-  const fiveMinutes = 300000;
+    activeComment.type === "replying"; // * When replying, set to replying mode.
+  const fiveMinutes = 300000; // * Editing ability only for 5 minutes.
   const timePassed = new Date() - new Date(comment.createdAt) > fiveMinutes;
   const canDelete =
     currentUserId === comment.userId && replies.length === 0 && !timePassed;
   const canReply = Boolean(currentUserId);
   const canEdit = currentUserId === comment.userId && !timePassed;
   const replyId = parentId ? parentId : comment.id;
-  // const createdAt = new Date(comment.createdAt).toLocaleDateString();
 
   return (
     <div key={comment.id} className="comment">
@@ -41,7 +40,7 @@ const Comment = ({
           </div>
           <div>{comment.createdAt}</div>
         </div>
-        {!isEditing && <div className="">{comment.comment}</div>}
+        {!isEditing && <div>{comment.comment}</div>}
         {isEditing && (
           <CommentForm
             submitLabel="Update"
@@ -57,7 +56,6 @@ const Comment = ({
         <div className="commentActions">
           {canReply && (
             <div
-              className=""
               onClick={() =>
                 setActiveComment({ id: comment.id, type: "replying" })
               }
@@ -67,7 +65,6 @@ const Comment = ({
           )}
           {canEdit && (
             <div
-              className=""
               onClick={() =>
                 setActiveComment({ id: comment.id, type: "editing" })
               }
@@ -76,9 +73,7 @@ const Comment = ({
             </div>
           )}
           {canDelete && (
-            <div className="" onClick={() => deleteComment(comment.id)}>
-              Delete
-            </div>
+            <div onClick={() => deleteComment(comment.id)}>Delete</div>
           )}
         </div>
         {isReplying && (
@@ -89,7 +84,7 @@ const Comment = ({
           />
         )}
         {replies.length > 0 && (
-          <div className="">
+          <div>
             {replies.map((reply) => (
               <Comment
                 comment={reply}

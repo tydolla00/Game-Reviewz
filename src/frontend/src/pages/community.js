@@ -46,56 +46,53 @@ export default function Community() {
   const [releases, setReleases] = useState([]);
 
   let i = 0;
-  const gameReleases = releases.filter(function(obj) {
-    if(obj.base === 'games' && i < 5)
-    {
+  const gameReleases = releases.filter(function (obj) {
+    if (obj.base === "games" && i < 5) {
       i++;
       return true;
     }
     return false;
-  })
+  });
 
   let j = 0;
-  const techReleases = releases.filter(function(obj) {
-    if(obj.base === 'tech' && j < 5)
-    {
+  const techReleases = releases.filter(function (obj) {
+    if (obj.base === "tech" && j < 5) {
       j++;
       return true;
     }
     return false;
-  })
-  
+  });
 
   useEffect(() => {
     retrieveReleases();
   }, []);
-  
+
   const retrieveReleases = () => {
     ReleasesService.getAllReleases()
       .then((response) => {
         let sortedArray = response.data;
-        sortedArray.sort(function(a,b){
+        sortedArray.sort(function (a, b) {
           return new Date(a.releaseDate) - new Date(b.releaseDate);
         });
-        
+
         let today = new Date();
-        var dd = String(today.getDate()).padStart(2, '0');
-        var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        var dd = String(today.getDate()).padStart(2, "0");
+        var mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
         var yyyy = today.getFullYear();
-  
-        today = mm + '/' + dd + '/' + yyyy;
+
+        today = mm + "/" + dd + "/" + yyyy;
         const t = Date.parse(today);
-        const limitedArray = sortedArray.filter(function(obj) {
+        const limitedArray = sortedArray.filter(function (obj) {
           let objDate = Date.parse(obj.releaseDate);
           const d = new Date(objDate);
           return t <= d;
-        })
+        });
         setReleases(limitedArray);
       })
       .catch((e) => {
-        return <div>Error Occured</div>
-      })
-  }
+        return <div>Error Occured</div>;
+      });
+  };
 
   const [pollOption, setpollOption] = useState("option1");
   const [isError, setIsError] = useState("");
@@ -151,6 +148,7 @@ export default function Community() {
             What game are you most looking forward to in 2023?
           </h3>
           <h1 style={{ color: "red" }}>{isError}</h1>
+          {/* TODO: Implement Map  */}
           <form className="pollOptions" onSubmit={handleSubmit}>
             <li className="option zelda">
               <input
@@ -195,12 +193,10 @@ export default function Community() {
         </div>
 
         <div className="poll results">
-          {/* Isn't a valid class ^ */}
           <h3 className="question">What was your favorite game of 2022?</h3>
           <ul className="pollOptions">
             <li className="eldenring">
               <span id="zelda">
-                {/* What's the point of the id*/}
                 WINNER: <b>38% </b>Elden Ring
               </span>
             </li>

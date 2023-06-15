@@ -10,9 +10,6 @@ import ReleasesService from "../services/ReleasesService";
 import Slider from "../components/slider";
 import WWDC from "../assets/wwdc.jpeg";
 
-// Maybe turn the container into a grid??? Can also be called from the database,
-// Maybe add columnPriority as a column and then give a priority number,
-// Then in database select top 16 from columnPriority
 function Home() {
   const carouselDb = [
     {
@@ -149,7 +146,7 @@ const Releases = (props, i) => {
   ));
 };
 
-// This can be reworked to function/look better.
+// * This can be reworked to function/look better.
 const Sidebar = ({ db }) => {
   return (
     <div className="sidebar">

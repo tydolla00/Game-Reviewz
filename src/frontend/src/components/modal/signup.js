@@ -4,17 +4,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
 import AuthService from "../../services/AuthService";
 import ErrorNotification from "../errorAlert";
-import {
-  ArrowClockwise,
-  Controller,
-  Apple,
-  Google,
-} from "react-bootstrap-icons";
+import { ArrowClockwise, Apple, Google } from "react-bootstrap-icons";
 import { XCircleFill } from "react-bootstrap-icons";
 
 const SignupForm = ({ setLogin, show }) => {
   const [loading, setLoading] = useState(false); // Loading Status
-  const [success, setSuccess] = useState(false);
+  const [success, setSuccess] = useState(false); // Show Success Message
   const [loginError, setLoginError] = useState(false); // Show Login Error
   const [errorResponse, setErrorResponse] = useState(""); // Set Error Response
 
@@ -46,7 +41,7 @@ const SignupForm = ({ setLogin, show }) => {
     setLoading(true);
     e.preventDefault();
     const firstName = data.firstName.replaceAll(" ", "").toLowerCase();
-    const lastName = data.lastName.replaceAll(" ", "");
+    const lastName = data.lastName.replaceAll(" ", "").toLowerCase();
     let username = data.username.replaceAll(" ", "");
     username = username.toLowerCase();
     let email = data.email.toLowerCase();

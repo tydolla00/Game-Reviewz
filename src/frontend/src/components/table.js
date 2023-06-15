@@ -6,7 +6,6 @@ import {
 } from "@tanstack/react-table";
 import { useEffect, useReducer, useState } from "react";
 import "../styles/App.scss";
-// id, email, fullName, message, subject, userName
 const Table = (props) => {
   const columnHelper = createColumnHelper();
   const [data, setdata] = useState(() => [...props.data]);
