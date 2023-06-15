@@ -3,10 +3,12 @@ import ScarletViolet from "../assets/scarletvioletblur.jpg";
 import Fortnite from "../assets/fortnitecarousel.jpeg";
 import SeriesX from "../assets/seriesx.jpg";
 import iPad from "../assets/ipad9Blur.jpg";
-
+/*
+  ? @param array - array of objects full of carousel info
+*/
 export default function CarouselComponent({ array = undefined }) {
-  // ## Default Slides Used If array is not specified.
-  const defaultArray = [
+  // * Default Slides Used If array is not specified.
+  const defaultArray = array || [
     {
       img: ScarletViolet,
       title: "Pokemon Scarlet and Violet",
@@ -33,8 +35,6 @@ export default function CarouselComponent({ array = undefined }) {
     },
   ];
 
-  if (array === undefined || array.length < 1) array = defaultArray;
-
   const handleSlideClicked = (index) => {
     if (window.location.hostname === "localhost") {
       window.location.assign(
@@ -53,7 +53,6 @@ export default function CarouselComponent({ array = undefined }) {
         autoPlay={true}
         dynamicHeight={true}
         onClickItem={handleSlideClicked}
-        // onChange={handleSlideChange}
         infiniteLoop={true}
         showThumbs={false}
         showStatus={false}

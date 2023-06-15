@@ -18,8 +18,6 @@ const LoginForm = ({ show }) => {
   const [loading, setLoading] = useState(false); // Loading Status
   const [loginError, setLoginError] = useState(false); // Show Login Error
   const [errorResponse, setErrorResponse] = useState(""); // Set Error Response
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   // const { register, handleSubmit } = useForm();
 
   const ValidationSchema = Yup.object().shape({
@@ -29,16 +27,6 @@ const LoginForm = ({ show }) => {
       .min(6, "Password must be at least 6 characters")
       .max(40, "Password must not exceed 40 characters"),
   });
-
-  const handleChange = (event) => {
-    event.preventDefault();
-    setUsername(event.target.value);
-  };
-
-  const handlePassChange = (event) => {
-    event.preventDefault();
-    setPassword(event.target.value);
-  };
 
   const {
     register,
@@ -56,7 +44,6 @@ const LoginForm = ({ show }) => {
         window.location.reload();
       })
       .catch((error) => {
-        // Should work in the future when returning error statements from backend.
         setErrorResponse(JSON.stringify(error.message));
         setLoginError(true);
       })
@@ -104,7 +91,6 @@ const LoginForm = ({ show }) => {
                   name="username"
                   className={`${errors.email ? "is-invalid" : ""}`}
                   placeholder="Enter your email..."
-                  onChange={handleChange}
                   {...register("email")}
                   required
                   id="email"
@@ -118,7 +104,6 @@ const LoginForm = ({ show }) => {
                   name="password"
                   className={`${errors.password ? "is-invalid" : ""}`}
                   placeholder="••••••••"
-                  onChange={handlePassChange}
                   {...register("password")}
                   required
                   id="password"

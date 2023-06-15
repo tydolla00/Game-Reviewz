@@ -33,7 +33,9 @@ function Article() {
     }
   }, [id]);
 
-  // Get The Article in the DB by the id.
+  /*  
+    ? @param id - id to be passed to db for article.
+  */
   const getArticle = (id) => {
     let path = window.location.pathname.substring(0, 6) === "/games";
     if (path) {
@@ -51,7 +53,9 @@ function Article() {
     }
   };
 
-  // Get the images for the current article by it's id.
+  /*
+  ? @param id - id to be passed to images db to retrieve all images associated with article
+  */
   const getImages = (id) => {
     let path = window.location.pathname.substring(0, 6) === "/games";
     if (path) {
@@ -68,8 +72,10 @@ function Article() {
         .catch((e) => {});
     }
   };
-
-  // Format the Article based by +, @ syntax. Sets the article how it is to be displayed.
+  /*
+   * Format the Article based by +, @ syntax. Sets the article how it is to be displayed.
+   * Loop through images array for each consecutive '+' in reviews.
+   */
   const SplitReview = () => {
     const arr = article.review.split("@");
     const displayArticle = [];
@@ -107,7 +113,10 @@ function Article() {
     return <>{displayArticle}</>;
   };
 
-  // Add stars for the ratings.
+  /*
+  ? @param item - the individual ratins from the db.
+  * Loop through the ratings and output the number of stars the rating gave.
+  */
   const addStars = (item) => {
     let stars = item.charAt(item.indexOf(":") + 1);
     let j = 1;
@@ -125,7 +134,9 @@ function Article() {
     return <>{displayArticle}</>;
   };
 
-  // Split the ratings. Based off formatting.
+  /*
+   * Formats the ratings.
+   */
   const SplitRating = () => {
     const arr = article.rating?.split("@");
     return arr?.map((item) => (

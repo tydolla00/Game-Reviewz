@@ -11,7 +11,6 @@ import { Twitter } from "react-bootstrap-icons";
 import { FileTextFill } from "react-bootstrap-icons";
 import { Linkedin } from "react-bootstrap-icons";
 import { Github } from "react-bootstrap-icons";
-import Resume from "../../assets/TyheirBrooks_Software EngineerPDF.pdf";
 
 export default function JohnPage() {
   useEffect(() => {
@@ -82,12 +81,14 @@ export default function JohnPage() {
       </div>
       <br />
       <div className="johnContainer">
-
         <div className="johnContent">
           <div className="contentContainer">
             <div className="contentIcon">
-              <a className="iconLink" href="https://www.linkedin.com/in/john-beltran/">
-                <Twitter/>
+              <a
+                className="iconLink"
+                href="https://www.linkedin.com/in/john-beltran/"
+              >
+                <Twitter />
               </a>
             </div>
             <h1 className="contentTitle">???</h1>
@@ -98,36 +99,51 @@ export default function JohnPage() {
         <div className="johnContent">
           <div className="contentContainer">
             <div className="contentIcon">
-              <a className="iconLink" href="https://www.linkedin.com/in/john-beltran/">
-                <FileTextFill/>
+              <a
+                className="iconLink"
+                href="https://www.linkedin.com/in/john-beltran/"
+              >
+                <FileTextFill />
               </a>
             </div>
             <h1 className="contentTitle">Resume</h1>
-            <div className="content">Click the icon so you can check out my Resume!</div>
+            <div className="content">
+              Click the icon so you can check out my Resume!
+            </div>
           </div>
         </div>
 
         <div className="johnContent">
           <div className="contentContainer">
             <div className="contentIcon">
-              <a className="iconLink" href="https://www.linkedin.com/in/john-beltran/">
-                <Linkedin/>
+              <a
+                className="iconLink"
+                href="https://www.linkedin.com/in/john-beltran/"
+              >
+                <Linkedin />
               </a>
             </div>
             <h1 className="contentTitle">LinkedIn</h1>
-            <div className="content">Here is my Linkedin in case you missed it, just click the icon</div>
+            <div className="content">
+              Here is my Linkedin in case you missed it, just click the icon
+            </div>
           </div>
         </div>
 
         <div className="johnContent">
           <div className="contentContainer">
             <div className="contentIcon">
-              <a className="iconLink" href="https://www.linkedin.com/in/john-beltran/">
-                <Github/>
+              <a
+                className="iconLink"
+                href="https://www.linkedin.com/in/john-beltran/"
+              >
+                <Github />
               </a>
             </div>
             <h1 className="contentTitle">Projects</h1>
-            <div className="content">Here you can check out my previous projects on github</div>
+            <div className="content">
+              Here you can check out my previous projects on github
+            </div>
           </div>
         </div>
       </div>

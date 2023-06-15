@@ -16,6 +16,7 @@ const Profile = () => {
 
   const [userInfo, setuserInfo] = useState(initialState);
 
+  // ? Get all user info from the db.
   const getUser = () => {
     UserService.getUserBoard(user?.id)
       .then((res) => {

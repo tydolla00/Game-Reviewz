@@ -10,10 +10,12 @@ import CarouselComponent from "../components/carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { ChatFill } from "react-bootstrap-icons";
 import { useNavigate } from "react-router-dom";
-
+// TODO: Add sorting option, Mess with layout
 const Games = (props) => {
-  // ## Static Array for the Games Carousel component.
-  let carouselDb = [
+  const [article, setArticles] = useState([]);
+
+  // * Static Array for the Games Carousel component.
+  let carouselDb = props.carouselDb || [
     {
       img: ScarletViolet,
       title: "Pokemon Scarlet and Violet",
@@ -40,17 +42,10 @@ const Games = (props) => {
     },
   ];
 
-  if (props.carouselDb !== undefined) carouselDb = props.carouselDb;
-
-  // API will return array of objects so initialize state as an array.
-  const [article, setArticles] = useState([]);
-
-  // useEffect is called whenever the page is rendered/rerendered. [] allows for API to only be called once.
   useEffect(() => {
     retrieveArticles();
   }, []);
 
-  // gets all Articles from the Database. Calls getMethod from API which returns rows in database, then pass the data into Articles
   const retrieveArticles = () => {
     ArticlesService.getAllGames()
       .then((response) => {
@@ -62,7 +57,6 @@ const Games = (props) => {
   return (
     <>
       <CarouselComponent array={carouselDb} />
-      {/* Sort Here */}
       <br />
       <Articles db={props.articles == null ? article : props.articles} />
     </>
@@ -70,7 +64,6 @@ const Games = (props) => {
 };
 export default Games;
 
-// Currently working on getting the correct images in place.
 export const Articles = (props) => {
   const navigate = useNavigate();
   const page = window.location.pathname;
@@ -85,10 +78,9 @@ export const Articles = (props) => {
           className="bottomArticleBox"
           onClick={() => navigate(`${page}/${item.id}`)}
         >
-          <h1>{`${item.title}? Worth It? Find Out More!`}</h1>
-          {/* <p className="articleText">{item.review.split("@")[0] + "..."}</p> */}
+          <h1>{item.title}</h1>
           <p className="articleText">{item.review.substring(0, 500) + "..."}</p>
-          <div className="">
+          <div>
             <p id="bottom">Game: {item.title}</p>
             <p id="bottom">Reviewer: {item.reviewer}</p>
             <p id="bottom">

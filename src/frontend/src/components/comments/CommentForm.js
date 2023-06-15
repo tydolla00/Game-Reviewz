@@ -3,7 +3,6 @@ import { useState } from "react";
 const CommentForm = ({
   handleSubmit,
   currentUserId,
-  submitLabel,
   hasCancelButton = false,
   handleCancel,
   initialText = "",
@@ -27,11 +26,9 @@ const CommentForm = ({
         disabled={notLoggedIn}
         onChange={(e) => setText(e.target.value)}
       />
-      <button className="" disabled={isTextAreaDisabled}>
-        Write
-      </button>
+      <button disabled={isTextAreaDisabled}>Write</button>
       {hasCancelButton && (
-        <button type="button" className="" onClick={handleCancel}>
+        <button type="button" onClick={handleCancel}>
           Cancel
         </button>
       )}

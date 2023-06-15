@@ -7,7 +7,7 @@ import {
 } from "react-bootstrap-icons";
 import UserService from "../../services/UserService";
 import AuthService from "../../services/AuthService";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // ## This component creates the dropdown.
@@ -33,20 +33,19 @@ export const Dropdown = () => {
   //   handleDarkMode(darkMode);
   // }, []);
 
-  const user = UserService.userInfo(); // Grabs User Info From LocalStorage
+  const user = UserService.userInfo(); // * Grabs User Info From LocalStorage
   let darkMode = user.theme === "dark" ? true : false;
 
   const toggledropdown = () => {
     let toggleDropdown = document.getElementById("showdropdown");
-
     toggleDropdown.classList.add("openmenu");
   };
   const toggleHideDropdown = () => {
     let toggleDropdown = document.getElementById("showdropdown");
-
     toggleDropdown.classList.toggle("openmenu");
   };
 
+  // TODO: Overhaul Dark Mode implementation
   const handleDarkMode = () => {
     const body = document.body;
     const user = JSON.parse(localStorage.getItem("user"));
@@ -72,7 +71,6 @@ export const Dropdown = () => {
         className="profileside"
         id="dropdown"
         onMouseOver={toggledropdown}
-        // onMouseOut={toggleHideDropdown}
         onClick={toggleHideDropdown}
       >
         <PersonCircle className="personcircle" />

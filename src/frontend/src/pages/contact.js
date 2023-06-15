@@ -172,7 +172,6 @@ const Contact = () => {
             </div>
             {popup ? (
               <div className={"popup"}>
-                {/*<img src={checkmark} alt={"checkmark"}/>*/}
                 <CheckCircleFill className={"checkCircleFill"} />
                 <p>Message sent. Thank you.</p>
                 <button type={"button"} onClick={closePopup}>

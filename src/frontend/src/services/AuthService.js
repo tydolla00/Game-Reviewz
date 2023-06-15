@@ -15,21 +15,19 @@ const register = (firstName, lastName, username, email, password) => {
   });
 };
 
-const login = (email, password) => {
-  return axios
-    .post(API_URL + "authenticate", {
+const login = async (email, password) => {
+  try {
+    const response = await axios.post(API_URL + "authenticate", {
       email,
       password,
-    })
-    .then((response) => {
-      if (response.data.token) {
-        localStorage.setItem("user", JSON.stringify(response.data));
-      }
-      return response.data.token;
-    })
-    .catch(() => {
-      throw new Error("Invalid Username Or Password");
     });
+    if (response.data.token) {
+      localStorage.setItem("user", JSON.stringify(response.data));
+    }
+    return response.data.token;
+  } catch {
+    throw new Error("Invalid Username Or Password");
+  }
 };
 
 const logout = () => {

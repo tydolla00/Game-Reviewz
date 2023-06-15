@@ -1,9 +1,10 @@
-.photo{
-  background: url("https://e0.pxfuel.com/wallpapers/527/1001/desktop-wallpaper-sunset-top-best-sunset-background-relaxing-sunset.jpg") fixed;
+.photo {
+  background: url("https://e0.pxfuel.com/wallpapers/527/1001/desktop-wallpaper-sunset-top-best-sunset-background-relaxing-sunset.jpg")
+    fixed;
   background-size: cover;
   background-position: center;
 }
-.johnNav{
+.johnNav {
   align-items: center;
   display: flex;
   font-size: 1.75rem;
@@ -11,14 +12,14 @@
   height: 4em;
   background-color: transparent;
 }
-.johnNavMobile{
+.johnNavMobile {
   align-items: center;
   font-size: 1.75rem;
   width: 100%;
   display: none;
   background-color: transparent;
 }
-.johnNavItems{
+.johnNavItems {
   display: flex;
   height: 100%;
   width: 100%;
@@ -26,29 +27,29 @@
   padding: 0;
   align-items: center;
   justify-content: space-between;
-  ul{
+  ul {
     display: flex;
     margin: auto 0 auto auto;
     padding: 0;
   }
-  li{
+  li {
     list-style-type: none;
     margin: auto;
     padding: 0 10px;
     border-right: #ffda1a 0.1em solid;
     filter: drop-shadow(2px 2px black);
-    a{
+    a {
       color: #ffda1a;
       text-decoration: none;
       font-size: 1.2em;
       font-weight: bolder;
     }
   }
-  .lastLi{
+  .lastLi {
     border-right: none;
     padding-right: 0;
   }
-  .johnName{
+  .johnName {
     font-size: 2em;
     font-weight: bold;
     span {
@@ -59,7 +60,7 @@
     }
   }
 }
-.navContainer{
+.navContainer {
   display: flex;
   margin: auto 0 auto auto;
   justify-content: space-between;
@@ -69,14 +70,14 @@
   display: flex;
   height: auto;
 }
-.profileContainer{
+.profileContainer {
   width: 100%;
   padding: 0 10px;
   margin: auto;
   align-items: center;
   display: flex;
 }
-.profileIntro{
+.profileIntro {
   font-size: 16px;
   width: 70%;
   margin: 66.2px auto;
@@ -85,32 +86,32 @@
   flex-direction: column;
   color: white;
 }
-.profilePhoto{
+.profilePhoto {
   background-color: white;
   margin: 7em auto;
   width: 25em;
   border-radius: 50%;
   height: 25em;
-  img{
+  img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
   }
 }
-.greetingPara{
+.greetingPara {
   font-size: 1.2em;
   margin: 10px 0;
   line-height: 1.5;
   text-align: left;
   text-shadow: 1.5px 1.5px black;
 }
-.greeting{
+.greeting {
   margin: 0;
   text-align: left;
   text-shadow: 2px 2px black;
 }
 
-.defaultContainer{
+.defaultContainer {
   display: flex;
   margin: 20px 5%;
   flex-direction: column;
@@ -124,14 +125,14 @@
     column-gap: 2rem;
     margin: auto;
     width: 90%;
-    img{
+    img {
       height: 10vw;
       margin-bottom: 10px;
       min-height: 70px;
       max-height: 100px;
     }
   }
-  .skills{
+  .skills {
     font-size: 3em;
     margin: 0 auto;
     font-weight: bold;
@@ -148,7 +149,7 @@
   justify-content: center;
 }
 
-.johnContent{
+.johnContent {
   height: 300px;
   width: 40%;
   border-color: black;
@@ -156,30 +157,30 @@
   border-radius: 15px;
   border-width: 3.5px;
   display: flex;
-  .contentContainer{
+  .contentContainer {
     margin: 1%;
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: center;
-    .contentIcon{
+    .contentIcon {
       font-size: 45px;
       margin-top: 15%;
       filter: drop-shadow(1px 1px black);
-      .iconLink{
+      .iconLink {
         color: #ffda1a;
       }
-      .iconLink:hover{
+      .iconLink:hover {
         color: #541a8b;
       }
     }
-    .contentTitle{
+    .contentTitle {
       font-weight: bold;
       text-align: center;
       font-size: 25px;
       margin-top: 0;
     }
-    .content{
+    .content {
       font-weight: bold;
       text-align: center;
       font-size: 18px;
@@ -187,7 +188,7 @@
     }
   }
 }
-.johnContent:hover{
+.johnContent:hover {
   border-color: #541a8b;
 }
 
@@ -195,35 +196,35 @@
   .profileContainer {
     flex-direction: column-reverse;
   }
-  .profilePhoto{
+  .profilePhoto {
     width: 20em;
     height: 20em;
     margin: 5em auto;
   }
-  .profileIntro{
+  .profileIntro {
     font-size: 14px;
     width: 80%;
     margin: 20px auto;
   }
-  .johnNav{
+  .johnNav {
     height: 100%;
     margin-bottom: 20px;
   }
-  .johnNavMobile{
+  .johnNavMobile {
     display: none;
   }
   .johnNavItems {
     justify-content: center;
     flex-direction: column;
-    ul{
+    ul {
       margin: auto;
     }
-    .lastLi{
+    .lastLi {
       padding: 0 10px;
     }
   }
-  .defaultContainer{
-    .skills{
+  .defaultContainer {
+    .skills {
       font-size: 2em;
     }
   }
@@ -249,59 +250,59 @@
   }
 
    */
-  .johnName{
+  .johnName {
     margin: 10px auto;
   }
-  .johnContent{
+  .johnContent {
     height: 250px;
   }
 }
 @media only screen and (max-width: 630px) {
-  .johnContent{
+  .johnContent {
     width: 47%;
-    .contentContainer{
-      .contentIcon{
+    .contentContainer {
+      .contentIcon {
         margin-top: 20%;
       }
-      .contentTitle{
+      .contentTitle {
         font-size: 23px;
       }
-      .content{
+      .content {
         font-size: 16px;
       }
     }
   }
-  .johnContainer{
+  .johnContainer {
     margin: 20px 1%;
   }
 }
 @media only screen and (max-width: 491px) {
-  .defaultContainer{
+  .defaultContainer {
     margin: 20px 0;
   }
-  .profilePhoto{
+  .profilePhoto {
     width: 15em;
     height: 15em;
-    margin:2.5em auto;
+    margin: 2.5em auto;
   }
-  .profileIntro{
+  .profileIntro {
     font-size: 12px;
     width: 80%;
     margin: 10px auto;
   }
-  .johnNavItems{
+  .johnNavItems {
     li {
       margin: auto;
       padding: 0 5px;
-      a{
-        font-size: .8em;
+      a {
+        font-size: 0.8em;
       }
     }
-    .lastLi{
+    .lastLi {
       padding: 0 5px;
     }
   }
-  .johnContainer{
+  .johnContainer {
     gap: 5px;
   }
 }
